@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  teamname: MyString
+  prefecture_code: MyString
+  city: MyString
+  team_image_id: MyString
+
+two:
+  user_id: 1
+  teamname: MyString
+  prefecture_code: MyString
+  city: MyString
+  team_image_id: MyString
