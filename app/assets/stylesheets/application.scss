@@ -14,4 +14,47 @@
  *= require_self
  */
  @import "bootstrap";
- 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-top {
+  height: 500;
+  background-image: url(ball.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.header-title {
+  font-size: 35px;
+  vertical-align: middle;
+}
+
+header {
+  background-color: #333;
+  height: 50px;
+}
+
+.nav-item {
+  padding-right: 20px;
+}
+
+.nav li {
+  display: inline-block;
+}
+
+.about {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.new-team {
+  margin: 50px 0;
+}
+
+.row {
+  margin: px 0;
+}
