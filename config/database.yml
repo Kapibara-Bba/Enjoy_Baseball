@@ -30,4 +30,4 @@ production:
   host: <%= ENV[ "rds-mysql-server.cvgcu3npxt5c.ap-northeast-1.rds.amazonaws.com" ] %>
   username: <%= ENV[ "root" ] %>
   password: <%= ENV[ "msy05240924" ] %>
-
+  
