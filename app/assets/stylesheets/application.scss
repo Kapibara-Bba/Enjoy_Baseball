@@ -21,6 +21,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: image-url("hoge.jpg");
+}
+
 .home-top {
   height: 500;
   background-image: url(ball.jpg);
