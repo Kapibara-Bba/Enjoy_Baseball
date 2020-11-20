@@ -21,15 +21,8 @@
   box-sizing: border-box;
 }
 
-body {
-  background-image: image-url("hoge.jpg");
-}
-
 .home-top {
-  height: 500;
-  background-image: url(ball.jpg);
-  background-size: cover;
-  background-position: center;
+  background-color: gray;
 }
 
 .header-title {
@@ -64,4 +57,10 @@ header {
   margin: 30px 0 30px 0;
 }
 
+.logo {
+  height: 300px;
+  background-image: url(logo.jpg);
+  background-size: cover;
+  background-position: center;
+}
 
