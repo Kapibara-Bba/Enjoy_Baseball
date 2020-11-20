@@ -1,11 +1,13 @@
 class TeamsController < ApplicationController
-  
+
   def top
     @teams = Team.all
     @team = Team.new
   end
 
   def index
+    @user = User.all
+    # @team = current_user.team
   end
 
   def show
@@ -14,6 +16,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     @team.save
+    redirect_to team_path(current_user)
   end
 
   def edit

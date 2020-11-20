@@ -16,4 +16,6 @@ class User < ApplicationRecord
     end
   end
 
+  # belongs_to :team
+
 end
