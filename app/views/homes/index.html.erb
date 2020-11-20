@@ -15,12 +15,10 @@
           <%= link_to "ログイン", new_user_session_path, class: 'btn btn-info btn-block' %>
         </div>
         <div class="row login-button">
-          <%= link_to new_user_registration_path do %>
-            <button type="button" class="btn btn-primary rounded-pill">新規登録</button>
-          <% end %>
+          <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-primary btn-block' %>
         </div>
         <div class="row login-button">
-          <%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post %>
+          <%= link_to 'かんたんログイン', users_guest_sign_in_path, method: :post, class: 'btn btn-warning btn-block' %>
         </div>
       </div>
     </div>
