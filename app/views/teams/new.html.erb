@@ -4,15 +4,14 @@
       <div class="mx-auto">
         <h2>チーム選択</h2>
           <div class="team-select">
-            <h4>既にチームに加入している方</h4>
             <%= form_with model:@team, local: true do |f| %>
+          　<%= f.radio_button :team, 0, checked: "checked" %>
+            <%= f.label :teamselect, "既にチームに加入している方" %>
               <%= f.collection_select(:team_id, @teams, :id, :teamname ) %>
-            <% end %>
-          </div>
-          <div class="row">
-            <div class="new-team">
-              <h4>新しくチームを作る方</h4>
-              <%= form_with model:@team, local: true do |f| %>
+            <div class="row">
+              <div class="new-team">
+                <%= f.radio_button :team, 1 %>
+                <%= f.label :teamselect, "新しくチームを作る方" %>
                 <div class="field">
                   <label for="teamname">チーム名</label>
                   <div class="row">
@@ -30,7 +29,8 @@
                 <div class="row">
                   <%= f.submit "登録する", class: "btn btn-info btn-block" %>
                 </div>
-              <% end %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>

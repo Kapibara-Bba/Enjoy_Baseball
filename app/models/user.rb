@@ -18,6 +18,7 @@ class User < ApplicationRecord
     end
   end
 
+  # has_many :teams, dependent: :destroy
   belongs_to :team
 
 end

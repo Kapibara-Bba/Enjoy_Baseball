@@ -2,11 +2,7 @@
   <div class="container mt-5">
     <div class="row">
       <div class="mx-auto">
-        <% if current_user.id == @user.id %>
-          <h2><%= current_user.team.teamname %></h2>
-        <% else %>
-          <h2><%= @user.team.teamname %></h2>
-        <% end %>
+        <h2><%= @team.teamname %></h2>
        </div>
     </div>
   </div>

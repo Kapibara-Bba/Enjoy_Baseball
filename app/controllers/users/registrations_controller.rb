@@ -14,7 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
    def after_sign_up_path_for(resource)
-     teamselect_path
+     new_team_path(resource)
    end
 
   # GET /resource/edit

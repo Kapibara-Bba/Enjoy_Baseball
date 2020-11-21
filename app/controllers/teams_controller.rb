@@ -1,8 +1,9 @@
 class TeamsController < ApplicationController
 
-  def teamselect
+  def new
     @teams = Team.all
     @team = Team.new
+
   end
 
   def index
@@ -11,16 +12,20 @@ class TeamsController < ApplicationController
   end
 
   def show
+    #@user = User.find(params[:id])
     @team = Team.find(params[:id])
-    @user = User.find(params[:id])
     @users = User.all
-    
+    @user_team = @user
   end
 
   def create
     @team = Team.new(team_params)
-    @team.save
-    redirect_to team_path(current_user)
+    if params[:team][:team] == '0'
+      redirect_to users_path
+    else
+      @team.save
+      redirect_to team_path(current_user)
+    end
   end
 
   def edit
