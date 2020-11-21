@@ -11,6 +11,10 @@ class TeamsController < ApplicationController
   end
 
   def show
+    @team = Team.find(params[:id])
+    @user = User.find(params[:id])
+    @users = User.all
+    
   end
 
   def create
