@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
 
-  def top
+  def teamselect
     @teams = Team.all
     @team = Team.new
   end
@@ -29,7 +29,7 @@ class TeamsController < ApplicationController
   end
 
   private
-  def params_team
+  def team_params
     params.require(:team).permit(:teamname, :prefecture_code, :city)
   end
 
