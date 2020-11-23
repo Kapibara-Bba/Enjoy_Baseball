@@ -1,0 +1,13 @@
+ <%= form_with modal:@record, url: records_path, method: :post, local: true do |f| %>
+    <div class="modal-body">
+      <div class="form_group">
+        <%= f.label :試合日, class: 'control-label' %>
+        <%= f.date_field :days, class: 'form-control' %>
+      </div>
+      <div class="form_group">
+        <%= f.label :打席, class: "col-sm-2 control-label" %>
+        <%= f.number_field :bat %>
+      </div>
+      <%= f.submit "そうしん" %>
+    </div>
+ <% end %>

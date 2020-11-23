@@ -7,8 +7,27 @@
           <div class="batting-record">
             <h2>打撃成績</h2>
             <div class="row">
-
-              <h4><%= @records.bat %>打席
+              <h4><%= @user_record %></h4>
+              <h4><%= @user_record.all.sum(:bat) %>打席</h4><%= @user.batting %>打数 <%= @user.hit %>安打</h4>
+              <h4>打率<%= @user.hit ％ @user.batting %></h4>
+              <h4>二塁打<%= @user.two_base_hit %> 三塁打<%= @user.three_base_hit %> 本塁打<%= @user.homerun %></h4>
+              <h4>三振<%= @user.strike_out %> 四死球<%= @user.ball %> 犠打<%= @user.bunt %></h4>
+              <h4>打点<%= @user.dot %> 得点<%= @user.homein %> 犠飛<%= @user.sacrifice_fly %></h4>
+              <h4>盗塁<%= @user.still %> 失策<%= @user.error %></h4>
+              <h4>出塁率<%= (@user.hit + @user.ball) % (@user.batting + @user.ball + @user.sacrifice_fly) %></h4>
+            </div>
+          </div>
+          <div class="pitching-record">
+            <h2>投手成績</h2>
+            <div class="row">
+              <h4><%= @user.game %>試合 <%= @user.win %>勝 <%= @user.lose %>敗</h4>
+              <h4>防御率<%= @user.earned_run % @user.inning %> 勝率<%= @user.win % (@user.win + @user.lose) %></h4>
+              <h4>投球回 <%= @user.inning %></h4>
+              <h4>被安打 <%= @user.to_be_hit %> 被本塁打 <%= @user.to_be_homerun %></h4>
+              <h4>奪三振 <%= @user.to_be_strike_out %> 与四死球 <%= @user.to_be_ball %></h4>
+              <h4>失点 <%= @user.to_be_point %> 自責点 <%= @user.earned_run %></h4>
+            </div>
+          </div>
         </div>
       </div>
     </div>
