@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2020_11_22_110938) do
     t.integer "to_be_ball"
     t.integer "to_be_point"
     t.integer "earned_run"
+    t.date "days"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

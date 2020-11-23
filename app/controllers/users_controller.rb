@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @records = Record.all
     @user_record = @user.records
+    @record = Record.new
   end
 
   def edit

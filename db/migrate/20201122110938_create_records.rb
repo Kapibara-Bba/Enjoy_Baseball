@@ -1,7 +1,7 @@
 class CreateRecords < ActiveRecord::Migration[5.2]
   def change
     create_table :records do |t|
-      
+
       t.integer :bat
       t.integer :batting
       t.integer :hit
@@ -27,6 +27,7 @@ class CreateRecords < ActiveRecord::Migration[5.2]
       t.integer :to_be_ball
       t.integer :to_be_point
       t.integer :earned_run
+      t.date :days
       t.timestamps
     end
   end
