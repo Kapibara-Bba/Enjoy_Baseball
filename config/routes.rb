@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   resources :teams
   resources :users
   resources :records
+  get 'records/batter' => 'records#batter_index'
+  get 'records/pitch' => 'records#pitch_index'
 
 end
