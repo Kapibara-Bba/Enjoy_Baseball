@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @records = Record.all
+    @records = @user.record.all
     @user_record = @user.records
     @record = Record.new
   end
