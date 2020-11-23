@@ -17,10 +17,10 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
-  
+
    has_many :comments, dependent: :destroy
-  # has_many :teams, dependent: :destroy
+   has_many :records, dependent: :destroy
   # belongs_to :team
-  
+
 
 end
