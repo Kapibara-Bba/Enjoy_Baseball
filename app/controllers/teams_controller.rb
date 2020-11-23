@@ -19,11 +19,13 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.new(team_params)
     if params[:team][:team] == '0'
-      redirect_to users_path
+      @team_id = Team.find(params[:team][:id])
+      redirect_to team_path(@team_id.id)
     else
+      @team = Team.new(team_params)
       @team.save
+      # byebug
       redirect_to team_path(current_user)
     end
   end
