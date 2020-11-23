@@ -28,8 +28,10 @@ class CreateRecords < ActiveRecord::Migration[5.2]
       t.integer :to_be_point
       t.integer :earned_run
       t.date :days
+      t.integer :user_id
       t.timestamps
     end
   end
 end
+
 
