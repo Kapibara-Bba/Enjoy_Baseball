@@ -11,7 +11,7 @@
               <h4><%= @user_record.all.sum(:bat) %>打席 <%= @user_record.all.sum(:batting) %>打数 <%= @user_record.all.sum(:hit) %>安打</h4>
               <h4>打率
                 <% begin %>
-                <%= (@user_record.all.sum(:hit)) % (@user_record.all.sum(:batting)) %>
+                <%= (@user_record.all.sum(:hit)) / (@user_record.all.sum(:batting)).to_f %>
                 <% rescue %>
                 0
                 <% end %>
@@ -167,7 +167,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                    <%= f.submit "記録を追加する", class="btn btn-primary" %>
+                    <%= f.submit "記録を追加する", class: "btn btn-primary" %>
                   </div>
                 <% end %>
               </div>

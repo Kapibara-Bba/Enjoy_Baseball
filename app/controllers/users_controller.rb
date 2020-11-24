@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @records = Record.find(params[:id])
+    @records = Record.all
     @user_record = @user.records
     @record = Record.new
   end
@@ -18,6 +18,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :profile_image_id)
+    params.require(:user).permit(:username, :profile_image_id, :team_id, :position, :throw)
   end
 end

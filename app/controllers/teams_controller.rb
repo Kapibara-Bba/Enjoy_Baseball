@@ -13,20 +13,23 @@ class TeamsController < ApplicationController
 
   def show
     #@user = User.find(params[:id])
+    @team_users = User.where(team_id: params[:id])
     @team = Team.find(params[:id])
     @users = User.all
-    @user_team = @user
   end
 
   def create
+    @user = current_user
     if params[:team][:team] == '0'
-      @team_id = Team.find(params[:team][:id])
-      redirect_to team_path(@team_id.id)
+      #byebug
+      @team = Team.find(params[:team][:id])
+      redirect_to team_path(@team)
     else
       @team = Team.new(team_params)
       @team.save
-      # byebug
-      redirect_to team_path(current_user)
+      @user = current_user
+      @user.update!(team_id: @team.id)
+      redirect_to team_path(@team)
     end
   end
 
