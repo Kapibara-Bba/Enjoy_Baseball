@@ -70,6 +70,7 @@
                       <%= f.label :試合日, class: 'control-label' %>
                       <%= f.date_field :created_at, class: 'form-control' %>
                     </div>
+                    <h2>打者記録</h2>
                     <div class="form_group">
                       <%= f.label :打席, class: "col-sm-3" %>
                       <%= f.number_field :bat %>
@@ -126,10 +127,47 @@
                       <%= f.label :失策, class: "col-sm-3 control-label" %>
                       <%= f.number_field :error %>
                     </div>
+                    <h2>投手記録</h2>
+                    <div class="form_group">
+                      <%= f.label :勝, class: "col-sm-3 control-label" %>
+                      <%= f.number_field :win %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :敗, class: "col-sm-3 control-label" %>
+                      <%= f.number_field :lose %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :投球回, class: "col-sm-3 control-label" %>
+                      <%= f.number_field :inning %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :被安打, class: "col-sm-3 control-label" %>
+                      <%= f.number_field :to_be_hit %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :被本塁打, class: "col-sm-3 control-label" %>
+                      <%= f.number_field :to_be_homerun %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :奪三振, class: "col-sm-3 control-label" %>
+                      <%= f.number_field :to_be_strike_out %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :与四死球, class: "col-sm-3 control-label" %>
+                      <%= f.number_field :to_be_ball %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :失点, class: "col-sm-3 control-label" %>
+                      <%= f.number_field :to_be_point %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :自責点, class: "col-sm-3 control-label" %>
+                      <%= f.number_field :earned_run %>
+                    </div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                    <%= f.submit "記録を追加する" %>
+                    <%= f.submit "記録を追加する", class="btn btn-primary" %>
                   </div>
                 <% end %>
               </div>
