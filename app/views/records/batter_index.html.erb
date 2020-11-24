@@ -1,0 +1,58 @@
+<div class="body">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="mx-auto">
+        <h2>打者記録一覧</h2>
+        <div class="row">
+          <table>
+            <thead>
+              <tr>
+                <th>チーム名</th>
+                <th>名前</th>
+                <th>試合</th>
+                <th>打率</th>
+                <th>打数</th>
+                <th>安打</th>
+                <th>本塁打</th>
+                <th>二塁打</th>
+                <th>三塁打</th>
+                <th>打点</th>
+                <th>得点</th>
+                <th>三振</th>
+                <th>四死球</th>
+                <th>犠打</th>
+                <th>犠飛</th>
+                <th>出塁率</th>
+                <th>盗塁</th>
+                <th>失策</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @user_record.each do |user| %>
+                <tr>
+                 
+                  <td><%= user.all.sum(:game) %></td>
+                  <td></td>
+                  <td><%= user.all.sum(:batting) %></td>
+                  <td><%= user.all.sum(:hit) %></td>
+                  <td><%= user.all.sum(:homerun) %></td>
+                  <td><%= user.all.sum(:two_base_hit) %></td>
+                  <td><%= user.all.sum(:three_base_hit) %></td>
+                  <td><%= user.all.sum(:dot) %></td>
+                  <td><%= user.all.sum(:homein) %></td>
+                  <td><%= user.all.sum(:strike_out) %></td>
+                  <td><%= user.all.sum(:ball) %></td>
+                  <td><%= user.all.sum(:bunt) %></td>
+                  <td><%= user.all.sum(:sacrifice_fly) %></td>
+                  <td></td>
+                  <td><%= user.all.sum(:still) %></td>
+                  <td><%= user.all.sum(:error) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
