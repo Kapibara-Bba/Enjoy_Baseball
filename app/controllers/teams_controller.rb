@@ -23,6 +23,7 @@ class TeamsController < ApplicationController
     if params[:team][:team] == '0'
       #byebug
       @team = Team.find(params[:team][:id])
+      @user.update!(team_id: @team.id)
       redirect_to team_path(@team)
     else
       @team = Team.new(team_params)
