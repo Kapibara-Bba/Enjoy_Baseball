@@ -18,11 +18,13 @@ class RecordsController < ApplicationController
     # @user = User.find(params[:id])
     # Record.create(record_params)
     @record = Record.new(record_params)
+    @records = Record.all
     @record.user_id = current_user.id
+    @user_record = current_user.records
     if @record.save
-      redirect_to records_batter_path
+      redirect_to user_path(current_user)
     else
-      redirect_to root_path
+      render 'users#show'
     end
   end
 
