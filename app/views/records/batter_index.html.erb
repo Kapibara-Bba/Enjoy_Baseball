@@ -4,10 +4,10 @@
       <div class="mx-auto">
         <h2>打者記録一覧</h2>
         <div class="row">
-          <table>
+          <table class="table table-hover table-inverse">
             <thead>
-              <tr>
-                <th>チーム名</th>
+              <tr align="center">
+
                 <th>名前</th>
                 <th>試合</th>
                 <th>打率</th>
@@ -28,25 +28,26 @@
               </tr>
             </thead>
             <tbody>
-              <% @user_record.each do |user| %>
-                <tr>
-                 
-                  <td><%= user.all.sum(:game) %></td>
+              <% @user.each do |user| %>
+                <tr align="center">
+
+                  <td><%= user.name %></td>
+                  <td><%= user.records.all.sum(:game) %></td>
                   <td></td>
-                  <td><%= user.all.sum(:batting) %></td>
-                  <td><%= user.all.sum(:hit) %></td>
-                  <td><%= user.all.sum(:homerun) %></td>
-                  <td><%= user.all.sum(:two_base_hit) %></td>
-                  <td><%= user.all.sum(:three_base_hit) %></td>
-                  <td><%= user.all.sum(:dot) %></td>
-                  <td><%= user.all.sum(:homein) %></td>
-                  <td><%= user.all.sum(:strike_out) %></td>
-                  <td><%= user.all.sum(:ball) %></td>
-                  <td><%= user.all.sum(:bunt) %></td>
-                  <td><%= user.all.sum(:sacrifice_fly) %></td>
+                  <td><%= user.records.all.sum(:batting) %></td>
+                  <td><%= user.records.all.sum(:hit) %></td>
+                  <td><%= user.records.all.sum(:homerun) %></td>
+                  <td><%= user.records.all.sum(:two_base_hit) %></td>
+                  <td><%= user.records.all.sum(:three_base_hit) %></td>
+                  <td><%= user.records.all.sum(:dot) %></td>
+                  <td><%= user.records.all.sum(:homein) %></td>
+                  <td><%= user.records.all.sum(:strike_out) %></td>
+                  <td><%= user.records.all.sum(:ball) %></td>
+                  <td><%= user.records.all.sum(:bunt) %></td>
+                  <td><%= user.records.all.sum(:sacrifice_fly) %></td>
                   <td></td>
-                  <td><%= user.all.sum(:still) %></td>
-                  <td><%= user.all.sum(:error) %></td>
+                  <td><%= user.records.all.sum(:still) %></td>
+                  <td><%= user.records.all.sum(:error) %></td>
                 </tr>
               <% end %>
             </tbody>
