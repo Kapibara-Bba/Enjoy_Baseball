@@ -7,7 +7,7 @@
             <%= form_with model:@team, local: true do |f| %>
           　<%= f.radio_button :team, 0, checked: "checked" %>
             <%= f.label :teamselect, "既にチームに加入している方" %>
-            <%= f.collection_select(:id, @teams, :id, :teamname ) %>
+            <%= f.collection_select(:id, @teams, :id,:team_address, {prompt: "チームを選択してください"} ) %>
             <div class="row">
               <div class="new-team">
                 <%= f.radio_button :team, 1 %>
