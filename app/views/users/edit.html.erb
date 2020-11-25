@@ -1,37 +1,33 @@
 <div class="body">
   <div class="container mt-5">
     <%= form_with model: @user, url: users_path(@user, method: :patch, local: true do |f| %>
-  　<div class="col-xs-4">
-      <div class="field">
-        <%= attachment_image_tag @user :image, fallback: 'no_image.jpg', onChange: "$('.img_field').()", class: 'center-block img_prev'%>
-        <%= f.attachment_field :image, class: 'img_field' %>
+    　<div class="col-xs-4">
+        <div class="field">
+          <%= attachment_image_tag @user :image, fallback: 'no_image.jpg', class: 'center-block img_prev'%>
+          <%= f.attachment_field :image, class: 'img_field' %>
+        </div>
+   　  </div>
+      <div class="col-xs-7">
+        <div class="field col-xs-12 user">
+          <%= f.label :名前, class:"col-sm-3" %>
+          <%= f.text_field :name, class: "col-sm-5 name" %>
+        </div>
+        <div class="field col-xs-12 user">
+          <%= f.label :投打, class:"col-sm-3" %>
+          <%= f.select :throw, User.throw .keys, {prompt: "-- 選択してください --"}, {class: "col-sm-5"}) %>
+        </div>
+        <div class="field col-xs-12 user">
+          <%= f.label :ポジション, class:"col-sm-3" %>
+          <%= f.select :position, User.position .keys, {prompt: "-- 選択してください --"}, {class: "col-sm-5"}) %>
+        </div>
+        <div class="field col-xs-12 item">
+          <%= f.label :税抜価格, class:"col-sm-3" %>
+          <%= f.text_field :price_before_tax, class: "col-sm-5 price_before_tax" %>　円
+        </div>
+        <div class="actions col-xs-12 text-right">
+            <%= f.submit "変更を保存", class: "btn btn-primary btn-lg active" %>
+        </div>
       </div>
- 　  </div>
-    <div class="col-xs-7">
-      <div class="field col-xs-12 item">
-        <%= f.label :商品名, class:"col-sm-3" %>
-        <%= f.text_field :name, class: "col-sm-5 name" %>
-      </div>
-      <div class="field col-xs-12 item">
-        <%= f.label :商品説明, class:"col-sm-3" %>
-        <%= f.text_area :details, rows: 8, class: "col-sm-5 details" %>
-      </div>
-      <div class="field col-xs-12 item">
-        <%= f.label :ジャンル, class:"col-sm-3" %>
-        <%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "-- 選択してください --"}, {class: "col-sm-5"}) %>
-      </div>
-      <div class="field col-xs-12 item">
-        <%= f.label :税抜価格, class:"col-sm-3" %>
-        <%= f.text_field :price_before_tax, class: "col-sm-5 price_before_tax" %>　円
-      </div>
-      <div class="field col-xs-12 item">
-        <%= f.label :販売ステータス, class:"col-sm-3" %>
-        <%= f.select :sales_status, Item.sales_statuses .keys, {} , class: "col-sm-5 sales_status btn btn-warning dropdown-toggle" %>
-      </div>
-      <div class="actions col-xs-12 text-right">
-          <%= f.submit "変更を保存", class: "btn btn-primary btn-lg active" %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
   </div>
 </div>
