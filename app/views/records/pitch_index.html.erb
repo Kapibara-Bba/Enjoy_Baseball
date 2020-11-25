@@ -1,0 +1,51 @@
+<div class="body">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="mx-auto">
+        <h2>投手記録一覧</h2>
+        <div class="row">
+          <table class="table table-hover table-inverse">
+            <thead>
+              <tr align="center">
+
+                <th>名前</th>
+                <th>試合</th>
+                <th>防御率</th>
+                <th>投球回</th>
+                <th>勝</th>
+                <th>敗</th>
+                <th>勝率</th>
+                <th>失点</th>
+                <th>自責点</th>
+                <th>奪三振</th>
+                <th>被安打</th>
+                <th>被本塁打</th>
+                <th>与四死球</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @user.each do |user| %>
+                <tr align="center">
+
+                  <td><%= user.name %></td>
+                  <td><%= user.records.all.sum(:game) %></td>
+                  <td></td>
+                  <td><%= user.records.all.sum(:inning) %></td>
+                  <td><%= user.records.all.sum(:win) %></td>
+                  <td><%= user.records.all.sum(:lose) %></td>
+                  <td></td>
+                  <td><%= user.records.all.sum(:to_be_point) %></td>
+                  <td><%= user.records.all.sum(:earned_run) %></td>
+                  <td><%= user.records.all.sum(:to_be_strike_out) %></td>
+                  <td><%= user.records.all.sum(:to_be_hit) %></td>
+                  <td><%= user.records.all.sum(:to_be_homerun) %></td>
+                  <td><%= user.records.all.sum(:to_be_ball) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
