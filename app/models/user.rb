@@ -22,5 +22,7 @@ class User < ApplicationRecord
    has_many :records, dependent: :destroy
    #belongs_to :team
 
-
+   enum position: {"投手":0, "捕手":1, "一塁手":2, "二塁手":3, "三塁手":4, "遊撃手":5, "外野手":6}
+   enum throw: {"右投右打":0, "右投左打":1, "右投両打":2, "左投右打":3, "左投左打":4, "左投両打":5}
+   
 end
