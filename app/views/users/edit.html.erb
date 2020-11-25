@@ -1,9 +1,9 @@
 <div class="body">
   <div class="container mt-5">
-    <%= form_with model: @user, url: users_path(@user, method: :patch, local: true do |f| %>
+    <%= form_with model: @user, url: user_path, method: :patch, local: true do |f| %>
     　<div class="col-xs-4">
         <div class="field">
-          <%= attachment_image_tag @user :image, fallback: 'no_image.jpg', class: 'center-block img_prev'%>
+          <%= attachment_image_tag(@user, :image, :fill, 100, 100, fallback: "no_image.jpg") %>
           <%= f.attachment_field :image, class: 'img_field' %>
         </div>
    　  </div>
@@ -14,15 +14,11 @@
         </div>
         <div class="field col-xs-12 user">
           <%= f.label :投打, class:"col-sm-3" %>
-          <%= f.select :throw, User.throw .keys, {prompt: "-- 選択してください --"}, {class: "col-sm-5"}) %>
+          <%= f.select :throw, User.throws.keys.to_a, {prompt: "-- 選択してください --"}, {class: "col-sm-5"} %>
         </div>
         <div class="field col-xs-12 user">
           <%= f.label :ポジション, class:"col-sm-3" %>
-          <%= f.select :position, User.position .keys, {prompt: "-- 選択してください --"}, {class: "col-sm-5"}) %>
-        </div>
-        <div class="field col-xs-12 item">
-          <%= f.label :税抜価格, class:"col-sm-3" %>
-          <%= f.text_field :price_before_tax, class: "col-sm-5 price_before_tax" %>　円
+          <%= f.select :position, User.positions.keys, {prompt: "-- 選択してください --"}, {class: "col-sm-5"} %>
         </div>
         <div class="actions col-xs-12 text-right">
             <%= f.submit "変更を保存", class: "btn btn-primary btn-lg active" %>
