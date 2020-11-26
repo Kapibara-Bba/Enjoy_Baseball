@@ -6,13 +6,9 @@ class TeamsController < ApplicationController
 
   end
 
-  def index
-    @user = User.all
-    # @team = current_user.team
-  end
 
   def show
-    #@user = User.find(params[:id])
+    @infos = Info.all
     @team_users = User.where(team_id: params[:id])
     @team = Team.find(params[:id])
     @users = User.all
