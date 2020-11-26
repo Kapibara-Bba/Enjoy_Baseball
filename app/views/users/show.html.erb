@@ -12,43 +12,93 @@
           <div class="user-record">
             <h2>打撃成績</h2>
             <div class="row">
-              <h4><%= @user_record.all.sum(:game) %>試合</h4>
-              <h4><%= @user_record.all.sum(:bat) %>打席 <%= @user_record.all.sum(:batting) %>打数 <%= @user_record.all.sum(:hit) %>安打</h4>
-              <h4>打率
-                <% begin %>
-                <%= (@user_record.all.sum(:hit)) / (@user_record.all.sum(:batting)).to_f %>
-                <% rescue %>
-                0
-                <% end %>
-              </h4>
-              <h4>二塁打<%= @user_record.all.sum(:two_base_hit) %> 三塁打<%= @user_record.all.sum(:three_base_hit) %> 本塁打<%= @user_record.all.sum(:homerun) %></h4>
-              <h4>三振<%= @user_record.all.sum(:strike_out) %> 四死球<%= @user_record.all.sum(:ball) %> 犠打<%= @user_record.all.sum(:bunt) %></h4>
-              <h4>打点<%= @user_record.all.sum(:dot) %> 得点<%= @user_record.all.sum(:homein) %> 犠飛<%= @user_record.all.sum(:sacrifice_fly) %></h4>
-              <h4>盗塁<%= @user_record.all.sum(:still) %> 失策<%= @user_record.all.sum(:error) %></h4>
-              <h4>出塁率
-                <% begin %>
-                <%= (@user_record.all.sum(:hit) + @user_record.all.sum(:ball)) % (@user_record.all.sum(:batting) + @user_record.all.sum(:ball) + @user_record.all.sum(:sacrifice_fly)) %>
-                <% rescue %>
-                0
-                <% end %>
-              </h4>
+              <table class="table table-hover table-inverse">
+                <thead>
+                  <tr align="center">
+                    <th>試合</th>
+                    <th>打率</th>
+                    <th>打席</th>
+                    <th>打数</th>
+                    <th>安打</th>
+                    <th>本塁打</th>
+                    <th>二塁打</th>
+                    <th>三塁打</th>
+                    <th>打点</th>
+                    <th>得点</th>
+                    <th>三振</th>
+                    <th>四死球</th>
+                    <th>犠打</th>
+                    <th>犠飛</th>
+                    <th>出塁率</th>
+                    <th>盗塁</th>
+                    <th>失策</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr align="center">
+                    <td><%= @user_record.all.sum(:game) %></td>
+                    <td>
+                      <% begin %>
+                        <%= (@user_record.all.sum(:hit)) / (@user_record.all.sum(:batting)).to_f %>
+                      <% rescue %>
+                        0
+                      <% end %>
+                    </td>
+                    <td><%= @user_record.all.sum(:batting) %></td>
+                    <td><%= @user_record.all.sum(:bat) %></td>
+                    <td><%= @user_record.all.sum(:hit) %></td>
+                    <td><%= @user_record.all.sum(:homerun) %></td>
+                    <td><%= @user_record.all.sum(:two_base_hit) %></td>
+                    <td><%= @user_record.all.sum(:three_base_hit) %></td>
+                    <td><%= @user_record.all.sum(:dot) %></td>
+                    <td><%= @user_record.all.sum(:homein) %></td>
+                    <td><%= @user_record.all.sum(:strike_out) %></td>
+                    <td><%= @user_record.all.sum(:ball) %></td>
+                    <td><%= @user_record.all.sum(:bunt) %></td>
+                    <td><%= @user_record.all.sum(:sacrifice_fly) %></td>
+                    <td></td>
+                    <td><%= @user_record.all.sum(:still) %></td>
+                    <td><%= @user_record.all.sum(:error) %></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
           <div class="user-record">
             <h2>投手成績</h2>
             <div class="row">
-              <h4><%= @user_record.all.sum(:game) %>試合 <%= @user_record.all.sum(:win) %>勝 <%= @user_record.all.sum(:lose) %>敗</h4>
-              <h4>防御率
-                <% begin %>
-                <%= @user_record.all.sum(:earned_run) % @user_record.all.sum(:inning) %> 勝率<%= @user_record.all.sum(:win) % (@user_record.all.sum(:win) + @user_record.all.sum(:lose)) %>
-                <% rescue %>
-                0.00 勝率 0.00
-                <% end %>
-              </h4>
-              <h4>投球回 <%= @user_record.all.sum(:inning) %></h4>
-              <h4>被安打 <%= @user_record.all.sum(:to_be_hit) %> 被本塁打 <%= @user_record.all.sum(:to_be_homerun) %></h4>
-              <h4>奪三振 <%= @user_record.all.sum(:to_be_strike_out) %> 与四死球 <%= @user_record.all.sum(:to_be_ball) %></h4>
-              <h4>失点 <%= @user_record.all.sum(:to_be_point) %> 自責点 <%= @user_record.all.sum(:earned_run) %></h4>
+              <table class="table table-hover table-inverse">
+                <thead>
+                  <tr align="center">
+                    <th>防御率</th>
+                    <th>投球回</th>
+                    <th>勝</th>
+                    <th>敗</th>
+                    <th>勝率</th>
+                    <th>失点</th>
+                    <th>自責点</th>
+                    <th>奪三振</th>
+                    <th>被安打</th>
+                    <th>被本塁打</th>
+                    <th>与四死球</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr align="center">
+                    <td></td>
+                    <td><%= @user_record.all.sum(:inning) %></td>
+                    <td><%= @user_record.all.sum(:win) %></td>
+                    <td><%= @user_record.all.sum(:lose) %></td>
+                    <td></td>
+                    <td><%= @user_record.all.sum(:to_be_point) %></td>
+                    <td><%= @user_record.all.sum(:earned_run) %></td>
+                    <td><%= @user_record.all.sum(:to_be_strike_out) %></td>
+                    <td><%= @user_record.all.sum(:to_be_hit) %></td>
+                    <td><%= @user_record.all.sum(:to_be_homerun) %></td>
+                    <td><%= @user_record.all.sum(:to_be_ball) %></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
