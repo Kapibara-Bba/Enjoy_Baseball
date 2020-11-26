@@ -25,11 +25,13 @@
                     <i class="glyphicon glyphicon-home" aria-hidden="true"></i> 試合一覧
                   <% end %>
                 </li>
+                <% if current_user.team_id.present? %>
                 <li class="nav-item">
-                  <%= link_to team_path(current_user) do %>
+                  <%= link_to team_path(current_user.team_id) do %>
                     <i class="glyphicon glyphicon-home" aria-hidden="true"></i> マイチーム
                   <% end %>
                 </li>
+                <% end %>
                 <li class="nav-item">
                   <%= link_to user_path(current_user) do %>
                     <i class="glyphicon glyphicon-home" aria-hidden="true"></i> マイページ
@@ -37,7 +39,12 @@
                 </li>
                 <li class="nav-item">
                   <%= link_to records_batter_path do %>
-                    <i class="glyphicon glyphicon-home" aria-hidden="true"></i> 個人成績
+                    <i class="glyphicon glyphicon-home" aria-hidden="true"></i> 打者成績
+                  <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to records_pitch_path do %>
+                    <i class="glyphicon glyphicon-home" aria-hidden="true"></i> 投手成績
                   <% end %>
                 </li>
                 <li class="nav-item">
