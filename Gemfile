@@ -80,3 +80,4 @@ group :production do
   gem 'mysql2'
 end
 
+gem 'simple_calendar', '~> 2.0'

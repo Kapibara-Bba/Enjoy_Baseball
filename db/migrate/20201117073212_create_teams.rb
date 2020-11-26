@@ -6,7 +6,6 @@ class CreateTeams < ActiveRecord::Migration[5.2]
       t.string :prefecture_code
       t.string :city
       t.string :team_image_id
-
       t.timestamps
     end
   end
