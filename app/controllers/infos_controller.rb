@@ -5,7 +5,7 @@ class InfosController < ApplicationController
   end
 
   def create
-    @team = Team.find(params[:id])
+    # @team = Team.find(params[:id])
     @info = Info.new(info_params)
     @infos = Info.all
     @info.team_id = current_user.team_id
