@@ -25,12 +25,11 @@
                     <%= f.label :日時 %>
                     <%= f.datetime_select :start_time %>
                   </div>
-                  <%= f.submit "イベントを追加する", class: 'btn btn-primary' %>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                    <%= f.submit "イベントを追加する", class: 'btn btn-primary' %>
+                  </div>
                 <% end %>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
               </div>
             </div>
           </div>
