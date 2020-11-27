@@ -8,11 +8,11 @@ class InfosController < ApplicationController
     @team = Team.find(params[:id])
     @info = Info.new(info_params)
     @infos = Info.all
-    @info.team_id = current_user.team_id.id
+    @info.team_id = current_user.team_id
     if @info.save
-      redirect_to team_path(@team)
+      redirect_to team_path(@info.team_id)
     else
-      render 'teams#show'
+      render 'user#show'
     end
   end
 
@@ -24,6 +24,6 @@ class InfosController < ApplicationController
 
   private
   def info_params
-    params.require(:info).permit(:team_id, :body, :start_time)
+    params.permit(:team_id, :body, :start_time)
   end
 end
