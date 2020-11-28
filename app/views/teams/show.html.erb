@@ -19,7 +19,7 @@
                 <%= form_with model:@info, url: infos_path, method: :post do |f| %>
                   <div class="form_group">
                     <%= f.label :イベント名 %>
-                    <%= f.text_field :body %>
+                    <%= f.text_area :body %>
                   </div>
                   <div class="form_group">
                     <%= f.label :日時 %>
@@ -39,7 +39,9 @@
 
           <% infos.each do |info| %>
             <div>
-              <%= info.body %>
+              <%= link_to edit_info_path(info) do %>
+               <%= info.body %>
+             <% end %>
             </div>
           <% end %>
         <% end %>

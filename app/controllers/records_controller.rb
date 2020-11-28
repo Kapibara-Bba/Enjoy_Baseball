@@ -2,8 +2,8 @@ class RecordsController < ApplicationController
 
   def batter_index
     @user = User.all
-    @records = Record.all
-    
+    @records = Record.all.order(hit: :desc)
+    #@all_ranks = Record.find(.group(:hit).order('count(image_id) desc').limit(9).pluck(:image_id))
   end
 
   def pitch_index

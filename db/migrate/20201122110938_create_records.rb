@@ -29,6 +29,8 @@ class CreateRecords < ActiveRecord::Migration[5.2]
       t.integer :earned_run
       t.date :days
       t.integer :user_id
+      t.integer :batter_record
+      t.integer :pitch_record
       t.timestamps
     end
   end
