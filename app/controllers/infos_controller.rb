@@ -17,9 +17,17 @@ class InfosController < ApplicationController
   end
 
   def edit
+    @info = Info.find(params[:id])
   end
 
   def update
+    @info = Info.find(params[:id])
+    if @info.update(info_params)
+      flash[:update] = "You have updated book successfully."
+      redirect_to _path(@book)
+    else
+      render 'edit'
+    end
   end
 
   private
