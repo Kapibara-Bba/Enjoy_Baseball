@@ -12,7 +12,7 @@ class InfosController < ApplicationController
     if @info.save
       redirect_to team_path(@info.team_id)
     else
-      render 'user#show'
+      render 'users#show'
     end
   end
 
@@ -22,11 +22,12 @@ class InfosController < ApplicationController
 
   def update
     @info = Info.find(params[:id])
+    @info.team_id = current_user.team_id
     if @info.update(info_params)
       flash[:update] = "You have updated book successfully."
-      redirect_to _path(@book)
+      redirect_to _path(@info.team_id)
     else
-      render 'edit'
+      render 'users#edit'
     end
   end
 

@@ -8,7 +8,9 @@
 
           <% infos.each do |info| %>
             <div>
-             <%= link_to edit_info_path( %>
+             <%= link_to edit_info_path(@info) do %>
+               <%= info.body %>
+             <% end %>
             </div>
           <% end %>
         <% end %>

@@ -1,0 +1,21 @@
+<div class="body">
+  <div class="container">
+    <p id></p>
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3">
+        <h1>イベントの修正</h1>
+        <%= form_with model:@info, url: info_path(@info), method: :patch, local:true do |f| %>
+          <div class="form_group">
+            <%= f.label :イベント名 %>
+            <%= f.text_area :body %>
+          </div>
+          <div class="form_group">
+            <%= f.label :日時 %>
+            <%= f.datetime_select :start_time %>
+          </div>
+          <%= f.submit "イベントを追加する", class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
