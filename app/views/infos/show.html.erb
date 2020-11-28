@@ -11,8 +11,21 @@
         </div>
       </div>
     </div>
-    <div id='map'></div>
-    
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIr6O_poAU8-arILUvApsFuc_cEg8vSnQ"></script>
+    <script>
+      function initMap() {
+        var mapPosition = new google.maps.LatLng( 35.6882495,139.6856557 );//緯度経度
+        var map = new google.maps.Map(document.getElementById('gmap'), {
+        zoom: 17,//ズーム
+        center: mapPosition
+      });
+        var marker = new google.maps.Marker({
+        position: mapPosition,
+        map: map
+        });
+      }
+    </script>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
       イベントを修正する
     </button>
