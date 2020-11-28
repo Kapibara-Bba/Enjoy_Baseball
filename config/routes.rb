@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   get 'records/batter' => 'records#batter_index'
   get 'records/pitch' => 'records#pitch_index'
   resources :records, only: [:new, :create]
-  resources :infos, only: [:new, :create]
+  resources :infos, only: [:new, :create, :edit, :update, :destroy]
 
 end
