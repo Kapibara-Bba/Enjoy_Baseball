@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update]
   get 'records/batter' => 'records#batter_index'
   get 'records/pitch' => 'records#pitch_index'
-  resources :records, only: [:new, :create]
+  resources :records, only: [:new, :create, :update]
   resources :infos, only: [:new, :create, :edit, :update, :destroy]
 
 end
