@@ -1,0 +1,50 @@
+<div class="body">
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-12">
+        <h2><%= @info.team.teamname %></h2>
+        <div class="row">
+          <h4>イベント内容</h4>
+            <%= @info.body %>
+          <h4>場所</h4>
+            <%= @info.location %>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      イベントを修正する
+    </button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">イベントを修正する</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= form_with model:@info, url: info_path(@info), method: :patch, local:true do |f| %>
+              <div class="form_group">
+                <%= f.label :イベント名 %>
+                <%= f.text_area :body %>
+              </div>
+              <div class="form_group">
+                <%= f.label :場所 %>
+                <%= f.text_field :location %>
+              </div>
+              <div class="form_group">
+                <%= f.label :日時 %>
+                <%= f.datetime_select :start_time %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                <%= f.submit "イベントを更新する", class: 'btn btn-primary' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

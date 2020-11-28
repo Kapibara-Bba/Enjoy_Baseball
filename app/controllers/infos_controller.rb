@@ -16,6 +16,11 @@ class InfosController < ApplicationController
     end
   end
 
+  def show
+    @info = Info.find(params[:id])
+
+  end
+
   def edit
     @info = Info.find(params[:id])
   end
@@ -25,7 +30,7 @@ class InfosController < ApplicationController
     @info.team_id = current_user.team_id
     if @info.update(info_params)
       flash[:update] = "You have updated book successfully."
-      redirect_to _path(@info.team_id)
+      redirect_to team_path(@info.team_id)
     else
       render 'users#edit'
     end
@@ -33,6 +38,6 @@ class InfosController < ApplicationController
 
   private
   def info_params
-    params.permit(:team_id, :body, :start_time)
+    params.permit(:team_id, :body, :start_time, :location)
   end
 end
