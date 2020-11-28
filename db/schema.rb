@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_11_26_074528) do
 
   create_table "infos", force: :cascade do |t|
     t.string "body"
+    t.string "location"
     t.datetime "start_time"
     t.integer "team_id"
     t.datetime "created_at", null: false

@@ -3,6 +3,7 @@ class CreateInfos < ActiveRecord::Migration[5.2]
     create_table :infos do |t|
 
       t.string :body
+      t.string :location
       t.datetime :start_time
       t.integer :team_id
       t.timestamps

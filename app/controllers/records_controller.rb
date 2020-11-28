@@ -3,7 +3,7 @@ class RecordsController < ApplicationController
   def batter_index
     @user = User.all
     @records = Record.all
-    @users = User.joins(:records).where(records: {batter_record: Record.all.sum(batter_record)})
+    #@users = User.joins(:records).where(records: {batter_record: Record.all.sum(batter_record)})
   end
 
   def pitch_index
@@ -31,8 +31,8 @@ class RecordsController < ApplicationController
 
   def update
     @records = Record.all
-    @record = Record.find(params[:id])
-    if @record.update
+    @record.batter_record = params[:record][:batter_record]
+    if @record.batter_record.update
       redirect_to records_batter_path
     else
       render 'users#show'
