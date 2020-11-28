@@ -2,8 +2,8 @@ class RecordsController < ApplicationController
 
   def batter_index
     @user = User.all
-    @records = Record.all.order(hit: :desc)
-    #@all_ranks = Record.find(.group(:hit).order('count(image_id) desc').limit(9).pluck(:image_id))
+    @records = Record.all
+    @users = User.joins(:records).where(records: {batter_record: Record.all.sum(batter_record)})
   end
 
   def pitch_index
@@ -29,10 +29,20 @@ class RecordsController < ApplicationController
     end
   end
 
+  def update
+    @records = Record.all
+    @record = Record.find(params[:id])
+    if @record.update
+      redirect_to records_batter_path
+    else
+      render 'users#show'
+    end
+  end
+
   private
   def record_params
     params.permit(:bat, :batting, :hit, :two_base_hit, :three_base_hit, :homerun, :strike_out, :ball, :bunt, :dot, :homein,
      :sacrifice_fly, :still, :error, :game, :pitch_game, :win, :lose, :inning, :to_be_hit, :to_be_homerun, :to_be_strike_out, :to_be_ball,
-     :to_be_point, :earned_run, :days)
+     :to_be_point, :earned_run, :days, :batter_record, :pitch_record)
   end
 end

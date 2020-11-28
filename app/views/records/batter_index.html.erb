@@ -5,57 +5,63 @@
         <h2>打者記録一覧</h2>
       </div>
       <div class="col-xs-8">
+        <%= form_with modal:@record, url: record_path(@records), method: :patch, remote:true do |f| %>
+          <%= f.select :batter_record, Record.batter_records.keys, {prompt: "-- 記録を選択してください --"} %>
+          <%= f.submit "更新する" %>
+        <% end %>
       </div>
-        <div class="row">
-          <table class="table table-hover table-inverse">
-            <thead>
+    </div>
+    <div class="row">
+      <div class="row">
+        <table class="table table-hover table-inverse">
+          <thead>
+            <tr align="center">
+              <th>チーム名</th>
+              <th>名前</th>
+              <th>試合</th>
+              <th>打率</th>
+              <th>打数</th>
+              <th>安打</th>
+              <th>本塁打</th>
+              <th>二塁打</th>
+              <th>三塁打</th>
+              <th>打点</th>
+              <th>得点</th>
+              <th>三振</th>
+              <th>四死球</th>
+              <th>犠打</th>
+              <th>犠飛</th>
+              <th>出塁率</th>
+              <th>盗塁</th>
+              <th>失策</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @user.each do |user| %>
               <tr align="center">
-                <th>チーム名</th>
-                <th>名前</th>
-                <th>試合</th>
-                <th>打率</th>
-                <th>打数</th>
-                <th>安打</th>
-                <th>本塁打</th>
-                <th>二塁打</th>
-                <th>三塁打</th>
-                <th>打点</th>
-                <th>得点</th>
-                <th>三振</th>
-                <th>四死球</th>
-                <th>犠打</th>
-                <th>犠飛</th>
-                <th>出塁率</th>
-                <th>盗塁</th>
-                <th>失策</th>
+                <td></td>
+                <td><%= user.name %></td>
+                <td><%= user.records.all.sum(:game) %></td>
+                <td></td>
+                <td><%= user.records.all.sum(:batting) %></td>
+                <td><%= user.records.all.sum(:hit) %></td>
+                <td><%= user.records.all.sum(:homerun) %></td>
+                <td><%= user.records.all.sum(:two_base_hit) %></td>
+                <td><%= user.records.all.sum(:three_base_hit) %></td>
+                <td><%= user.records.all.sum(:dot) %></td>
+                <td><%= user.records.all.sum(:homein) %></td>
+                <td><%= user.records.all.sum(:strike_out) %></td>
+                <td><%= user.records.all.sum(:ball) %></td>
+                <td><%= user.records.all.sum(:bunt) %></td>
+                <td><%= user.records.all.sum(:sacrifice_fly) %></td>
+                <td></td>
+                <td><%= user.records.all.sum(:still) %></td>
+                <td><%= user.records.all.sum(:error) %></td>
               </tr>
-            </thead>
-            <tbody>
-              <% @user.each do |user| %>
-                <tr align="center">
-                  <td></td>
-                  <td><%= user.name %></td>
-                  <td><%= user.records.all.sum(:game) %></td>
-                  <td></td>
-                  <td><%= user.records.all.sum(:batting) %></td>
-                  <td><%= user.records.all.sum(:hit) %></td>
-                  <td><%= user.records.all.sum(:homerun) %></td>
-                  <td><%= user.records.all.sum(:two_base_hit) %></td>
-                  <td><%= user.records.all.sum(:three_base_hit) %></td>
-                  <td><%= user.records.all.sum(:dot) %></td>
-                  <td><%= user.records.all.sum(:homein) %></td>
-                  <td><%= user.records.all.sum(:strike_out) %></td>
-                  <td><%= user.records.all.sum(:ball) %></td>
-                  <td><%= user.records.all.sum(:bunt) %></td>
-                  <td><%= user.records.all.sum(:sacrifice_fly) %></td>
-                  <td></td>
-                  <td><%= user.records.all.sum(:still) %></td>
-                  <td><%= user.records.all.sum(:error) %></td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-        </div>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
