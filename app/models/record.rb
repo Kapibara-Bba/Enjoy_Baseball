@@ -1,8 +1,11 @@
 class Record < ApplicationRecord
-    
+
     belongs_to :user
-    
-    enum batter_record: {"打率":0, "打数":1, "安打":2, "本塁打":3, "二塁打":4, "三塁打":5, "打点":6, "得点":7, "三振":8, 
-    "四死球":9, "犠打":10, "犠飛":11, "出塁率":12, "盗塁":13, "失策":14}
+
+    enum batter_record: {"test0":0, "test1":1, "test2":2, "test3":3, "test4":4, "test5":5, "test6":6, "test7":7, "test8":8,
+    "test9":9, "test10":10, "test11":11, "test12":12, "test13":13, "test14":14}
+
+    #@users = User.joins(:records).where(records: {batter_record: self.all.sum(batter_records)})
+    attr_accessor :search_column
     
 end

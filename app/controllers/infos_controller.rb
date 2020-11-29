@@ -38,6 +38,6 @@ class InfosController < ApplicationController
 
   private
   def info_params
-    params.permit(:team_id, :body, :start_time, :location)
+    params.require(:info).permit(:team_id, :body, :start_time, :location)
   end
 end

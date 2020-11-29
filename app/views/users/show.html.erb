@@ -39,7 +39,7 @@
                     <td><%= @user_record.all.sum(:game) %></td>
                     <td>
                       <% begin %>
-                        <%= (@user_record.all.sum(:hit)) / (@user_record.all.sum(:batting)).to_f %>
+                        <%= @user_record.all.sum(:hit)/@user_record.all.sum(:batting).to_f %>
                       <% rescue %>
                         0
                       <% end %>
