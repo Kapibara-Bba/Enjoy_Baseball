@@ -5,8 +5,11 @@
         <h2>打者記録一覧</h2>
       </div>
       <div class="col-xs-8">
-        <%= form_with modal:@record, url: record_path(@records), method: :patch, remote:true do |f| %>
-          <%= f.select :batter_record, Record.batter_records.keys, {prompt: "-- 記録を選択してください --"} %>
+        <%= form_with url: records_batter_path, method: :get, local:true do |f| %>
+          <%= f.select :search_column, [["打率", "average"], ["打数", "batting"], ["安打", "hit"],
+          ["本塁打", "homerun"], ["二塁打", "two_base_hit"], ["三塁打", "three_base_hit"], ["打点", "dot"], ["得点", "homein"], ["三振", "strike_out"],
+          ["四死球", "ball"], ["犠打", "bunt"], ["犠飛", "sacrifice_fly"], ["出塁率", "base"], ["盗塁", "still"], ["失策", "error"]],
+          {prompt: "-- 記録を選択してください --"} %>
           <%= f.submit "更新する" %>
         <% end %>
       </div>
@@ -37,26 +40,27 @@
             </tr>
           </thead>
           <tbody>
-            <% @user.each do |user| %>
+            <% @users.each do |user| %>
+              <% average = user.hit/user.batting.to_f %>
               <tr align="center">
                 <td></td>
                 <td><%= user.name %></td>
-                <td><%= user.records.all.sum(:game) %></td>
+                <td><%= user.game %></td>
+                <td><%= sprintf("%.3f",average) %></td>
+                <td><%= user.batting %></td>
+                <td><%= user.hit %></td>
+                <td><%= user.homerun %></td>
+                <td><%= user.two_base_hit %></td>
+                <td><%= user.three_base_hit %></td>
+                <td><%= user.dot %></td>
+                <td><%= user.homein %></td>
+                <td><%= user.strike_out %></td>
+                <td><%= user.ball %></td>
+                <td><%= user.bunt %></td>
+                <td><%= user.sacrifice_fly %></td>
                 <td></td>
-                <td><%= user.records.all.sum(:batting) %></td>
-                <td><%= user.records.all.sum(:hit) %></td>
-                <td><%= user.records.all.sum(:homerun) %></td>
-                <td><%= user.records.all.sum(:two_base_hit) %></td>
-                <td><%= user.records.all.sum(:three_base_hit) %></td>
-                <td><%= user.records.all.sum(:dot) %></td>
-                <td><%= user.records.all.sum(:homein) %></td>
-                <td><%= user.records.all.sum(:strike_out) %></td>
-                <td><%= user.records.all.sum(:ball) %></td>
-                <td><%= user.records.all.sum(:bunt) %></td>
-                <td><%= user.records.all.sum(:sacrifice_fly) %></td>
-                <td></td>
-                <td><%= user.records.all.sum(:still) %></td>
-                <td><%= user.records.all.sum(:error) %></td>
+                <td><%= user.still %></td>
+                <td><%= user.error %></td>
               </tr>
             <% end %>
           </tbody>
