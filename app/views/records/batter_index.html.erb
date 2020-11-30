@@ -47,11 +47,11 @@
                 <td><%= user.name %></td>
                 <td><%= user.game %></td>
                 <td><%= sprintf("%.3f",average) %></td>
-                <td><%= user.batting %></td>
-                <td><%= user.hit %></td>
-                <td><%= user.homerun %></td>
-                <td><%= user.two_base_hit %></td>
-                <td><%= user.three_base_hit %></td>
+                <td><%= user.records.all.sum(:batting) %></td>
+                <td><%= user.records.all.sum(:hit) %></td>
+                <td><%= user.records.all.sum(:homerun) %></td>
+                <td><%= user.records.all.sum(:two_base_hit) %></td>
+                <td><%= user.records.all.sum(:three_base_hit) %></td>
                 <td><%= user.dot %></td>
                 <td><%= user.homein %></td>
                 <td><%= user.strike_out %></td>
