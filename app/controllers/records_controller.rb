@@ -7,8 +7,10 @@ class RecordsController < ApplicationController
     end
     calculate_method = "sum(records.#{search_column})"
     calculate_method = "(records.hit/records.batting)" if search_column == 'average'
+    #calculate_method = "(records."
     # もし出塁率で並べるならここにうえと同じ処理をかく
-    @users = User.joins(:records).group("records.user_id").select("users.*, records.*, #{calculate_method}").order("#{calculate_method} DESC")
+    @user = User.joins(:records).group("records.user_id").select("users.*, records.*, #{calculate_method}").order("#{calculate_method} DESC")
+    @users = @user.records
     @records = Record.all
   end
 
@@ -26,6 +28,7 @@ class RecordsController < ApplicationController
     # Record.create(record_params)
     @record = Record.new(record_params)
     @record.user_id = current_user.id
+    #binding.pry
     if @record.save
       redirect_to user_path(current_user)
     else
@@ -36,8 +39,8 @@ class RecordsController < ApplicationController
   end
 
   def update
-    @records = Record.all
-    if @records.update(record_params)
+    @record =
+    if @record.update(record_params)
       #@records.batter_record = params[:batter_record]
       redirect_to records_batter_path
     else
