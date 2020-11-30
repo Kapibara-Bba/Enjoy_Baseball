@@ -39,7 +39,8 @@
                     <td><%= @user_record.all.sum(:game) %></td>
                     <td>
                       <% begin %>
-                        <%= @user_record.all.sum(:hit)/@user_record.all.sum(:batting).to_f %>
+                        <% average = @user_record.all.sum(:hit)/@user_record.all.sum(:batting).to_f %>
+                        <%= sprintf("%.3f",average) %>
                       <% rescue %>
                         0
                       <% end %>
@@ -58,10 +59,12 @@
                     <td><%= @user_record.all.sum(:sacrifice_fly) %></td>
                     <td>
                       <% begin %>
-                        <%= @user_record.all.sum(:hit)/@user_record.all.sum(:batting).to_f %>
+                        <% base = @user_record.all.sum(:hit)/@user_record.all.sum(:batting).to_f %>
+                        <%= sprintf("%.3f",base) %>
                       <% rescue %>
                         0
-                      <% end %></td>
+                      <% end %>
+                    </td>
                     <td><%= @user_record.all.sum(:still) %></td>
                     <td><%= @user_record.all.sum(:error) %></td>
                   </tr>
@@ -90,11 +93,25 @@
                 </thead>
                 <tbody>
                   <tr align="center">
-                    <td></td>
+                    <td>
+                      <% begin %>
+                        <% earned_run_average = @user_record.all.sum(:earned_run)*9/@user_record.all.sum(:inning).to_f %>
+                        <%= sprintf("%.2f",earned_run_average) %>
+                      <% rescue %>
+                        0
+                      <% end %>
+                    </td>
                     <td><%= @user_record.all.sum(:inning) %></td>
                     <td><%= @user_record.all.sum(:win) %></td>
                     <td><%= @user_record.all.sum(:lose) %></td>
-                    <td></td>
+                    <td>
+                      <% begin %>
+                        <% win_rate = @user_record.all.sum(:win)/(@user_record.all.sum(:win)+@user_record.all.sum(:lose)).to_f %>
+                        <%= sprintf("%.3f",win_rate) %>
+                      <% rescue %>
+                        0
+                      <% end %>
+                    </td>
                     <td><%= @user_record.all.sum(:to_be_point) %></td>
                     <td><%= @user_record.all.sum(:earned_run) %></td>
                     <td><%= @user_record.all.sum(:to_be_strike_out) %></td>
