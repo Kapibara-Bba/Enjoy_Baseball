@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-12">
         <h2><%= @team.teamname %></h2>
+        <%= link_to "試合一覧", team_record_path(@team) %>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
           イベントを追加する
         </button>
@@ -38,41 +39,43 @@
             </div>
           </div>
         </div>
-        <%= month_calendar events: @infos do |date, infos| %>
-          <%= date.day %>
-
-          <% infos.each do |info| %>
-            <div>
-              <%= link_to info_path(info) do %>
-               <%= info.body %>
-             <% end %>
-            </div>
-          <% end %>
-        <% end %>
-
-        <div class="row member">
-          <h4>選手一覧</h4>
-        </div>
-        <table class="table table-hover table-inverse">
-          <thead>
-            <tr>
-              <th>名前 </th>
-              <th>ポジション </th>
-              <th>投打 </th>
-              <th>打率</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @team_users.each do |user| %>
-              <tr>
-                <td><%= user.name %></td>
-                <td><%= user.position %></td>
-                <td><%= user.throw %></td>
-              </tr>
+        <div class="calendar">
+          <%= month_calendar events: @infos do |date, infos| %>
+            <%= date.day %>
+            <% infos.each do |info| %>
+              <div>
+                <%= link_to info_path(info) do %>
+                 <%= info.body %>
+               <% end %>
+              </div>
             <% end %>
-          </tbody>
-        </table>
+          <% end %>
+        </div>
       </div>
+    </div>
+    <div class="row">
+      <div class="row member">
+        <h4>選手一覧</h4>
+      </div>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>名前 </th>
+            <th>ポジション </th>
+            <th>投打 </th>
+            <th>打率</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @team_users.each do |user| %>
+            <tr>
+              <td><%= user.name %></td>
+              <td><%= user.position %></td>
+              <td><%= user.throw %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
