@@ -13,14 +13,28 @@ class RecordsController < ApplicationController
       "batting","hit","homerun","two_base_hit","three_base_hit","dot","homein",
       "strike_out","ball","bunt","sacrifice_fly","still","error"
     ].map { |c| "sum(records.#{c}) as sum_#{c}"}.join(",")
-    
+
     @users = User.joins(:records).group("records.user_id").select("users.*, records.*, #{sum_columns}, #{calculate_method}").order("#{calculate_method} DESC")
     #@users = @user.records
     @records = Record.all
   end
 
   def pitch_index
-    @user = User.all
+    search_column = record_params[:search_column]
+    if search_column.nil?
+      search_column = "win"
+    end
+    calculate_method = "sum(records.#{search_column})"
+    calculate_method = "(records.earned_run*9/records.inning)" if search_column == 'earned_run_average'
+    calculate_method = "(records.win/(records.win+records.lose))" if search_column == 'win_rate'
+    # 配列を作る
+    sum_columns = [
+      "inning","win","lose","to_be_point","earned_run","to_be_strike_out",
+      "to_be_hit","to_be_homerun","to_be_ball"
+    ].map { |c| "sum(records.#{c}) as sum_#{c}"}.join(",")
+
+    @users = User.joins(:records).group("records.user_id").select("users.*, records.*, #{sum_columns}, #{calculate_method}").order("#{calculate_method} DESC")
+    #@users = @user.records
     @records = Record.all
   end
 
@@ -43,15 +57,6 @@ class RecordsController < ApplicationController
     end
   end
 
-  def update
-    @record =
-    if @record.update(record_params)
-      #@records.batter_record = params[:batter_record]
-      redirect_to records_batter_path
-    else
-      render 'users#show'
-    end
-  end
 
   private
   def record_params

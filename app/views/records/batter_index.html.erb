@@ -41,7 +41,8 @@
           </thead>
           <tbody>
             <% @users.each do |user| %>
-              <% average = user.hit/user.batting.to_f %>
+              <% average = user.sum_hit/user.sum_batting.to_f %>
+              <% base = (user.sum_hit+user.ball)/(user.sum_batting+user.sum_ball+user.sum_sacrifice_fly).to_f %>
               <tr align="center">
                 <td></td>
                 <td><%= user.name %></td>
@@ -58,9 +59,9 @@
                 <td><%= user.sum_ball %></td>
                 <td><%= user.sum_bunt %></td>
                 <td><%= user.sum_sacrifice_fly %></td>
-                <td></td>
-                <td><%= user.still %></td>
-                <td><%= user.error %></td>
+                <td><%= sprintf("%.3f",base) %></td>
+                <td><%= user.sum_still %></td>
+                <td><%= user.sum_error %></td>
               </tr>
             <% end %>
           </tbody>
