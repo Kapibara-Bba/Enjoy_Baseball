@@ -21,6 +21,14 @@ class InfosController < ApplicationController
 
   end
 
+  def map
+    results = Geocoder.search(params[:location])
+    @latlng = results.first.coordinates
+    respond_to do |format|
+    format.js
+    end
+  end
+
   def edit
     @info = Info.find(params[:id])
   end
@@ -38,6 +46,6 @@ class InfosController < ApplicationController
 
   private
   def info_params
-    params.require(:info).permit(:team_id, :body, :start_time, :location)
+    params.permit(:team_id, :body, :start_time, :location)
   end
 end
