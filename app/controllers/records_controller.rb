@@ -7,10 +7,15 @@ class RecordsController < ApplicationController
     end
     calculate_method = "sum(records.#{search_column})"
     calculate_method = "(records.hit/records.batting)" if search_column == 'average'
-    #calculate_method = "(records."
-    # もし出塁率で並べるならここにうえと同じ処理をかく
-    @user = User.joins(:records).group("records.user_id").select("users.*, records.*, #{calculate_method}").order("#{calculate_method} DESC")
-    @users = @user.records
+    calculate_method = "((records.hit+records.ball)/(records.batting+records.ball+records.sacrifice_fly))" if search_column == 'base'
+    # 配列を作る
+    sum_columns = [
+      "batting","hit","homerun","two_base_hit","three_base_hit","dot","homein",
+      "strike_out","ball","bunt","sacrifice_fly","still","error"
+    ].map { |c| "sum(records.#{c}) as sum_#{c}"}.join(",")
+    
+    @users = User.joins(:records).group("records.user_id").select("users.*, records.*, #{sum_columns}, #{calculate_method}").order("#{calculate_method} DESC")
+    #@users = @user.records
     @records = Record.all
   end
 

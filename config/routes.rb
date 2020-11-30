@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'records/pitch' => 'records#pitch_index'
   resources :records, only: [:new, :create, :update]
   resources :infos, only: [:new, :create, :show, :edit, :update, :destroy]
+  get '/map_request', to: 'infos#map', as: 'map_request'
   resources :team_records, only: [:show, :new, :create, :edit, :update]
 
 end
