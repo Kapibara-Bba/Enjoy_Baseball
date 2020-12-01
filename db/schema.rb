@@ -57,8 +57,6 @@ ActiveRecord::Schema.define(version: 2020_11_30_061829) do
     t.integer "earned_run"
     t.date "days"
     t.integer "user_id"
-    t.integer "batter_record"
-    t.integer "pitch_record"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
