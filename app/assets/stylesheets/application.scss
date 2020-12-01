@@ -26,13 +26,14 @@
   height: 400px;
 }
 
-.home-top {
-  background-color: gray;
-}
-
 
 header {
-  background-color: #333;
+  height: 70px;
+  background-color: maroon;
+}
+
+.logo {
+  margin-top: 50px;
 }
 
 .about {
@@ -58,6 +59,28 @@ header {
 
 .user-record {
   margin: 30px;
+}
+
+.background {
+  background-image: image-url("ball.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.record-select {
+  margin: 0 80px 0 80px;
+}
+
+.record_link {
+  margin-left: 80px;
+}
+
+.record-top {
+  margin-top: 50px;
+}
+
+.pitch {
+  background-color: #FFEEFF;
 }
 
 // 上に戻るボタン
@@ -92,7 +115,7 @@ header {
   width   : 30px;
   height  : 2px ;
   left    : 6px;
-  background : #555;
+  background : white;
 }
 .hamburger span:nth-child(1) {
   top: 10px;
@@ -143,7 +166,7 @@ nav.globalMenuSp {
 }
 
 nav.globalMenuSp ul {
-  background: #ccc;
+  background: #FFD700;
   margin: 0 auto;
   padding: 0;
   width: 100%;
