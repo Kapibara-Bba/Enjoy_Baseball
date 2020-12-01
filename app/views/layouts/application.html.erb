@@ -42,23 +42,23 @@
         </nav>
       <% end %>
     </header>
-      <% if flash[:notice] %>
-        <div class="notification is-info">
-          <p class="notice"><%= notice %></p>
-        </div>
-      <% end %>
+    <% if flash[:notice] %>
+      <div class="notification is-info">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
 
-      <% if flash[:alert] %>
-        <div class="notification is-danger">
-          <p class="alert"><%= alert %></p>
-        </div>
-      <% end %>
+    <% if flash[:alert] %>
+      <div class="notification is-danger">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
     <%= yield %>
     <!--上に戻るボタン-->
     <span id="back">
-    <a href="">
-      <%= image_tag asset_path('arrow.png'), data: {"turbolinks"=>false}, class: "arrow" %>
-    </a>
-  </span>
+      <a href="">
+        <%= image_tag asset_path('arrow.png'), data: {"turbolinks"=>false}, class: "arrow" %>
+      </a>
+    </span>
   </body>
 </html>
