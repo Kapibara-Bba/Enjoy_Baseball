@@ -6,8 +6,8 @@ class RecordsController < ApplicationController
       search_column = "batting"
     end
     calculate_method = "sum(records.#{search_column})"
-    calculate_method = "(records.hit/records.batting)" if search_column == 'average'
-    calculate_method = "((records.hit+records.ball)/(records.batting+records.ball+records.sacrifice_fly))" if search_column == 'base'
+    calculate_method = "sum(records.hit)/sum(records.batting)" if search_column == 'average'
+    calculate_method = "(sum(records.hit)+sum(records.ball))/(sum(records.batting)+sum(records.ball)+sum(records.sacrifice_fly))" if search_column == 'base'
     # 配列を作る
     sum_columns = [
       "batting","hit","homerun","two_base_hit","three_base_hit","dot","homein",
@@ -48,7 +48,7 @@ class RecordsController < ApplicationController
     @record = Record.new(record_params)
     @record.user_id = current_user.id
     #binding.pry
-    if @record.save
+    if @record.save!
       redirect_to user_path(current_user)
     else
       @records = Record.all

@@ -2,13 +2,13 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-xs-4">
-        <h2>打者記録一覧</h2>
+        <h2>投手記録一覧</h2>
       </div>
       <div class="col-xs-8">
         <%= form_with url: records_pitch_path, method: :get, local:true do |f| %>
           <%= f.select :search_column, [["防御率", "earned_run_average"], ["投球回", "inning"], ["勝", "win"], ["敗", "lose"],
             ["勝率", "win_rate"], ["失点", "to_be_point"], ["自責点", "earned_run"], ["奪三振", "to_be_strike_out"], ["被安打", "to_be_hit"],
-            ["被本塁打", "to_be_homerun"], ["与四死球", "to_be_ball"]], {prompt: "-- 記録を選択してください --"} %>
+            ["被本塁打", "to_be_homerun"], ["与四死球", "to_be_ball"]], {selected: "win"} %>
           <%= f.submit "更新する" %>
         <% end %>
       </div>

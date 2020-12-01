@@ -72,6 +72,8 @@
               <td><%= user.name %></td>
               <td><%= user.position %></td>
               <td><%= user.throw %></td>
+              <% average = user.records.all.sum(:hit)/user.records.all.sum(:batting).to_f %>
+              <td><%= sprintf("%.3f",average) %></td>
             </tr>
           <% end %>
         </tbody>

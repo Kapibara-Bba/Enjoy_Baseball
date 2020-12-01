@@ -7,7 +7,7 @@ class TeamRecordsController < ApplicationController
 
   def create
     @team_record = TeamRecord.new(team_record_params)
-    @team_record.team_id = current_user.team.id
+    @team_record.team_id = current_user.team_id
     if @team_record.save
       redirect_to team_record_path(current_user.team_id)
     else
@@ -18,6 +18,6 @@ class TeamRecordsController < ApplicationController
 
   private
   def team_record_params
-    params.require(:team_record).permit(:team_id, :days, :opponent, :result, :score)
+    params.permit(:team_id, :days, :opponent, :result, :score)
   end
 end

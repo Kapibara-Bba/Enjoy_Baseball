@@ -19,7 +19,7 @@
                 <%= form_with model:@team_record, url: team_records_path, method: :post, local:true do |f| %>
                   <div class="form_group">
                     <%= f.label :試合日 %>
-                    <%= f.date_field :created_at, class: 'form-control' %>
+                    <%= f.date_field :days, class: 'form-control' %>
                   </div>
                   <div class="form_group">
                     <%= f.label :対戦チーム %>
@@ -54,7 +54,7 @@
           <tbody>
             <% @team_records.each do |record| %>
               <tr>
-                <td><%= record.day %></td>
+                <td><%= record.days %></td>
                 <td><%= record.opponent %></td>
                 <td><%= record.score %></td>
                 <td><%= record.result %></td>
