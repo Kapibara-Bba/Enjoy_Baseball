@@ -22,7 +22,7 @@
         <nav class="globalMenuSp">
           <ul>
             <% if current_user.team_id.present? %>
-              <li><%= link_to "試合一覧", team_record_path(current_user.team_id) %></li>
+              <li><%= link_to "試合一覧", team_records_path %></li>
               <li><%= link_to "マイチーム", team_path(current_user.team_id) %></li>
             <% end %>
             <li><%= link_to "マイページ", user_path(current_user) %></li>

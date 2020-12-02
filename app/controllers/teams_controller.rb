@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
     @users = User.all
     @team_record = TeamRecord.all
     @team_records = @team.team_records
-    @team_record_new = TeamRecord.new
+    @team_record_new = TeamRecord.new(team_record_params)
   end
 
   def create
@@ -45,6 +45,10 @@ class TeamsController < ApplicationController
   private
   def team_params
     params.require(:team).permit(:teamname, :prefecture_code, :city)
+  end
+  
+  def team_record_params
+    params.permit(:team_id, :days, :opponent, :result, :team_score, :rival_score, :battery, :homerun)
   end
 
 end
