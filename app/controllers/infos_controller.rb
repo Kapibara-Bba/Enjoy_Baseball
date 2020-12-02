@@ -6,7 +6,7 @@ class InfosController < ApplicationController
 
   def create
     # @team = Team.find(params[:id])
-    @info = Info.new(info_params)
+    @info = Info.new(create_info_params)
     @infos = Info.all
     @info.team_id = current_user.team_id
     if @info.save
@@ -18,7 +18,6 @@ class InfosController < ApplicationController
 
   def show
     @info = Info.find(params[:id])
-
   end
 
   def map
@@ -36,7 +35,7 @@ class InfosController < ApplicationController
   def update
     @info = Info.find(params[:id])
     @info.team_id = current_user.team_id
-    if @info.update(info_params)
+    if @info.update(update_info_params)
       flash[:update] = "You have updated book successfully."
       redirect_to team_path(@info.team_id)
     else
@@ -45,7 +44,10 @@ class InfosController < ApplicationController
   end
 
   private
-  def info_params
+  def create_info_params
+    params.permit(:team_id, :body, :start_time, :location)
+  end
+  def update_info_params
     params.require(:info).permit(:team_id, :body, :start_time, :location)
   end
 end

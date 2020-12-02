@@ -8,10 +8,10 @@ class TeamsController < ApplicationController
 
 
   def show
-    @infos = Info.all
     @team_users = User.where(team_id: params[:id])
     @team = Team.find(params[:id])
     @users = User.all
+    @infos = @team.infos
     @team_record = TeamRecord.all
     @team_records = @team.team_records
     @team_record_new = TeamRecord.new(team_record_params)
@@ -46,7 +46,7 @@ class TeamsController < ApplicationController
   def team_params
     params.require(:team).permit(:teamname, :prefecture_code, :city)
   end
-  
+
   def team_record_params
     params.permit(:team_id, :days, :opponent, :result, :team_score, :rival_score, :battery, :homerun)
   end
