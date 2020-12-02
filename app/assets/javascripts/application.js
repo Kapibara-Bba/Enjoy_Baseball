@@ -45,10 +45,3 @@ document.addEventListener("turbolinks:load", function() {
   });
 })
 
-// 試合詳細
-$(function(){
-  $('tr[data-href]', 'table.table-clickable').on('click', function(){
-    location.href = $(this).data('href');
-  });
-});
-

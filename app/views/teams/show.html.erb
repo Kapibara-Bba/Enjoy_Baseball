@@ -1,55 +1,130 @@
 <div class="body">
   <div class="container mt-5">
     <div class="row">
+      <h2><%= @team.teamname %></h2>
       <div class="col-12">
-        <h2><%= @team.teamname %></h2>
-        <%= link_to "試合一覧", team_record_path(@team) %>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          イベントを追加する
-        </button>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">イベントを追加する</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <%= form_with model:@info, url: infos_path, method: :post do |f| %>
-                  <div class="form_group">
-                    <%= f.label :イベント名 %>
-                    <%= f.text_area :body %>
-                  </div>
-                  <div class="form_group">
-                    <%= f.label :場所 %>
-                    <%= f.text_field :location %>
-                  </div>
-                  <div class="form_group">
-                    <%= f.label :日時 %>
-                    <%= f.datetime_select :start_time %>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                    <%= f.submit "イベントを追加する", class: 'btn btn-primary' %>
-                  </div>
-                <% end %>
+        <div class="event">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            イベントを追加する
+          </button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">イベントを追加する</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= form_with model:@info, url: infos_path, method: :post do |f| %>
+                    <div class="form_group">
+                      <%= f.label :イベント名 %>
+                      <%= f.text_area :body %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :場所 %>
+                      <%= f.text_field :location %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :日時 %>
+                      <%= f.datetime_select :start_time %>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                      <%= f.submit "イベントを追加する", class: 'btn btn-primary' %>
+                    </div>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="calendar">
-          <%= month_calendar events: @infos do |date, infos| %>
-            <%= date.day %>
-            <% infos.each do |info| %>
-              <div>
-                <%= link_to info_path(info) do %>
-                 <%= info.body %>
-               <% end %>
+        <%= month_calendar events: @infos do |date, infos| %>
+          <%= date.day %>
+          <% infos.each do |info| %>
+            <div>
+              <%= link_to info_path(info) do %>
+               <%= info.body %>
+             <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <h4>試合結果一覧</h4>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th>日にち</th>
+          <th>対戦チーム</th>
+          <th>スコア</th>
+          <th>勝敗</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @team_records.each do |record| %>
+          <tr>
+            <td><%= record.days %></td>
+            <td><%= record.opponent %></td>
+            <td><%= record.team_score %> ー <%= record.rival_score %></td>
+            <td><%= record.result %></td>
+            <td>
+              <% if record.team_id == current_user.team_id %>
+                <div class="show-btn"><%= link_to "詳細", team_record_path(record), class: 'btn btn-success' %></div>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+      試合結果を追加する
+    </button>
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">試合結果</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <%= form_with model:@team_record, url: team_records_path, method: :post, local:true do |f| %>
+              <div class="form_group">
+                <%= f.label :試合日 %>
+                <%= f.date_field :days, class: 'form-control' %>
+              </div>
+              <div class="form_group">
+                <%= f.label :対戦チーム %>
+                <%= f.text_field :opponent %>
+              </div>
+              <div class="form_group">
+                <%= f.label :スコア %>
+                <%= f.number_field :team_score, value: 0 %><br>
+                <%= f.label :相手スコア %>
+                <%= f.number_field :rival_score, value: 0, size: "10x10" %>
+              </div>
+              <div class="form_group">
+                <%= f.label :勝敗 %>
+                <%= f.select :result, TeamRecord.results.keys, {} %>
+              </div>
+              <div class="form_group">
+                <%= f.label :バッテリー %>
+                <%= f.text_area :battery %>
+              </div>
+              <div class="form_group">
+                <%= f.label :本塁打 %>
+                <%= f.text_area :homerun %>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                <%= f.submit "試合結果を追加する", class: 'btn btn-primary' %>
               </div>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
     </div>

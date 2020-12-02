@@ -2,74 +2,24 @@
   <div class="container mt-5">
     <div class="row">
       <div class="mx-auto">
-        <h2><%= @team.teamname %></h2>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-          試合結果を追加する
-        </button>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">試合結果をする</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <%= form_with model:@team_record, url: team_records_path, method: :post, local:true do |f| %>
-                  <div class="form_group">
-                    <%= f.label :試合日 %>
-                    <%= f.date_field :days, class: 'form-control' %>
-                  </div>
-                  <div class="form_group">
-                    <%= f.label :対戦チーム %>
-                    <%= f.text_field :opponent %>
-                  </div>
-                  <div class="form_group">
-                    <%= f.label :スコア %>
-                    <%= f.number_field :team_score, value: 0 %><br>
-                    <%= f.label :相手スコア %>
-                    <%= f.number_field :rival_score, value: 0, size: "10x10" %>
-                  </div>
-                  <div class="form_group">
-                    <%= f.label :勝敗 %>
-                    <%= f.select :result, TeamRecord.results.keys, {} %>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                    <%= f.submit "試合結果を追加する", class: 'btn btn-primary' %>
-                  </div>
-                <% end %>
-              </div>
-            </div>
+        <div class="row days">
+          <h3><%= @team_record.days %></h3>
+        </div>
+        <div class="score">
+          <h3><%= @team_record.team.teamname %><%= @team_record.team_score %> ー <%= @team_record.rival_score %><%= @team_record.opponent %></h3>
+        </div>
+        <div class="battery">
+          <h4>バッテリー</h4>
+          <div class="row battery-name">
+            <h6><%= @team_record.battery %></h6>
           </div>
         </div>
-        <table class="table table-hover table-inverse">
-          <thead>
-            <tr>
-              <th>日にち</th>
-              <th>対戦チーム</th>
-              <th>スコア</th>
-              <th>勝敗</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @team_records.each do |record| %>
-              <tr>
-                <td><%= record.days %></td>
-                <td><%= record.opponent %></td>
-                <td><%= record.team_score %> ー <%= record.rival_score %></td>
-                <td><%= record.result %></td>
-                <td>
-                  <% if record.team_id == current_user.team_id %>
-                    <div class="show-btn"><%= link_to "詳細", mark_team_record_path(@team), class: 'btn btn-success' %></div>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+        <div class="homerun">
+          <h4>本塁打</h4>
+          <div class="row homerun-name">
+            <h6><%= @team_record.homerun %></h6>
+          </div>
+        </div>
       </div>
     </div>
   </div>
