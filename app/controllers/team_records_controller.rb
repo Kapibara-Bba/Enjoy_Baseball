@@ -1,12 +1,17 @@
 class TeamRecordsController < ApplicationController
 
+  def index
+
+    @team_records = TeamRecord.all
+
+  end
   def show
     @team_record = TeamRecord.find(params[:id])
 
   end
 
   def create
-    @team_record = TeamRecord.new(team_record_params)
+    @team_record = TeamRecord.new(create_team_record_params)
     @team_record.team_id = current_user.team_id
     if @team_record.save
       redirect_to team_path(current_user.team_id)
@@ -22,7 +27,7 @@ class TeamRecordsController < ApplicationController
   def update
     @team_record = TeamRecord.find(params[:id])
     @team_record.team_id = current_user.team_id
-    if @team_record.update(team_record_params)
+    if @team_record.update(update_team_record_params)
       flash[:user_update] = "試合結果を変更しました"
       redirect_to team_record_path(@team_record)
     else
@@ -34,7 +39,10 @@ class TeamRecordsController < ApplicationController
   end
 
   private
-  def team_record_params
-    params.require(:team_record).permit(:team_id, :days, :opponent, :result, :team_score, :rival_score, :battery, :homerun)
+  def create_team_record_params
+    params.permit(:team_id, :days, :opponent, :team_score, :rival_score, :result, :battery, :homerun)
+  end
+  def update_team_record_params
+    params.require(:team_record).permit(:team_id, :days, :opponent, :team_score, :rival_score, :result, :battery, :homerun)
   end
 end

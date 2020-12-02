@@ -71,9 +71,9 @@
             <td><%= record.team_score %> ー <%= record.rival_score %></td>
             <td><%= record.result %></td>
             <td>
-              <% if record.team_id == current_user.team_id %>
-                <div class="show-btn"><%= link_to "詳細", team_record_path(record), class: 'btn btn-success' %></div>
-              <% end %>
+              <div class="show-btn">
+                <%= link_to "詳細", team_record_path(record), class: 'btn btn-success' %>
+              </div>
             </td>
           </tr>
         <% end %>
@@ -92,7 +92,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <%= form_with url: team_records_path, method: :post, local:true do |f| %>
+            <%= form_with url: team_records_path, local:true do |f| %>
               <div class="form_group">
                 <%= f.label :試合日 %>
                 <%= f.date_field :days, class: 'form-control' %>
@@ -105,7 +105,7 @@
                 <%= f.label :スコア %>
                 <%= f.number_field :team_score, value: 0 %><br>
                 <%= f.label :相手スコア %>
-                <%= f.number_field :rival_score, value: 0, size: "10x10" %>
+                <%= f.number_field :rival_score, value: 0 %>
               </div>
               <div class="form_group">
                 <%= f.label :勝敗 %>
