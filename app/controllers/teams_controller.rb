@@ -12,8 +12,9 @@ class TeamsController < ApplicationController
     @team_users = User.where(team_id: params[:id])
     @team = Team.find(params[:id])
     @users = User.all
-    @team_record = TeamRecord.find(params[:id])
+    @team_record = TeamRecord.all
     @team_records = @team.team_records
+    @team_record_new = TeamRecord.new
   end
 
   def create

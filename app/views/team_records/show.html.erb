@@ -8,17 +8,69 @@
         <div class="score">
           <h3><%= @team_record.team.teamname %><%= @team_record.team_score %> ー <%= @team_record.rival_score %><%= @team_record.opponent %></h3>
         </div>
-        <div class="battery">
-          <h4>バッテリー</h4>
-          <div class="row battery-name">
-            <h6><%= @team_record.battery %></h6>
-          </div>
+        <div class="game-result">
+          <table class="table table-hover table-inverse">
+            <tr>
+              <td><h4>バッテリー</h4></td>
+              <td><h4><%= @team_record.battery %></h4></td>
+            </tr>
+            <tr>
+              <td><h4>本塁打</h4></td>
+              <td><h4><%= @team_record.homerun %></h4></td>
+            </tr>
+          </table>
         </div>
-        <div class="homerun">
-          <h4>本塁打</h4>
-          <div class="row homerun-name">
-            <h6><%= @team_record.homerun %></h6>
+        <div class="row result-btn">
+          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">
+            編集する
+          </button>
+          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">試合結果</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= form_with model:@team_record, url: team_record_path(@team_record), method: :patch, local:true do |f| %>
+                    <div class="form_group">
+                      <%= f.label :試合日 %>
+                      <%= f.date_field :days, class: 'form-control' %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :対戦チーム %>
+                      <%= f.text_field :opponent %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :スコア %>
+                      <%= f.number_field :team_score %><br>
+                      <%= f.label :相手スコア %>
+                      <%= f.number_field :rival_score %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :勝敗 %>
+                      <%= f.select :result, TeamRecord.results.keys, {} %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :バッテリー %>
+                      <%= f.text_area :battery %>
+                    </div>
+                    <div class="form_group">
+                      <%= f.label :本塁打 %>
+                      <%= f.text_area :homerun %>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                      <%= f.submit "試合結果を変更する", class: 'btn btn-primary' %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
+          <%= link_to "削除する", team_record_path(@team_record), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger' %>
         </div>
       </div>
     </div>
