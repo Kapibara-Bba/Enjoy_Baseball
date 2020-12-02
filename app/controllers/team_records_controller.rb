@@ -36,6 +36,9 @@ class TeamRecordsController < ApplicationController
   end
 
   def destroy
+    @team_record = TeamRecord.find(params[:id])
+    @team_record.destroy
+    redirect_to team_path(current_user.team_id)
   end
 
   private
