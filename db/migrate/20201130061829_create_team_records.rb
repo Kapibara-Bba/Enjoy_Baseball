@@ -5,7 +5,8 @@ class CreateTeamRecords < ActiveRecord::Migration[5.2]
       t.string :opponent
       t.integer :result
       t.date :days
-      t.integer :score
+      t.integer :team_score
+      t.integer :rival_score
       t.integer :team_id
       t.timestamps
     end

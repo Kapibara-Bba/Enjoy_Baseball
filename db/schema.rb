@@ -65,7 +65,8 @@ ActiveRecord::Schema.define(version: 2020_11_30_061829) do
     t.string "opponent"
     t.integer "result"
     t.date "days"
-    t.integer "score"
+    t.integer "team_score"
+    t.integer "rival_score"
     t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

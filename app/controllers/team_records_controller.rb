@@ -15,9 +15,21 @@ class TeamRecordsController < ApplicationController
     end
   end
 
+  def mark
+    @team = Team.find(params[:id])
+    @team_record = TeamRecord.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+
 
   private
   def team_record_params
-    params.permit(:team_id, :days, :opponent, :result, :score)
+    params.permit(:team_id, :days, :opponent, :result, :team_score, :rival_score)
   end
 end
