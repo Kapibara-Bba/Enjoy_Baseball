@@ -62,7 +62,7 @@
     <!-- buttonをクリックしたらcodeAddressを実行　-->
     <input type="button" value="検索" onclick="codeAddress()">
     <div id='map'>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIr6O_poAU8-arILUvApsFuc_cEg8vSnQ&callback=initMap" async defer></script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["API_KEY"]%>&callback=initMap" async defer></script>
       <script>
         let map
         let geocoder
