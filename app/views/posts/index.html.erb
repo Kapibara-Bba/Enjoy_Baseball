@@ -2,12 +2,11 @@
   <div class="container mt-5">
     <div class="row">
       <div class="col-xs-12">
-        <h2><%= @team.teamname %></h2>
+
         <div class="row">
           <div class="comment-form">
-            <%= form_with model:@post do |f| %>
+            <%= form_with model:@post, url: team_posts_path, local:true do |f| %>
             <div class="row">
-              <%= attachment_image_tag @post, :image, fallback: 'no_image.jpg', class: 'center-block img_prev'%>
               <%= f.attachment_field :image, class: 'img_field' %>
               <%= f.text_area :comment, rows:'5', class: "form-control" %>
               <%= f.submit "送信", class: 'btn btn-primary' %>
