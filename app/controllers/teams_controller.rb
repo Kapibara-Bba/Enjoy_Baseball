@@ -3,9 +3,9 @@ class TeamsController < ApplicationController
   def new
     @teams = Team.all
     @team = Team.new
-
   end
-
+  
+  
 
   def show
     @team_users = User.where(team_id: params[:id])

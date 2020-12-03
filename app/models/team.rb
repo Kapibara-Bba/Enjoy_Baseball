@@ -2,7 +2,9 @@ class Team < ApplicationRecord
 
    has_many :infos, dependent: :destroy
    has_many :team_records, dependent: :destroy
+   has_many :posts, dependent: :destroy
    # belongs_to :user, optional: true
+   include JpPrefecture
 
    validates :teamname, presence: true
 

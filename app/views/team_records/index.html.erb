@@ -3,6 +3,10 @@
     <div class="row">
       <div class="col-xs-12">
         <h2>試合結果一覧</h2>
+        <%= search_form_for @q do |f| %>
+          <%= f.search_field :team_teamname_or_opponent_cont, placeholder: "チーム名", class: "form-control" %>
+          <%= f.submit "検索", class: 'btn btn-primary' %>
+        <% end %>
       </div>
     </div>
     <div class="game-index">
@@ -10,16 +14,17 @@
         <thead>
           <tr>
             <th>日にち</th>
+            <th>チーム名</th>
             <th>対戦チーム</th>
             <th>スコア</th>
             <th>勝敗</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
           <% @team_records.each do |record| %>
             <tr>
               <td><%= record.days %></td>
+              <td><%= record.team.teamname %></td>
               <td><%= record.opponent %></td>
               <td><%= record.team_score %> ー <%= record.rival_score %></td>
               <td><%= record.result %></td>

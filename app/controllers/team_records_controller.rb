@@ -1,10 +1,12 @@
 class TeamRecordsController < ApplicationController
 
   def index
-
+    @teams = Team.all
     @team_records = TeamRecord.all
-
+    @q = TeamRecord.ransack(params[:q])
+    @team_records = @q.result
   end
+
   def show
     @team_record = TeamRecord.find(params[:id])
 
@@ -42,10 +44,12 @@ class TeamRecordsController < ApplicationController
   end
 
   private
-  def create_team_record_params
-    params.permit(:team_id, :days, :opponent, :team_score, :rival_score, :result, :battery, :homerun)
-  end
-  def update_team_record_params
-    params.require(:team_record).permit(:team_id, :days, :opponent, :team_score, :rival_score, :result, :battery, :homerun)
-  end
+    def create_team_record_params
+      params.permit(:team_id, :days, :opponent, :team_score, :rival_score, :result, :battery, :homerun)
+    end
+
+    def update_team_record_params
+      params.require(:team_record).permit(:team_id, :days, :opponent, :team_score, :rival_score, :result, :battery, :homerun)
+    end
+
 end
