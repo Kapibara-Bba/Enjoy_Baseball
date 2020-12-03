@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
-  
-  def show
-    @team = Team.find(params[:id])
-    @posts = @team.posts
+
+  def index
+    @posts = Post.all
+    @post = Post.new
   end
-  
+
   def create
     @post = Post.new(post_params)
     @post.team_id = current_user.team_id
@@ -14,16 +14,16 @@ class PostsController < ApplicationController
       render :show
     end
   end
-  
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to post_path(current_user.team_id)
   end
-  
+
   private
   def post_params
-    params.permit(:team_id, :image, :comment, :user_id)
+    params.permit(:image, :comment)
   end
-  
+
 end
