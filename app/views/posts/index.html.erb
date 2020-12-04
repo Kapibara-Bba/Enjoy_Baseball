@@ -3,26 +3,44 @@
     <div class="row">
       <div class="mx-auto">
         <table>
-          <tr>
-            <td>
-              <% @posts.each do |post| %>
+          <% @posts.each do |post| %>
+            <tr>
+              <td class="post-comment">
                 <%= link_to user_path(post.user) do %>
                   <%= attachment_image_tag post.user, :image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %>
                   <%= post.user.name %>
                 <% end %>
                 <%= post.comment %>
-              <% end %>
-            </td>
-          </tr>
+              </td>
+            </tr>
+          <% end %>
+          <% @posts.each do |post| %>
+            <tr>
+              <td class="post-image">
+                <%= link_to user_path(post.user) do %>
+                  <%= attachment_image_tag post.user, :image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %>
+                  <%= post.user.name %>
+                <% end %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= attachment_image_tag post, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200' %>
+              </td>
+            </tr>
+          <% end %>
         </table>
         <div class="row">
           <div class="comment-form">
             <%= form_with model:@post, url: team_posts_path, local:true do |f| %>
             <div class="row">
-              <%= f.attachment_field :image, class: 'img_field' %>
-              <%= f.text_area :comment, rows:'5', class: "form-control" %>
-              <%= f.submit "送信", class: 'btn btn-primary' %>
-            </div>
+              <%= f.text_area :comment, class: "form-control", size: "1x1" %>
+              <%= f.label :image, for: "file-input", class: "fas fa-image" do %>
+              　<%= f.file_field :image, id: "file-input", style: "display: none;" %>
+              <% end %>
+              <%= f.label :image, for: "submit", class: "fas fa-paper-plane" do %>
+              <%= f.submit style: "display: none;" %>
+              <% end %>
             <% end %>
           </div>
         </div>
