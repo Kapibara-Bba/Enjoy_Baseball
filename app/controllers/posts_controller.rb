@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
 
   def index
+    # @team = Team.find(params[:id])
     @posts = Post.all
     @post = Post.new
+    @post_images = PostImage.all
+    @post_image = PostImage.new
 
   end
 
@@ -26,7 +29,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:comment)
+    params.require(:post).permit(:comment, :image)
   end
 
 end
