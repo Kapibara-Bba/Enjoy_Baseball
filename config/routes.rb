@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :teams, only: [:show, :new, :create, :edit, :update] do
     resources :posts, only: [:index, :create, :destroy]
+    resource :post_images, [:create, :destroy]
   end
   resources :users, only: [:index, :show, :edit, :update]
   get 'records/batter' => 'records#batter_index'
