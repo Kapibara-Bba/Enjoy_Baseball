@@ -1,8 +1,20 @@
 <div class="body">
-  <div class="container mt-5">
+  <div class="container">
     <div class="row">
-      <div class="col-xs-12">
-
+      <div class="mx-auto">
+        <table>
+          <tr>
+            <td>
+              <% @posts.each do |post| %>
+                <%= link_to user_path(post.user) do %>
+                  <%= attachment_image_tag post.user, :image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %>
+                  <%= post.user.name %>
+                <% end %>
+                <%= post.comment %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
         <div class="row">
           <div class="comment-form">
             <%= form_with model:@post, url: team_posts_path, local:true do |f| %>
