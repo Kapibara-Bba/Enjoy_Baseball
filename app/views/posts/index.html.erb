@@ -1,7 +1,33 @@
 <div class="body">
-  <div class="container">
+  <div class="container mt-5">
     <div class="row">
-      <div class="mx-auto">
+      <div class="col-xs-3 mx-auto">
+        <div class="row member">
+          <h4>選手一覧</h4>
+        </div>
+        <table class="table table-hover table-inverse">
+          <thead>
+            <tr>
+              <th>名前 </th>
+              <th>ポジション </th>
+              <th>投打 </th>
+              <th>打率</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= user.position %></td>
+                <td><%= user.throw %></td>
+                <% average = user.records.all.sum(:hit)/user.records.all.sum(:batting).to_f %>
+                <td><%= sprintf("%.3f",average) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-xs-9 mx-auto">
         <table>
           <% @posts.each do |post| %>
             <tr>
@@ -11,21 +37,7 @@
                   <%= post.user.name %>
                 <% end %>
                 <%= post.comment %>
-              </td>
-            </tr>
-          <% end %>
-          <% @posts.each do |post| %>
-            <tr>
-              <td class="post-image">
-                <%= link_to user_path(post.user) do %>
-                  <%= attachment_image_tag post.user, :image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %>
-                  <%= post.user.name %>
-                <% end %>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <%= attachment_image_tag post, :image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200' %>
+                <%= attachment_image_tag post, :image, :fill, 200, 200, format: 'jpeg' %>
               </td>
             </tr>
           <% end %>
@@ -38,9 +50,10 @@
               <%= f.label :image, for: "file-input", class: "fas fa-image" do %>
               　<%= f.file_field :image, id: "file-input", style: "display: none;" %>
               <% end %>
-              <%= f.label :image, for: "submit", class: "fas fa-paper-plane" do %>
-              <%= f.submit style: "display: none;" %>
+              <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
+                <i class="fas fa-paper-plane"></i>
               <% end %>
+            </div>
             <% end %>
           </div>
         </div>

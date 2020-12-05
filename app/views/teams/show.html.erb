@@ -147,7 +147,10 @@
         <tbody>
           <% @team_users.each do |user| %>
             <tr>
-              <td><%= user.name %></td>
+              <td><%= link_to user_path(user) do %>
+                <%= user.name %>
+                <% end %>
+              </td>
               <td><%= user.position %></td>
               <td><%= user.throw %></td>
               <% average = user.records.all.sum(:hit)/user.records.all.sum(:batting).to_f %>
