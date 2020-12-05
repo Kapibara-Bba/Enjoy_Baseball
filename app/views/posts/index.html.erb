@@ -45,15 +45,17 @@
         <div class="row">
           <div class="comment-form">
             <%= form_with model:@post, url: team_posts_path, local:true do |f| %>
-            <div class="row">
-              <%= f.text_area :comment, class: "form-control", size: "1x1" %>
-              <%= f.label :image, for: "file-input", class: "fas fa-image" do %>
-              　<%= f.file_field :image, id: "file-input", style: "display: none;" %>
-              <% end %>
-              <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
-                <i class="fas fa-paper-plane"></i>
-              <% end %>
-            </div>
+              <div clss="comment">
+                <%= f.text_area :comment, class: "form-control", size: "1x1" %>
+              </div>
+              <div class="icon">
+                <%= f.label :image, for: "file-input", class: "fas fa-image" do %>
+                　<%= f.file_field :image, id: "file-input", style: "display: none;" %>
+                <% end %>
+                <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
+                  <i class="fas fa-paper-plane"></i>
+                <% end %>
+              </div>
             <% end %>
           </div>
         </div>
