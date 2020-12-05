@@ -1,65 +1,63 @@
-<div class="pitch">
-  <div class="body">
-    <div class="container">
-      <div class="row record">
-        <div class="col-xs-4">
-          <h2>投手記録一覧</h2>
-        </div>
-        <div class="col-xs-8 record-select">
-          <%= form_with url: records_pitch_path, method: :get, local:true do |f| %>
-            <%= f.select :search_column, [["防御率", "earned_run_average"], ["投球回", "inning"], ["勝数", "win"], ["敗数", "lose"],
-              ["勝率", "win_rate"], ["失点", "to_be_point"], ["自責点", "earned_run"], ["奪三振", "to_be_strike_out"], ["被安打", "to_be_hit"],
-              ["被本塁打", "to_be_homerun"], ["与四死球", "to_be_ball"]], {selected: "win"} %>
-            <%= f.submit "更新する" %>
-          <% end %>
-        </div>
-        <div class="record_link">
-          <p><%= link_to "打撃成績一覧へ", records_batter_path %><p>
-        </div>
+<div class="body">
+  <div class="container mt-5">
+    <div class="row record">
+      <div class="col-xs-4">
+        <h2>投手記録一覧</h2>
       </div>
-      <div class="row">
-        <table class="table table-hover table-inverse">
-          <thead>
-            <tr align="center">
+      <div class="col-xs-8 record-select">
+        <%= form_with url: records_pitch_path, method: :get, local:true do |f| %>
+          <%= f.select :search_column, [["防御率", "earned_run_average"], ["投球回", "inning"], ["勝数", "win"], ["敗数", "lose"],
+            ["勝率", "win_rate"], ["失点", "to_be_point"], ["自責点", "earned_run"], ["奪三振", "to_be_strike_out"], ["被安打", "to_be_hit"],
+            ["被本塁打", "to_be_homerun"], ["与四死球", "to_be_ball"]], {selected: "win"} %>
+          <%= f.submit "更新する" %>
+        <% end %>
+      </div>
+      <div class="record_link">
+        <p><%= link_to "打撃成績一覧へ", records_batter_path %><p>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr align="center">
 
-              <th>名前</th>
-              <th>試合</th>
-              <th>防御率</th>
-              <th>投球回</th>
-              <th>勝</th>
-              <th>敗</th>
-              <th>勝率</th>
-              <th>失点</th>
-              <th>自責点</th>
-              <th>奪三振</th>
-              <th>被安打</th>
-              <th>被本塁打</th>
-              <th>与四死球</th>
+            <th>名前</th>
+            <th>試合</th>
+            <th>防御率</th>
+            <th>投球回</th>
+            <th>勝</th>
+            <th>敗</th>
+            <th>勝率</th>
+            <th>失点</th>
+            <th>自責点</th>
+            <th>奪三振</th>
+            <th>被安打</th>
+            <th>被本塁打</th>
+            <th>与四死球</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr align="center">
+            <% earned_run_average = user.sum_earned_run*9/user.sum_inning.to_f %>
+            <% win_rate = user.sum_win/(user.sum_win+user.sum_lose).to_f %>
+              <td><%= user.name %></td>
+              <td><%= user.records.all.sum(:game) %></td>
+              <td><%= sprintf("%.2f",earned_run_average) %></td>
+              <td><%= user.sum_inning %></td>
+              <td><%= user.sum_win %></td>
+              <td><%= user.sum_lose %></td>
+              <td><%= sprintf("%.3f",win_rate) %></td>
+              <td><%= user.sum_to_be_point %></td>
+              <td><%= user.sum_earned_run %></td>
+              <td><%= user.sum_to_be_strike_out %></td>
+              <td><%= user.sum_to_be_hit %></td>
+              <td><%= user.sum_to_be_homerun %></td>
+              <td><%= user.sum_to_be_ball %></td>
             </tr>
-          </thead>
-          <tbody>
-            <% @users.each do |user| %>
-              <tr align="center">
-              <% earned_run_average = user.sum_earned_run*9/user.sum_inning.to_f %>
-              <% win_rate = user.sum_win/(user.sum_win+user.sum_lose).to_f %>
-                <td><%= user.name %></td>
-                <td><%= user.records.all.sum(:game) %></td>
-                <td><%= sprintf("%.2f",earned_run_average) %></td>
-                <td><%= user.sum_inning %></td>
-                <td><%= user.sum_win %></td>
-                <td><%= user.sum_lose %></td>
-                <td><%= sprintf("%.3f",win_rate) %></td>
-                <td><%= user.sum_to_be_point %></td>
-                <td><%= user.sum_earned_run %></td>
-                <td><%= user.sum_to_be_strike_out %></td>
-                <td><%= user.sum_to_be_hit %></td>
-                <td><%= user.sum_to_be_homerun %></td>
-                <td><%= user.sum_to_be_ball %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

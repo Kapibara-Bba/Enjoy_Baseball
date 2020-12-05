@@ -5,8 +5,11 @@
         <h2><%= @user.name %></h2>
       </div>
       <div class="col-xs-7">
+        <%= @team.teamname %>
+        <% if @user == current_user %>
         <h4><%= @user.throw %> <%= @user.position %></h4>
         <%= link_to "プロフィール編集", edit_user_path(current_user), class: "col-xs-12 btn btn-success" %>
+        <% end %>
       </div>
         <div class="row records">
           <div class="user-record">
@@ -126,6 +129,7 @@
         </div>
       </div>
     </div>
+    <% if @user == current_user %>
     <div class="new-record">
       <div class="row">
         <div class="mx-auto">
@@ -253,5 +257,6 @@
         </div>
       </div>
     </div>
+    <% end %>
   </div>
 </div>

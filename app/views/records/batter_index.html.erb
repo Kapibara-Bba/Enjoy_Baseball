@@ -23,6 +23,7 @@
           <thead>
             <tr align="center">
               <th>順位</th>
+              <th></th>
               <th>名前</th>
               <th>打率</th>
               <th>打数</th>
@@ -47,10 +48,8 @@
               <% base = (user.sum_hit+user.ball)/(user.sum_batting+user.sum_ball+user.sum_sacrifice_fly).to_f %>
               <tr align="center">
                 <td><%= i %></td>
-                <td><%= link_to user_path() do %>
-                    <%= user.name %>
-                    <% end %>
-                </td>
+                <td><%= attachment_image_tag user, :image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %></td>
+                <td><%= user.name %></td>
                 <td><%= sprintf("%.3f",average) %></td>
                 <td><%= user.sum_batting %></td>
                 <td><%= user.sum_hit %></td>

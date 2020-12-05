@@ -24,7 +24,7 @@
           <% @team_records.each do |record| %>
             <tr>
               <td><%= record.days %></td>
-              <td><%= link_to team_path(record) do %>
+              <td><%= link_to team_path(record.team) do %>
                   <%= record.team.teamname %>
                   <% end %>
               </td>

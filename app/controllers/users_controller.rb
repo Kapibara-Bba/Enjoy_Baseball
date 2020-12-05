@@ -2,12 +2,12 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    # @team = Team.find(params[:id])
     # @user_team = current_user.team
   end
 
   def show
     @user = User.find(params[:id])
+    @team = Team.find_by(id: params[:id])
     @records = Record.all
     @user_record = @user.records
     @record = Record.new
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @teams = Team.all
     # if @user.id != current_user.id
     #   redirect_to user_path(current_user)
     # end
@@ -23,6 +24,7 @@ class UsersController < ApplicationController
   def update
    @user = User.find(params[:id])
     if @user.update(user_params)
+      @user.team_id = current_user.team_id
       flash[:user_update] = "プロフィールの変更に成功しました"
       redirect_to user_path(@user)
     else
@@ -30,9 +32,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    current_user.destroy
+    flash[:success] = 'ユーザーを削除しました。'
+    redirect_to :root #削除に成功すればrootページに戻る
+  end
+
 
   private
   def user_params
-    params.require(:user).permit(:name, :image, :team, :position, :throw)
+    params.require(:user).permit(:name, :image, :team_id, :position, :throw)
   end
 end
