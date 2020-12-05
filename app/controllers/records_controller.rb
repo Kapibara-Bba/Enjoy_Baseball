@@ -13,9 +13,9 @@ class RecordsController < ApplicationController
       "batting","hit","homerun","two_base_hit","three_base_hit","dot","homein",
       "strike_out","ball","bunt","sacrifice_fly","still","error"
     ].map { |c| "sum(records.#{c}) as sum_#{c}"}.join(",")
-
+    
     @users = User.joins(:records).group("records.user_id").select("users.*, records.*, #{sum_columns}, #{calculate_method}").order("#{calculate_method} DESC")
-  　
+
     @records = Record.all
   end
 

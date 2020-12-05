@@ -11,9 +11,8 @@ Rails.application.routes.draw do
   end
   resources :teams, only: [:show, :new, :create, :edit, :update] do
     resources :posts, only: [:index, :create, :destroy]
-    resources :post_images, only: [:create, :destroy]
   end
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
   get 'records/batter' => 'records#batter_index'
   get 'records/pitch' => 'records#pitch_index'
   resources :records, only: [:new, :create, :update]

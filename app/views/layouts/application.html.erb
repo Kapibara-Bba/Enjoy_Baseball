@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <header>
       <div class="hamburger">
         <span></span>
@@ -29,6 +29,7 @@
             <li><%= link_to "打撃成績一覧", records_batter_path %></li>
             <li><%= link_to "投手成績一覧", records_pitch_path %></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "退会する",user_path(current_user.id), method: :delete, "data-confirm" => "本当に退会しますか？", class: 'btn btn-danger' %></li>
           </ul>
         </nav>
       <% else %>

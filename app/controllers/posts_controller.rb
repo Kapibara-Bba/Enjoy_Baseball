@@ -1,13 +1,12 @@
 class PostsController < ApplicationController
 
   def index
-    # @team = Team.find(params[:id])
     @users = User.all
-    @team_users = User.where(team_id: params[:id])
+    @team_users = User.where(team_id: params[:team_id])
+    #@team = Team.find(params[:id])
+    #@team_post = @team.posts
     @posts = Post.all
     @post = Post.new
-    # @post_images = PostImage.all
-    # @post_image = PostImage.new
 
   end
 
