@@ -22,9 +22,8 @@
         <table class="table table-hover table-inverse">
           <thead>
             <tr align="center">
-              <th>チーム名</th>
+              <th>順位</th>
               <th>名前</th>
-              <th>試合</th>
               <th>打率</th>
               <th>打数</th>
               <th>安打</th>
@@ -43,13 +42,15 @@
             </tr>
           </thead>
           <tbody>
-            <% @users.each do |user| %>
+            <% @users.each.with_index(1) do |user, i| %>
               <% average = user.sum_hit/user.sum_batting.to_f %>
               <% base = (user.sum_hit+user.ball)/(user.sum_batting+user.sum_ball+user.sum_sacrifice_fly).to_f %>
               <tr align="center">
-                <td></td>
-                <td><%= user.name %></td>
-                <td><%= user.game %></td>
+                <td><%= i %></td>
+                <td><%= link_to user_path() do %>
+                    <%= user.name %>
+                    <% end %>
+                </td>
                 <td><%= sprintf("%.3f",average) %></td>
                 <td><%= user.sum_batting %></td>
                 <td><%= user.sum_hit %></td>

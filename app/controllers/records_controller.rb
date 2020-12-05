@@ -15,7 +15,7 @@ class RecordsController < ApplicationController
     ].map { |c| "sum(records.#{c}) as sum_#{c}"}.join(",")
 
     @users = User.joins(:records).group("records.user_id").select("users.*, records.*, #{sum_columns}, #{calculate_method}").order("#{calculate_method} DESC")
-    #@users = @user.records
+  　
     @records = Record.all
   end
 

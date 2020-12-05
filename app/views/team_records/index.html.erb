@@ -24,7 +24,10 @@
           <% @team_records.each do |record| %>
             <tr>
               <td><%= record.days %></td>
-              <td><%= record.team.teamname %></td>
+              <td><%= link_to team_path(record) do %>
+                  <%= record.team.teamname %>
+                  <% end %>
+              </td>
               <td><%= record.opponent %></td>
               <td><%= record.team_score %> ー <%= record.rival_score %></td>
               <td><%= record.result %></td>
