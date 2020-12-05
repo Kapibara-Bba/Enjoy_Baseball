@@ -96,19 +96,27 @@ header {
   margin-top: 50px;
 }
 
-.post-comment {
-  margin: 15px auto;
+.comment-form {
+  display: inline-block;
 }
-.post-image {
+
+.post-comment {
   margin: 15px auto;
 }
 
 .fa-image {
-  font-size: 35px;
+  font-size: 60px;
 }
 
 .fa-paper-plane {
-  font-size: 35px;
+  display: inline-block;
+  padding: 0;
+  font-size: 40px;
+}
+
+.post-comment {
+  display: inline-block;
+  padding: 15px;
 }
 
 // 上に戻るボタン

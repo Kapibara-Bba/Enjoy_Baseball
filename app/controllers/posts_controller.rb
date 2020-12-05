@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     @team_users = User.where(team_id: params[:team_id])
     #@team = Team.find(params[:id])
     #@team_post = @team.posts
-    @posts = Post.all
+    @posts = Post.where(team_id: params[:team_id])
     @post = Post.new
 
   end

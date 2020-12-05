@@ -8,7 +8,7 @@ class Team < ApplicationRecord
    belongs_to :user
    include JpPrefecture
 
-   validates :teamname, presence: true
+   validates :team, presence: true
 
    def team_address
       teamname + ' ' + prefecture_code + city
