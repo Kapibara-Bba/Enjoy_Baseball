@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @teams = Team.all
@@ -24,10 +25,13 @@ class TeamsController < ApplicationController
       redirect_to team_path(@team)
     else
       @team = Team.new(team_params)
-      @team.save
+      if @team.save
       @user = current_user
       @user.update!(team_id: @team.id)
-      redirect_to team_path(@team)
+        redirect_to team_path(@team)
+      else
+        render 'new'
+      end
     end
   end
 

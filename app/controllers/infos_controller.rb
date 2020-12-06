@@ -1,4 +1,5 @@
 class InfosController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @info = Info.new
