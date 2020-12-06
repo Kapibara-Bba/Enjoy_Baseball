@@ -4,7 +4,7 @@ class Team < ApplicationRecord
    has_many :team_records, dependent: :destroy
    has_many :posts, dependent: :destroy
    
-   belongs_to :user
+   #belongs_to :user
    # has_one :user
    include JpPrefecture
 

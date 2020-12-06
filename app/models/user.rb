@@ -22,7 +22,7 @@ class User < ApplicationRecord
    has_many :comments, dependent: :destroy
    has_many :records, dependent: :destroy
    has_many :posts, dependent: :destroy
-   has_many :teams, dependent: :destroy
+   #has_many :teams, dependent: :destroy
 
    #belongs_to :team
 
