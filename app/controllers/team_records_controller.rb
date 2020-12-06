@@ -1,4 +1,5 @@
 class TeamRecordsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @teams = Team.all

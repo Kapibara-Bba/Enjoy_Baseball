@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
+  
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
@@ -23,7 +24,7 @@ class User < ApplicationRecord
    has_many :posts, dependent: :destroy
   # has_one :team, dependent: :destroy
 
-   belongs_to :team
+   #belongs_to :team
 
    attachment :image
 
