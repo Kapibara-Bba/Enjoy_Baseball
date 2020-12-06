@@ -17,18 +17,27 @@ class TeamsController < ApplicationController
   end
 
   def create
+    @teams = Team.all
     @user = current_user
+    pp params[:team][:team].class
     if params[:team][:team] == '0'
-      #byebug
-      @team = Team.find(params[:team][:id])
-      @user.update!(team_id: @team.id)
-      redirect_to team_path(@team)
+      # byebug
+      if params[:team][:id].present?
+        @team = Team.find(params[:team][:id])
+        if @user.update!(team_id: @team.id)
+            redirect_to team_path(@team)
+        end
+      else
+        @team = Team.new
+        @team.errors.add(:id, 'チームを選択してください')
+        render 'new'
+      end
     else
       @team = Team.new(team_params)
+      # byebug
       if @team.save
-      @user = current_user
-      @user.update!(team_id: @team.id)
-        redirect_to team_path(@team)
+         @user.update!(team_id: @team.id)
+         redirect_to team_path(@team)
       else
         render 'new'
       end
@@ -36,9 +45,18 @@ class TeamsController < ApplicationController
   end
 
   def edit
+    @team = Team.find(params[:id])
   end
 
   def update
+    @team = Team.find(params[:id])
+    if @team.update(team_params)
+      # @user.team_id = current_user.team_id
+      flash[:team_update] = "プロフィールの変更に成功しました"
+      redirect_to team_path(@team)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

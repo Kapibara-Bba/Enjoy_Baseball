@@ -3,14 +3,18 @@ class Team < ApplicationRecord
    has_many :infos, dependent: :destroy
    has_many :team_records, dependent: :destroy
    has_many :posts, dependent: :destroy
-   
-   belongs_to :user
-   # has_one :user
-   include JpPrefecture
+   has_many :users, dependent: :destroy
 
-   validates :teamname, presence: true
+   include JpPrefecture
+   attachment :team_image
 
    def team_address
       teamname + ' ' + prefecture_code + city
    end
+
+   validates :teamname, presence: true
+   validates :prefecture_code, presence: true
+   validates :city, presence: true
+   validates :team_address, presence: true
+
 end
