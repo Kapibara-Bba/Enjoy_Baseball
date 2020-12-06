@@ -86,6 +86,6 @@ gem "geocoder"
 
 gem 'ransack'
 
-# gem 'carrierwave'
-# gem 'mini_magick' 
+gem 'carrierwave'
+gem 'mini_magick' 
 
