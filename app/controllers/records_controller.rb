@@ -1,4 +1,5 @@
 class RecordsController < ApplicationController
+  before_action :authenticate_user!
 
   def batter_index
     search_column = record_params[:search_column]
