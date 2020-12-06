@@ -21,9 +21,9 @@ class User < ApplicationRecord
    has_many :comments, dependent: :destroy
    has_many :records, dependent: :destroy
    has_many :posts, dependent: :destroy
-   has_one :team, dependent: :destroy
+  # has_one :team, dependent: :destroy
 
-   #belongs_to :team
+   belongs_to :team
 
    attachment :image
 
