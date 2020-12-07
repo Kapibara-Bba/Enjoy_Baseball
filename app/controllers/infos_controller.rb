@@ -12,6 +12,7 @@ class InfosController < ApplicationController
     @info.team_id = current_user.team_id
     if @info.save
       redirect_to team_path(@info.team_id)
+      flash[:info_create] = "イベントを追加しました"
     else
       render 'users#show'
     end
@@ -37,8 +38,8 @@ class InfosController < ApplicationController
     @info = Info.find(params[:id])
     @info.team_id = current_user.team_id
     if @info.update(update_info_params)
-      flash[:update] = "You have updated book successfully."
       redirect_to team_path(@info.team_id)
+      flash[:info_update] = "イベント内容を変更しました"
     else
       render 'users#edit'
     end
