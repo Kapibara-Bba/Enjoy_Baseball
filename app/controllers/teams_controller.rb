@@ -38,6 +38,7 @@ class TeamsController < ApplicationController
       if @team.save
          @user.update!(team_id: @team.id)
          redirect_to team_path(@team)
+         flash[:team_create] = "チームの作成に成功しました"
       else
         render 'new'
       end
@@ -52,8 +53,8 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     if @team.update(team_params)
       # @user.team_id = current_user.team_id
-      flash[:team_update] = "プロフィールの変更に成功しました"
       redirect_to team_path(@team)
+      flash[:team_update] = "チームプロフィールの変更に成功しました"
     else
       render 'edit'
     end
@@ -64,7 +65,7 @@ class TeamsController < ApplicationController
 
   private
   def team_params
-    params.require(:team).permit(:teamname, :prefecture_code, :city)
+    params.require(:team).permit(:teamname, :prefecture_code, :city, :team_image)
   end
 
   def team_record_params

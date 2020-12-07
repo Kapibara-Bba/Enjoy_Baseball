@@ -61,6 +61,11 @@ header {
   margin: 30px;
 }
 
+.profile {
+  display: flex;
+  // display: inline-block;
+}
+
 .background {
   background-image: image-url("ball.jpg");
   background-size: cover;
@@ -75,10 +80,17 @@ header {
   margin-left: 80px;
 }
 
+.image {
+  border: 1px solid #656565;  /* 枠線(=円形でも記述は同じ) */
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
 .record-top {
   margin-top: 50px;
 }
-
 
 .event {
   margin-bottom: 30px;
@@ -119,6 +131,14 @@ header {
   padding: 15px;
 }
 
+.nowrap {
+  white-space: nowrap;
+}
+
+.flash {
+  color: #00DD00;
+}
+
 // 上に戻るボタン
 #back {
   position: fixed;
@@ -129,6 +149,8 @@ header {
   width:      50px;
   height:     50px;
 }
+
+
 
 /*　ハンバーガーボタン　*/
 .hamburger {
