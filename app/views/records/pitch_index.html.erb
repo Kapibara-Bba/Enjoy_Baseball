@@ -15,9 +15,10 @@
       <div class="record_link">
         <p><%= link_to "打撃成績一覧へ", records_batter_path, class: 'btn btn-info' %><p>
       </div>
+      <div class="pitch_logo"></div>
     </div>
     <div class="row">
-      <table class="table table-hover table-inverse" width="100%" style="table-layout: auto;">
+      <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFDDFF;">
         <thead>
           <tr align="center">
 
@@ -44,13 +45,33 @@
             <% earned_run_average = user.earned_run*9/user.inning.to_f %>
               <td><%= i %></td>
               <td><%= attachment_image_tag user, :image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %></td>
-              <td><span class="nowrap"><%= user.name %></span></td>
-              <td><span class="nowrap"><%= user.team.teamname %></span></td>
-              <td><span class="nowrap"><%#= sprintf("%.2f", user.earned_run_average) %></span></td>
+              <td>
+                <%= link_to user_path(user.user_id) do %>
+                  <span class="nowrap"><%= user.name %></span>
+                <% end %>
+              </td>
+              <td>
+                <%= link_to team_path(user.team_id) do %>
+                  <span class="nowrap"><%= user.team.teamname %></span>
+                <% end %>
+              </td>
+              <td>
+                <% begin %>
+                  <span class="nowrap"><%= sprintf("%.2f", user.earned_run_average) %></span>
+                <% rescue %>
+                  0
+                <% end %>
+              </td>
               <td><span class="nowrap"><%= user.inning %></span></td>
               <td><span class="nowrap"><%= user.win %></span></td>
               <td><span class="nowrap"><%= user.lose %></span></td>
-              <td><span class="nowrap"><%#= sprintf("%.3f", user.win_rate) %></span></td>
+              <td>
+                <% begin %>
+                  <span class="nowrap"><%= sprintf("%.3f", user.win_rate / 10000.0) %></span>
+                <% rescue %>
+                  0
+                <% end %>
+              </td>
               <td><span class="nowrap"><%= user.to_be_point %></span></td>
               <td><span class="nowrap"><%= user.earned_run %></span></td>
               <td><span class="nowrap"><%= user.to_be_strike_out %></span></td>

@@ -3,9 +3,9 @@ class TeamRecordsController < ApplicationController
 
   def index
     @teams = Team.all
-    @team_records = TeamRecord.all
+    @team_records = TeamRecord.page(params[:page]).reverse_order
     @q = TeamRecord.ransack(params[:q])
-    @team_records = @q.result
+    @team_records = @q.result.page(params[:page]).reverse_order
   end
 
   def show
