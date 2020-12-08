@@ -26,14 +26,19 @@
   height: 400px;
 }
 
-
 header {
+  width: 100%;
   height: 70px;
   background-color: maroon;
 }
 
-.logo {
-  margin-top: 50px;
+.header-logo {
+  height: 70px;
+  width: 110px;
+  margin: 0 auto;
+  background-image: image-url("logo.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .about {
@@ -52,6 +57,7 @@ header {
 
 .logo {
   height: 300px;
+  margin-top: 50px;
   background-image: image-url("logo.jpg");
   background-size: cover;
   background-position: center;
@@ -112,10 +118,6 @@ header {
   display: inline-block;
 }
 
-.post-comment {
-  margin: 15px auto;
-}
-
 .fa-image {
   font-size: 60px;
 }
@@ -127,6 +129,7 @@ header {
 }
 
 .post-comment {
+  margin: 15px auto;
   display: inline-block;
   padding: 15px;
 }
@@ -137,6 +140,7 @@ header {
 
 .flash {
   color: #00DD00;
+  font-size: 15px;
 }
 
 // 上に戻るボタン

@@ -6,21 +6,21 @@
         <%= flash[:user_update] %>
       </div>
       <div class="user-show-profile">
-        <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg", size:'100x100', class: 'image' %><br>
+        <%= attachment_image_tag @user, :image, fallback: "no_image.jpg", format: 'jpeg', size:'200x200', class: 'image' %><br>
         <span class="user-name"><%= @user.name %></span><br>
         <%= link_to team_path(@user.team) do %>
           <%= @user.team.teamname %>
         <% end %>
         <%= @user.throw %> <%= @user.position %>
         <% if @user == current_user %>
-          <%= link_to "プロフィール編集", edit_user_path(current_user), class: "col-xs-12 btn btn-success" %>
+          <%= link_to "プロフィール編集", edit_user_path(current_user), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success" %>
         <% end %>
       </div>
       <div class="row records">
         <div class="user-record">
           <h2>打撃成績</h2>
           <div class="row">
-            <table class="table table-hover table-inverse">
+            <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFFFCC">
               <thead>
                 <tr align="center">
                   <th>試合</th>
@@ -83,7 +83,7 @@
         <div class="user-record">
           <h2>投手成績</h2>
           <div class="row">
-            <table class="table table-hover table-inverse">
+            <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFDDFF;">
               <thead>
                 <tr align="center">
                   <th>防御率</th>

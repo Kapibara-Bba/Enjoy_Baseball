@@ -16,10 +16,11 @@
       <div class="record_link">
         <p><%= link_to "投手成績一覧へ", records_pitch_path, class: 'btn btn-info' %><p>
       </div>
+      <div class="batter_logo"></div>
     </div>
     <div class="row">
       <div class="row">
-        <table class="table table-hover table-inverse" width="100%" style="table-layout: auto;">
+        <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #E4FF8D;">
           <thead>
             <tr align="center">
               <th><span class="nowrap">順位</span></th>
@@ -48,9 +49,23 @@
               <tr align="center">
                 <td><%= i %></td>
                 <td><%= attachment_image_tag user, :image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40', class: 'image' %></td>
-                <td><span class="nowrap"><%= user.name %></span></td>
-                <td><span class="nowrap"><%= user.team.teamname %></span></td>
-                <td><span class="nowrap"><%= sprintf("%.3f", user.average / 10000.0) %></span></td>
+                <td>
+                  <%= link_to user_path(user.user_id) do %>
+                    <span class="nowrap"><%= user.name %></span>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to team_path(user.team_id) do %>
+                    <span class="nowrap"><%= user.team.teamname %></span>
+                  <% end %>
+                </td>
+                <td>
+                  <% begin %>
+                    <span class="nowrap"><%= sprintf("%.3f", user.average / 10000.0) %></span>
+                  <% rescue %>
+                    0
+                  <% end %>
+                </td>
                 <td><span class="nowrap"><%= user.batting %></span></td>
                 <td><span class="nowrap"><%= user.hit %></span></td>
                 <td><span class="nowrap"><%= user.homerun %></span></td>
@@ -62,7 +77,13 @@
                 <td><span class="nowrap"><%= user.ball %></span></td>
                 <td><span class="nowrap"><%= user.bunt %></span></td>
                 <td><span class="nowrap"><%= user.sacrifice_fly %></span></td>
-                <td><span class="nowrap"><%= sprintf("%.3f", user.base / 10000.0) %></span></td>
+                <td>
+                  <% begin %>
+                    <span class="nowrap"><%= sprintf("%.3f", user.base / 10000.0) %></span>
+                  <% rescue %>
+                    0
+                  <% end %>
+                </td>
                 <td><span class="nowrap"><%= user.still %></span></td>
                 <td><span class="nowrap"><%= user.error %></span></td>
               </tr>
