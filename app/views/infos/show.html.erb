@@ -50,6 +50,15 @@
                 <%= f.label :日時 %>
                 <%= f.datetime_select :start_time %>
               </div>
+
+              <div>
+                <%= f.fields_for :spot do |spot| %>
+                  <%= spot.label :address, "イベント場所(Google Mapで検索)", class: "spot_title" %>
+                  <%= spot.text_field :address, placeholder: "場所を入力", id: "address", class: "spot_text" %>
+                  <%= spot.submit "検索する", onclick: "codeAddress()", type: "button" %>
+                <% end %>
+              </div>
+              <div id="edit_map"></div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
                 <%= f.submit "イベントを更新する", class: 'btn btn-primary' %>
@@ -59,46 +68,10 @@
         </div>
       </div>
     </div>
-
-    <input id="address" type="textbox">
-
-    <!-- buttonをクリックしたらcodeAddressを実行　-->
-    <input type="button" value="検索" onclick="codeAddress()">
-    <div id='map'>
-      <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["API_KEY"]%>&callback=initMap" async defer></script>
-      <script>
-        let map
-        let geocoder
-
-          function initMap(){
-            // geocoderを初期化
-            geocoder = new google.maps.Geocoder()
-
-            map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: 34.750, lng: 137.400},
-            zoom: 13
-            });
-          }
-
-          function codeAddress(){
-            let inputAddress = document.getElementById('address').value;
-
-            geocoder.geocode( { 'address': inputAddress}, function(results, status) {
-              if (status == 'OK') {
-
-                map.setCenter(results[0].geometry.location);
-
-                var marker = new google.maps.Marker({
-                    map: map,
-                    position: results[0].geometry.location
-                });
-              } else {
-                alert('Geocode was not successful for the following reason: ' + status);
-              }
-            });
-          }
-      </script>
+      <div class="show">
+        <%= @info.spot.address %>
+      </div>
+      <div id="show_map"></div>
     </div>
-
   </div>
 </div>

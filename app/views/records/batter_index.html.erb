@@ -48,7 +48,7 @@
             <% @users.each.with_index(1) do |user, i| %>
               <tr align="center">
                 <td><%= i %></td>
-                <td><%= attachment_image_tag user, :image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40', class: 'image' %></td>
+                <td><%= attachment_image_tag user, :image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40', class: 'profile-image' %></td>
                 <td>
                   <%= link_to user_path(user.user_id) do %>
                     <span class="nowrap"><%= user.name %></span>

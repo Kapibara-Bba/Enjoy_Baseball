@@ -8,9 +8,10 @@
       <%= flash[:info_update] %>
       <%= flash[:info_create] %>
     </div>
+
     <div class="col-xs-12">
       <div class="team-profile">
-        <%= attachment_image_tag @team, :team_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg", size:'150x150', class: 'image' %>
+        <%= attachment_image_tag @team, :team_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg", size:'150x150', class: 'profile-image' %>
         <h2><%= @team.teamname %></h2>
       </div>
       <% if @team.id == current_user.team_id %>
@@ -29,7 +30,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <%= form_with url: infos_path, method: :post do |f| %>
+                  <%= form_with url: infos_path, method: :post, multipart: true, local: true do |f| %>
                     <div class="form_group">
                       <%= f.label :イベント名 %>
                       <%= f.text_area :body %>
@@ -42,6 +43,16 @@
                       <%= f.label :日時 %>
                       <%= f.datetime_select :start_time %>
                     </div>
+
+                    <div>
+                      <%= f.fields_for :spot do |spot| %>
+                        <%= spot.label :address, "イベント場所(Google Mapで検索)", class: "spot_title" %>
+                        <%= spot.text_field :address, placeholder: "場所を入力", id: "address", class: "spot_text" %>
+                        <%= spot.submit "検索する", onclick: "codeAddress()", type: "button" %>
+                        <% f.hidden_field :address %>
+                      <% end %>
+                    </div>
+                    <div id="map"></div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
                       <%= f.submit "イベントを追加する", class: 'btn btn-primary' %>
@@ -67,6 +78,7 @@
         <% end %>
       <% end %>
     </div>
+
     <h4>試合結果一覧</h4>
     <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFDBC9;">
       <thead>
@@ -94,6 +106,7 @@
         <% end %>
       </tbody>
     </table>
+
     <% if @team.id == current_user.team_id %>
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
         試合結果を追加する
@@ -145,6 +158,7 @@
         </div>
       </div>
     <% end %>
+
     <div class="row">
       <div class="row member">
         <h4>選手一覧</h4>
@@ -174,5 +188,6 @@
         </tbody>
       </table>
     </div>
+
   </div>
 </div>
