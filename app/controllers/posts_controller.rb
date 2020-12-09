@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     #@team_post = @team.posts
     @posts = Post.where(team_id: params[:team_id])
     @post = Post.new
-
+    
   end
 
   def create
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:comment, :image)
+    params.require(:post).permit(:comment, :image, :video)
   end
 
 end

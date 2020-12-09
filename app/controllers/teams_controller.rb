@@ -10,6 +10,8 @@ class TeamsController < ApplicationController
     @team_users = User.where(team_id: params[:id])
     @team = Team.find(params[:id])
     @users = User.all
+    @info = Info.new
+    @info.build_spot
     @infos = @team.infos
     @team_record = TeamRecord.all
     @team_records = @team.team_records

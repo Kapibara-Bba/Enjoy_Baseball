@@ -3,7 +3,7 @@
     <%= form_with model: @team, method: :patch, local: true do |f| %>
     　<div class="col-xs-4">
         <div class="field">
-          <%= attachment_image_tag @team, :team_image, fallback: 'no_image.jpg', format: 'jpeg', size:'100x100', onChange: "$('.img_field').change()", class: 'center-block img_prev image'%>
+          <%= attachment_image_tag @team, :team_image, fallback: 'no_image.jpg', format: 'jpeg', size:'100x100', onChange: "$('.img_field').change()", class: 'center-block img_prev profile-image'%>
           <%= f.attachment_field :team_image, class: 'img_field' %>
         </div>
    　  </div>

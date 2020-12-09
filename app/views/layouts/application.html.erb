@@ -4,6 +4,7 @@
     <title>BaseballScore</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= include_gon %>
 
     <script src="https://kit.fontawesome.com/7b4ac370e3.js" crossorigin="anonymous"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -11,6 +12,9 @@
   </head>
 
   <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
+    <script src="//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js", type:"text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["API_KEY"]%>&callback=initMap" async defer></script>
+    <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
     <header>
       <div class="header-logo"></div>
       <div class="hamburger">
@@ -55,6 +59,7 @@
         <p class="alert"><%= alert %></p>
       </div>
     <% end %>
+
     <%= yield %>
     <!--上に戻るボタン-->
     <span id="back">
