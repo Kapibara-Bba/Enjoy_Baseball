@@ -1,14 +1,10 @@
 <div class="body">
   <div class="container mt-5">
-    <div class="flash">
-      <%= flash[:team_create] %>
-      <%= flash[:team_update] %>
-      <%= flash[:team_record_create] %>
-      <%= flash[:team_record_update] %>
-      <%= flash[:info_update] %>
-      <%= flash[:info_create] %>
-    </div>
-
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <div class="col-xs-12">
       <div class="team-profile">
         <%= attachment_image_tag @team, :team_image, :fill, 150, 150, format: 'jpeg', fallback: "no_image.jpg", size:'150x150', class: 'profile-image' %>
@@ -30,7 +26,8 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <%= form_with url: infos_path, method: :post, multipart: true, local: true do |f| %>
+                  <%= form_with model: @info, url: infos_path, method: :post, local: true do |f| %>
+                  <%#= form_with model: @info, url: infos_path, method: :post, local: true do |f| %>
                     <div class="form_group">
                       <%= f.label :イベント名 %>
                       <%= f.text_area :body %>
@@ -48,10 +45,10 @@
                       <%= f.fields_for :spot do |spot| %>
                         <%= spot.label :address, "イベント場所(Google Mapで検索)", class: "spot_title" %>
                         <%= spot.text_field :address, placeholder: "場所を入力", id: "address", class: "spot_text" %>
-                        <%= spot.submit "検索する", onclick: "codeAddress()", type: "button" %>
-                        <% f.hidden_field :address %>
+                        <%= spot.submit "表示する", onclick: "codeAddress()", type: "button" %>
                       <% end %>
                     </div>
+
                     <div id="map"></div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>

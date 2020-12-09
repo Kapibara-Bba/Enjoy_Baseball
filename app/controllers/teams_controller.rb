@@ -40,7 +40,7 @@ class TeamsController < ApplicationController
       if @team.save
          @user.update!(team_id: @team.id)
          redirect_to team_path(@team)
-         flash[:team_create] = "チームの作成に成功しました"
+         flash[:notice] = "チームの作成に成功しました"
       else
         render 'new'
       end
@@ -56,7 +56,7 @@ class TeamsController < ApplicationController
     if @team.update(team_params)
       # @user.team_id = current_user.team_id
       redirect_to team_path(@team)
-      flash[:team_update] = "チームプロフィールの変更に成功しました"
+      flash[:notice] = "チームプロフィールの変更に成功しました"
     else
       render 'edit'
     end

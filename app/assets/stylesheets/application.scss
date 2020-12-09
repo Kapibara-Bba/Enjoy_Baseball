@@ -72,11 +72,11 @@ header {
   // display: inline-block;
 }
 
-.background {
-  background-image: image-url("ball.jpg");
-  background-size: cover;
-  background-position: center;
-}
+// .background {
+//   background-image: image-url("yakyujo.jpg");
+//   background-size: cover;
+//   background-position: center;
+// }
 
 .record-select {
   margin: 0 80px 0 80px;
@@ -165,6 +165,10 @@ header {
 .flash {
   color: #00DD00;
   font-size: 15px;
+}
+
+.sign {
+  border: 3px solid red;
 }
 
 // 上に戻るボタン

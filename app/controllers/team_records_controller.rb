@@ -10,7 +10,6 @@ class TeamRecordsController < ApplicationController
 
   def show
     @team_record = TeamRecord.find(params[:id])
-
   end
 
   def create
