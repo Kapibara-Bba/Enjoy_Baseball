@@ -4,7 +4,7 @@ class InfosController < ApplicationController
   def create
     # @team = Team.find(params[:id])
     @info = Info.new(create_info_params)
-    @infos = Info.all
+    # @infos = Info.all
     @info.team_id = current_user.team_id
     if @info.save
       redirect_to team_path(@info.team_id)
@@ -49,10 +49,11 @@ class InfosController < ApplicationController
 
   private
   def create_info_params
-    params.permit(:team_id, :body, :start_time, :location, spot_attributes: [:address])
+    params.require(:info).permit(:body, :start_time, :location, spot_attributes: [:address])
   end
+
   def update_info_params
-    params.require(:info).permit(:team_id, :body, :start_time, :location, spot_attributes: [:address])
+    params.require(:info).permit(:body, :start_time, :location, spot_attributes: [:address])
   end
 
 end
