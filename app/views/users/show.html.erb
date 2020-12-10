@@ -1,137 +1,133 @@
 <div class="body">
   <div class="container mt-5">
-    <!--<div class="row">-->
-      <div class="flash">
-        <%= flash[:notice] %>
-      </div>
-      <div class="user-show-profile">
-        <%= attachment_image_tag @user, :image, fallback: "no_image.jpg", format: 'jpeg', size:'200x200', class: 'image' %><br>
-        <span class="user-name"><%= @user.name %></span><br>
-        <%= link_to team_path(@user.team), data: {"turbolinks" => false} do %>
-          <%= @user.team.teamname %>
-        <% end %>
-        <%= @user.throw %> <%= @user.position %>
-        <% if @user == current_user %>
-          <%= link_to "プロフィール編集", edit_user_path(current_user), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success" %>
-        <% end %>
-      </div>
-      <div class="row records">
-        <div class="user-record">
-          <h2>打撃成績</h2>
-          <div class="row">
-            <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFFFCC">
-              <thead>
-                <tr align="center">
-                  <th>試合</th>
-                  <th>打率</th>
-                  <th>打席</th>
-                  <th>打数</th>
-                  <th>安打</th>
-                  <th>本塁打</th>
-                  <th>二塁打</th>
-                  <th>三塁打</th>
-                  <th>打点</th>
-                  <th>得点</th>
-                  <th>三振</th>
-                  <th>四死球</th>
-                  <th>犠打</th>
-                  <th>犠飛</th>
-                  <th>出塁率</th>
-                  <th>盗塁</th>
-                  <th>失策</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr align="center">
-                  <td><%= @user_record.all.sum(:game) %></td>
-                  <td>
-                    <% begin %>
-                      <% average = @user_record.all.sum(:hit)/@user_record.all.sum(:batting).to_f %>
-                      <%= sprintf("%.3f",average) %>
-                    <% rescue %>
-                      0
-                    <% end %>
-                  </td>
-                  <td><%= @user_record.all.sum(:bat) %></td>
-                  <td><%= @user_record.all.sum(:batting) %></td>
-                  <td><%= @user_record.all.sum(:hit) %></td>
-                  <td><%= @user_record.all.sum(:homerun) %></td>
-                  <td><%= @user_record.all.sum(:two_base_hit) %></td>
-                  <td><%= @user_record.all.sum(:three_base_hit) %></td>
-                  <td><%= @user_record.all.sum(:dot) %></td>
-                  <td><%= @user_record.all.sum(:homein) %></td>
-                  <td><%= @user_record.all.sum(:strike_out) %></td>
-                  <td><%= @user_record.all.sum(:ball) %></td>
-                  <td><%= @user_record.all.sum(:bunt) %></td>
-                  <td><%= @user_record.all.sum(:sacrifice_fly) %></td>
-                  <td>
-                    <% begin %>
-                      <% base = @user_record.all.sum(:hit)/@user_record.all.sum(:batting).to_f %>
-                      <%= sprintf("%.3f",base) %>
-                    <% rescue %>
-                      0
-                    <% end %>
-                  </td>
-                  <td><%= @user_record.all.sum(:still) %></td>
-                  <td><%= @user_record.all.sum(:error) %></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="user-record">
-          <h2>投手成績</h2>
-          <div class="row">
-            <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFDDFF;">
-              <thead>
-                <tr align="center">
-                  <th>防御率</th>
-                  <th>投球回</th>
-                  <th>勝</th>
-                  <th>敗</th>
-                  <th>勝率</th>
-                  <th>失点</th>
-                  <th>自責点</th>
-                  <th>奪三振</th>
-                  <th>被安打</th>
-                  <th>被本塁打</th>
-                  <th>与四死球</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr align="center">
-                  <td>
-                    <% begin %>
-                      <% earned_run_average = @user_record.all.sum(:earned_run)*9/@user_record.all.sum(:inning).to_f %>
-                      <%= sprintf("%.2f",earned_run_average) %>
-                    <% rescue %>
-                      0
-                    <% end %>
-                  </td>
-                  <td><%= @user_record.all.sum(:inning) %></td>
-                  <td><%= @user_record.all.sum(:win) %></td>
-                  <td><%= @user_record.all.sum(:lose) %></td>
-                  <td>
-                    <% begin %>
-                      <% win_rate = @user_record.all.sum(:win)/(@user_record.all.sum(:win)+@user_record.all.sum(:lose)).to_f %>
-                      <%= sprintf("%.3f",win_rate) %>
-                    <% rescue %>
-                      0
-                    <% end %>
-                  </td>
-                  <td><%= @user_record.all.sum(:to_be_point) %></td>
-                  <td><%= @user_record.all.sum(:earned_run) %></td>
-                  <td><%= @user_record.all.sum(:to_be_strike_out) %></td>
-                  <td><%= @user_record.all.sum(:to_be_hit) %></td>
-                  <td><%= @user_record.all.sum(:to_be_homerun) %></td>
-                  <td><%= @user_record.all.sum(:to_be_ball) %></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+    <div class="user-show-profile">
+      <%= attachment_image_tag @user, :image, fallback: "no_image.jpg", format: 'jpeg', size:'200x200', class: 'profile-image' %><br>
+      <span class="user-name"><%= @user.name %></span><br>
+      <%= link_to team_path(@user.team), data: {"turbolinks" => false} do %>
+        <p class="profile-font"><%= @user.team.teamname %></p>
+      <% end %>
+      <p class="profile-font"><%= @user.throw %> <%= @user.position %>
+      <% if @user == current_user %>
+        <%= link_to "プロフィール編集", edit_user_path(current_user), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success" %>
+      <% end %></p>
+    </div>
+    <div class="row records">
+      <div class="user-record">
+        <h2>打撃成績</h2>
+        <div class="row">
+          <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFFFCC">
+            <thead>
+              <tr align="center">
+                <th>打率</th>
+                <th>打席</th>
+                <th>打数</th>
+                <th>安打</th>
+                <th>本塁打</th>
+                <th>二塁打</th>
+                <th>三塁打</th>
+                <th>打点</th>
+                <th>得点</th>
+                <th>三振</th>
+                <th>四死球</th>
+                <th>犠打</th>
+                <th>犠飛</th>
+                <th>出塁率</th>
+                <th>盗塁</th>
+                <th>失策</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr align="center">
+                <td>
+                  <% begin %>
+                    <% average = @user_record.all.sum(:hit)/@user_record.all.sum(:batting).to_f %>
+                    <%= sprintf("%.3f",average) %>
+                  <% rescue %>
+                    0
+                  <% end %>
+                </td>
+                <td><%= @user_record.all.sum(:bat) %></td>
+                <td><%= @user_record.all.sum(:batting) %></td>
+                <td><%= @user_record.all.sum(:hit) %></td>
+                <td><%= @user_record.all.sum(:homerun) %></td>
+                <td><%= @user_record.all.sum(:two_base_hit) %></td>
+                <td><%= @user_record.all.sum(:three_base_hit) %></td>
+                <td><%= @user_record.all.sum(:dot) %></td>
+                <td><%= @user_record.all.sum(:homein) %></td>
+                <td><%= @user_record.all.sum(:strike_out) %></td>
+                <td><%= @user_record.all.sum(:ball) %></td>
+                <td><%= @user_record.all.sum(:bunt) %></td>
+                <td><%= @user_record.all.sum(:sacrifice_fly) %></td>
+                <td>
+                  <% begin %>
+                    <% base = @user_record.all.sum(:hit)/@user_record.all.sum(:batting).to_f %>
+                    <%= sprintf("%.3f",base) %>
+                  <% rescue %>
+                    0
+                  <% end %>
+                </td>
+                <td><%= @user_record.all.sum(:still) %></td>
+                <td><%= @user_record.all.sum(:error) %></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    <!--</div>-->
+      <div class="user-record">
+        <h2>投手成績</h2>
+        <div class="row">
+          <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFDDFF;">
+            <thead>
+              <tr align="center">
+                <th>防御率</th>
+                <th>投球回</th>
+                <th>勝</th>
+                <th>敗</th>
+                <th>勝率</th>
+                <th>失点</th>
+                <th>自責点</th>
+                <th>奪三振</th>
+                <th>被安打</th>
+                <th>被本塁打</th>
+                <th>与四死球</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr align="center">
+                <td>
+                  <% begin %>
+                    <% earned_run_average = @user_record.all.sum(:earned_run)*9/@user_record.all.sum(:inning).to_f %>
+                    <%= sprintf("%.2f",earned_run_average) %>
+                  <% rescue %>
+                    0
+                  <% end %>
+                </td>
+                <td><%= @user_record.all.sum(:inning) %></td>
+                <td><%= @user_record.all.sum(:win) %></td>
+                <td><%= @user_record.all.sum(:lose) %></td>
+                <td>
+                  <% begin %>
+                    <% win_rate = @user_record.all.sum(:win)/(@user_record.all.sum(:win)+@user_record.all.sum(:lose)).to_f %>
+                    <%= sprintf("%.3f",win_rate) %>
+                  <% rescue %>
+                    0
+                  <% end %>
+                </td>
+                <td><%= @user_record.all.sum(:to_be_point) %></td>
+                <td><%= @user_record.all.sum(:earned_run) %></td>
+                <td><%= @user_record.all.sum(:to_be_strike_out) %></td>
+                <td><%= @user_record.all.sum(:to_be_hit) %></td>
+                <td><%= @user_record.all.sum(:to_be_homerun) %></td>
+                <td><%= @user_record.all.sum(:to_be_ball) %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
     <% if @user == current_user %>
     <div class="new-record">
       <div class="row">
@@ -150,10 +146,6 @@
                 </div>
                 <%= form_with modal:@record, url: records_path, method: :post, local: true do |f| %>
                   <div class="modal-body">
-                    <div class="form_group">
-                      <%= f.label :試合日, class: 'control-label' %>
-                      <%= f.date_field :created_at, class: 'form-control' %>
-                    </div>
                     <h2>打者記録</h2>
                     <div class="form_group">
                       <%= f.label :打席, class: "col-sm-3" %>
