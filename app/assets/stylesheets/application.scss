@@ -22,18 +22,23 @@
   box-sizing: border-box;
 }
 
-#map{
-  height: 400px;
+.login-field {
+  padding: 20px auto;
 }
 
-
 header {
+  width: 100%;
   height: 70px;
   background-color: maroon;
 }
 
-.logo {
-  margin-top: 50px;
+.header-logo {
+  height: 70px;
+  width: 110px;
+  margin: 0 auto;
+  background-image: image-url("logo.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .about {
@@ -52,6 +57,7 @@ header {
 
 .logo {
   height: 300px;
+  margin-top: 50px;
   background-image: image-url("logo.jpg");
   background-size: cover;
   background-position: center;
@@ -61,10 +67,9 @@ header {
   margin: 30px;
 }
 
-.background {
-  background-image: image-url("ball.jpg");
-  background-size: cover;
-  background-position: center;
+.profile {
+  display: flex;
+  // display: inline-block;
 }
 
 .record-select {
@@ -75,10 +80,41 @@ header {
   margin-left: 80px;
 }
 
+.simple-calendar {
+ .wday-0 {
+    color: red;
+ }
+
+ .wday-6 {
+    color: blue;
+ }
+
+ .calendar-head {
+   background-color: #F0E68C;
+   text-align: center;
+ }
+
+ .calendar-title {
+   font-size: 20px;
+   font-weight: bold;
+ }
+
+ .has-events {
+   background: #FFF8DC;
+ }
+}
+
+.profile-image {
+  border: 1px solid #656565;  /* 枠線(=円形でも記述は同じ) */
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
 .record-top {
   margin-top: 50px;
 }
-
 
 .event {
   margin-bottom: 30px;
@@ -97,11 +133,8 @@ header {
 }
 
 .comment-form {
+  margin: 0 auto;
   display: inline-block;
-}
-
-.post-comment {
-  margin: 15px auto;
 }
 
 .fa-image {
@@ -115,8 +148,58 @@ header {
 }
 
 .post-comment {
+  margin: 15px auto;
   display: inline-block;
   padding: 15px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.flash {
+  color: #00DD00;
+  font-size: 15px;
+}
+
+.sign {
+  padding: 20px 15px 20px 25px;
+  border-top: 3px solid red;
+  border-left: 3px solid green;
+  border-bottom: 3px solid blue;
+  border-right: 3px solid yellow;
+  border-radius: 15%;
+}
+
+.login {
+  width: 300px;
+  padding: 20px 0 20px 60px;
+  border-top: 3px solid red;
+  border-left: 3px solid green;
+  border-bottom: 3px solid blue;
+  border-right: 3px solid yellow;
+  border-radius: 20%;
+}
+
+.actions {
+  margin-top:15px;
+}
+
+#map {
+  width: 470px;
+  height: 300px;
+}
+
+#edit_map {
+  width: 470px;
+  height: 300px;
+}
+
+#show_map {
+  width: 470px;
+  height: 300px;
+  border: 2px solid red;
+  margin-top: 15px;
 }
 
 // 上に戻るボタン
@@ -129,6 +212,8 @@ header {
   width:      50px;
   height:     50px;
 }
+
+
 
 /*　ハンバーガーボタン　*/
 .hamburger {

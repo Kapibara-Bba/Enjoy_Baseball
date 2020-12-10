@@ -86,6 +86,8 @@ gem "geocoder"
 
 gem 'ransack'
 
+gem "gmaps4rails"
+gem "gon"
+gem "dotenv-rails"
 
-
-
+gem 'rails-i18n', '~> 5.1'

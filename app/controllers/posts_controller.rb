@@ -8,7 +8,6 @@ class PostsController < ApplicationController
     #@team_post = @team.posts
     @posts = Post.where(team_id: params[:team_id])
     @post = Post.new
-
   end
 
   def create
@@ -26,12 +25,12 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     # @book_comment = current_user.posts.find_by(book_id: @book.id)
     @post.destroy
-    redirect_to post_path(current_user.team_id)
+    redirect_to team_posts_path
   end
 
   private
   def post_params
-    params.require(:post).permit(:comment, :image)
+    params.require(:post).permit(:comment, :image, :video)
   end
 
 end

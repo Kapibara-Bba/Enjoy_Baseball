@@ -10,6 +10,8 @@ class TeamsController < ApplicationController
     @team_users = User.where(team_id: params[:id])
     @team = Team.find(params[:id])
     @users = User.all
+    @info = Info.new
+    @info.build_spot
     @infos = @team.infos
     @team_record = TeamRecord.all
     @team_records = @team.team_records
@@ -17,18 +19,28 @@ class TeamsController < ApplicationController
   end
 
   def create
+    @teams = Team.all
     @user = current_user
+    pp params[:team][:team].class
     if params[:team][:team] == '0'
-      #byebug
-      @team = Team.find(params[:team][:id])
-      @user.update!(team_id: @team.id)
-      redirect_to team_path(@team)
+      # byebug
+      if params[:team][:id].present?
+        @team = Team.find(params[:team][:id])
+        if @user.update!(team_id: @team.id)
+            redirect_to team_path(@team)
+        end
+      else
+        @team = Team.new
+        @team.errors.add(:id, 'チームを選択してください')
+        render 'new'
+      end
     else
       @team = Team.new(team_params)
+      # byebug
       if @team.save
-      @user = current_user
-      @user.update!(team_id: @team.id)
-        redirect_to team_path(@team)
+         @user.update!(team_id: @team.id)
+         redirect_to team_path(@team)
+         flash[:notice] = "チームの作成に成功しました"
       else
         render 'new'
       end
@@ -36,9 +48,18 @@ class TeamsController < ApplicationController
   end
 
   def edit
+    @team = Team.find(params[:id])
   end
 
   def update
+    @team = Team.find(params[:id])
+    if @team.update(team_params)
+      # @user.team_id = current_user.team_id
+      redirect_to team_path(@team)
+      flash[:notice] = "チームプロフィールの変更に成功しました"
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -46,7 +67,7 @@ class TeamsController < ApplicationController
 
   private
   def team_params
-    params.require(:team).permit(:teamname, :prefecture_code, :city)
+    params.require(:team).permit(:teamname, :prefecture_code, :city, :team_image)
   end
 
   def team_record_params

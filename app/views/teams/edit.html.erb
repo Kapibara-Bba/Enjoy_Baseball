@@ -1,0 +1,29 @@
+<div class="body">
+  <div class="container mt-5">
+    <%= form_with model: @team, method: :patch, local: true do |f| %>
+    　<div class="col-xs-4">
+        <div class="field">
+          <%= attachment_image_tag @team, :team_image, fallback: 'no_image.jpg', format: 'jpeg', size:'100x100', onChange: "$('.img_field').change()", class: 'center-block img_prev profile-image'%>
+          <%= f.attachment_field :team_image, class: 'img_field' %>
+        </div>
+   　  </div>
+      <div class="col-xs-7">
+        <div class="field col-xs-12 user">
+          <%= f.label :チーム名, class:"col-sm-3" %>
+          <%= f.text_field :teamname, class: "col-sm-5 name" %>
+        </div>
+        <div class="field col-xs-12 user">
+          <%= f.label :都道府県, class:"col-sm-3" %>
+          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+        </div>
+        <div class="field col-xs-12 user">
+          <%= f.label :市町村, class:"col-sm-3" %>
+          <%= f.text_field :city %>
+        </div>
+        <div class="actions col-xs-12 text-right">
+            <%= f.submit "変更を保存", class: "btn btn-primary btn-lg active" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

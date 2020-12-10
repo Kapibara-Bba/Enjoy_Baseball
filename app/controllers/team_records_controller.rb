@@ -3,14 +3,13 @@ class TeamRecordsController < ApplicationController
 
   def index
     @teams = Team.all
-    @team_records = TeamRecord.all
+    @team_records = TeamRecord.page(params[:page]).reverse_order
     @q = TeamRecord.ransack(params[:q])
-    @team_records = @q.result
+    @team_records = @q.result.page(params[:page]).reverse_order
   end
 
   def show
     @team_record = TeamRecord.find(params[:id])
-
   end
 
   def create
@@ -18,6 +17,7 @@ class TeamRecordsController < ApplicationController
     @team_record.team_id = current_user.team_id
     if @team_record.save
       redirect_to team_path(current_user.team_id)
+      flash[:team_record_create] = "試合結果を作成しました"
     else
       render 'users#show'
     end
@@ -31,7 +31,7 @@ class TeamRecordsController < ApplicationController
     @team_record = TeamRecord.find(params[:id])
     @team_record.team_id = current_user.team_id
     if @team_record.update(update_team_record_params)
-      flash[:user_update] = "試合結果を変更しました"
+      flash[:team_record_update] = "試合結果を変更しました"
       redirect_to team_record_path(@team_record)
     else
       render 'edit'

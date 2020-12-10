@@ -3,19 +3,19 @@
     <div class="container">
       <div class="row">
         <div class="mx-auto" style="width: 40%;">
-          
+
           <div class="logo"></div>
           <div class="row">
-  
+
           </div>
           <div class="row login-button">
-            <%= link_to "ログイン", new_user_session_path, class: 'btn btn-info btn-block' %>
+            <%= link_to "ログイン", new_user_session_path, data: {"turbolinks" => false}, class: 'btn btn-info btn-block' %>
           </div>
           <div class="row login-button">
-            <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-primary btn-block' %>
+            <%= link_to "新規登録", new_user_registration_path, data: {"turbolinks" => false}, class: 'btn btn-primary btn-block' %>
           </div>
           <div class="row login-button">
-            <%= link_to 'かんたんログイン', users_guest_sign_in_path, method: :post, class: 'btn btn-warning btn-block' %>
+            <%= link_to 'かんたんログイン', users_guest_sign_in_path, data: {"turbolinks" => false}, method: :post, class: 'btn btn-warning btn-block' %>
           </div>
         </div>
       </div>
@@ -25,7 +25,7 @@
     <div class="container mt-5">
       <div class="row">
         <div class="mx-auto" style="width: 40%;">
-  
+
         </div>
       </div>
     </div>

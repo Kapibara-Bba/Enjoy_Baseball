@@ -1,21 +1,30 @@
 <div class="body">
-  <div class="container">
-    <p id></p>
-    <div class="row">
-      <div class="col-lg-6 col-lg-offset-3">
-        <h1>イベントの修正</h1>
-        <%= form_with model:@info, url: info_path(@info), method: :patch, local:true do |f| %>
-          <div class="form_group">
-            <%= f.label :イベント名 %>
-            <%= f.text_area :body %>
-          </div>
-          <div class="form_group">
-            <%= f.label :日時 %>
-            <%= f.datetime_select :start_time %>
-          </div>
-          <%= f.submit "イベントを追加する", class: 'btn btn-primary' %>
-        <% end %>
-      </div>
+  <div class="container mt-5">
+    <h3>イベント編集</h3>
+    <div class="modal-body">
+      <%= form_with model:@info, url: info_path(@info), method: :patch, local:true do |f| %>
+        <div class="form_group">
+          <%= f.label :イベント名 %>
+          <%= f.text_area :body %>
+        </div>
+        <div class="form_group">
+          <%= f.label :日時 %>
+          <%= f.datetime_select :start_time %>
+        </div>
+
+        <div>
+          <%= f.fields_for :spot do |spot| %>
+            <%= spot.label :address, "イベント場所(Google Mapで検索)", class: "spot_title" %>
+            <%= spot.text_field :address, placeholder: "場所を入力", id: "address", class: "spot_text" %>
+            <%= spot.submit "検索する", onclick: "codeAddress()", type: "button" %>
+          <% end %>
+        </div>
+        <div id="edit_map"></div>
+        <div class="modal-footer">
+          <%= f.submit "イベントを更新する", class: 'btn btn-primary' %>
+          <%= link_to "戻る", info_path(@info), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-secondary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
