@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <div class="mx-auto">
       <h2>新規登録</h2>
@@ -31,7 +31,7 @@
         </div>
       <% end %>
       <div class="sign_up-link">
-        <%= link_to "ログインの方", new_user_session_path %>
+        <%= link_to "ログインの方", new_user_session_path, data: {"turbolinks" => false} %>
       </div>
     </div>
   </div>

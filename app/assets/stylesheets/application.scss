@@ -22,8 +22,8 @@
   box-sizing: border-box;
 }
 
-#map{
-  height: 400px;
+.login-field {
+  padding: 20px auto;
 }
 
 header {
@@ -71,12 +71,6 @@ header {
   display: flex;
   // display: inline-block;
 }
-
-// .background {
-//   background-image: image-url("yakyujo.jpg");
-//   background-size: cover;
-//   background-position: center;
-// }
 
 .record-select {
   margin: 0 80px 0 80px;
@@ -168,7 +162,43 @@ header {
 }
 
 .sign {
-  border: 3px solid red;
+  padding: 20px 15px 20px 25px;
+  border-top: 3px solid red;
+  border-left: 3px solid green;
+  border-bottom: 3px solid blue;
+  border-right: 3px solid yellow;
+  border-radius: 15%;
+}
+
+.login {
+  width: 300px;
+  padding: 20px 0 20px 60px;
+  border-top: 3px solid red;
+  border-left: 3px solid green;
+  border-bottom: 3px solid blue;
+  border-right: 3px solid yellow;
+  border-radius: 20%;
+}
+
+.actions {
+  margin-top:15px;
+}
+
+#map {
+  width: 470px;
+  height: 300px;
+}
+
+#edit_map {
+  width: 470px;
+  height: 300px;
+}
+
+#show_map {
+  width: 470px;
+  height: 300px;
+  border: 2px solid red;
+  margin-top: 15px;
 }
 
 // 上に戻るボタン
