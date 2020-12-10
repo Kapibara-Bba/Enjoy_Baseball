@@ -14,7 +14,7 @@
         <% end %>
       </div>
       <div class="record_link">
-        <p><%= link_to "投手成績一覧へ", records_pitch_path, class: 'btn btn-info' %><p>
+        <p><%= link_to "投手成績一覧へ", records_pitch_path, data: {"turbolinks" => false}, class: 'btn btn-info' %><p>
       </div>
       <div class="batter_logo"></div>
     </div>
@@ -48,7 +48,7 @@
             <% @users.each.with_index(1) do |user, i| %>
               <tr align="center">
                 <td><%= i %></td>
-                <td><%= attachment_image_tag user, :image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40', class: 'profile-image' %></td>
+                <td><%= attachment_image_tag user, :image, fallback: "no_image.jpg", format: 'jpeg', size:'40x40', class: 'profile-image' %></td>
                 <td>
                   <%= link_to user_path(user.user_id), data: {"turbolinks" => false} do %>
                     <span class="nowrap"><%= user.name %></span>

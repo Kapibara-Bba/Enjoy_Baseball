@@ -40,6 +40,7 @@
       <% else %>
         <nav class="globalMenuSp">
           <ul>
+            <li><%= link_to "トップページ", root_path, data: {"turbolinks" => false} %></li></li>
             <li><%= link_to "打撃成績一覧", records_batter_path, data: {"turbolinks" => false} %></li>
             <li><%= link_to "投手成績一覧", records_pitch_path, data: {"turbolinks" => false} %></li>
             <li><%= link_to "ログイン", new_user_session_path, data: {"turbolinks" => false} %></li>
