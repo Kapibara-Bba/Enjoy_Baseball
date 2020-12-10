@@ -5,4 +5,6 @@ class Info < ApplicationRecord
   has_one :spot, dependent: :destroy
   accepts_nested_attributes_for :spot
 
+  validates :body, presence: true
+  
 end

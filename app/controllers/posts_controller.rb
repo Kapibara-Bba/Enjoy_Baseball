@@ -8,7 +8,6 @@ class PostsController < ApplicationController
     #@team_post = @team.posts
     @posts = Post.where(team_id: params[:team_id])
     @post = Post.new
-    
   end
 
   def create

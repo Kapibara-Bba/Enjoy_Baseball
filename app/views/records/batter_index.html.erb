@@ -50,12 +50,12 @@
                 <td><%= i %></td>
                 <td><%= attachment_image_tag user, :image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40', class: 'profile-image' %></td>
                 <td>
-                  <%= link_to user_path(user.user_id) do %>
+                  <%= link_to user_path(user.user_id), data: {"turbolinks" => false} do %>
                     <span class="nowrap"><%= user.name %></span>
                   <% end %>
                 </td>
                 <td>
-                  <%= link_to team_path(user.team_id) do %>
+                  <%= link_to team_path(user.team_id), data: {"turbolinks" => false} do %>
                     <span class="nowrap"><%= user.team.teamname %></span>
                   <% end %>
                 </td>

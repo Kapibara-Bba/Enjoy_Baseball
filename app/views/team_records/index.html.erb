@@ -24,7 +24,7 @@
           <% @team_records.each do |record| %>
             <tr>
               <td><%= record.days %></td>
-              <td><%= link_to team_path(record.team) do %>
+              <td><%= link_to team_path(record.team), data: {"turbolinks" => false} do %>
                   <%= record.team.teamname %>
                   <% end %>
               </td>
@@ -33,7 +33,7 @@
               <td><%= record.result %></td>
               <td>
                 <div class="show-btn">
-                  <%= link_to "詳細", team_record_path(record), class: 'btn btn-success' %>
+                  <%= link_to "詳細", team_record_path(record), data: {"turbolinks" => false}, class: 'btn btn-success' %>
                 </div>
               </td>
             </tr>

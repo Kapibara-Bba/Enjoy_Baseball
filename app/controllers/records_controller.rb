@@ -1,5 +1,4 @@
 class RecordsController < ApplicationController
-  before_action :authenticate_user!
 
   def batter_index
     search_column = record_params[:search_column]
@@ -70,10 +69,6 @@ class RecordsController < ApplicationController
 
   end
 
-  def new
-    @record = Record.new
-  end
-
   def create
     # @user = User.find(params[:id])
     # Record.create(record_params)
@@ -82,7 +77,7 @@ class RecordsController < ApplicationController
     #binding.pry
     if @record.save!
       redirect_to user_path(current_user)
-      flash[:record_update] = "記録の作成に成功しました"
+      flash[:notice] = "記録の作成に成功しました"
     else
       @records = Record.all
       @user_record = current_user.records
