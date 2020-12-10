@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update, :destroy]
   get 'records/batter' => 'records#batter_index'
   get 'records/pitch' => 'records#pitch_index'
-  resources :records, only: [:new, :create, :update]
+  resources :records, only: [:create, :update]
   resources :infos, only: [:new, :create, :show, :edit, :update, :destroy]
   get '/map_request', to: 'infos#map', as: 'map_request'
   resources :team_records, only: [:index, :show, :new, :create, :edit, :update, :destroy]

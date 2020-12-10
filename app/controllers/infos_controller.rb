@@ -1,6 +1,11 @@
 class InfosController < ApplicationController
   before_action :authenticate_user!
-
+  
+  def new
+    @info = Info.new
+    @info.build_spot
+  end
+  
   def create
     # @team = Team.find(params[:id])
     @info = Info.new(create_info_params)
@@ -10,7 +15,7 @@ class InfosController < ApplicationController
       redirect_to team_path(@info.team_id)
       flash[:info_create] = "イベントを追加しました"
     else
-      render 'users#show'
+      render 'new'
     end
     # # google map
     # @review = Review.new(review_params)
@@ -31,6 +36,10 @@ class InfosController < ApplicationController
 
   def edit
     @info = Info.find(params[:id])
+    @lat = (@info.spot.nil?)? nil :  @info.spot.latitude #nilの場合は
+    @lng = (@info.spot.nil?)? nil :  @info.spot.longitude
+    gon.lat = @lat
+    gon.lng = @lng
     if @info.team_id != current_user.team_id
       redirect_to team_records_path
     end

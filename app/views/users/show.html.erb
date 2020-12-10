@@ -2,13 +2,12 @@
   <div class="container mt-5">
     <!--<div class="row">-->
       <div class="flash">
-        <%= flash[:record_update] %>
-        <%= flash[:user_update] %>
+        <%= flash[:notice] %>
       </div>
       <div class="user-show-profile">
         <%= attachment_image_tag @user, :image, fallback: "no_image.jpg", format: 'jpeg', size:'200x200', class: 'image' %><br>
         <span class="user-name"><%= @user.name %></span><br>
-        <%= link_to team_path(@user.team) do %>
+        <%= link_to team_path(@user.team), data: {"turbolinks" => false} do %>
           <%= @user.team.teamname %>
         <% end %>
         <%= @user.throw %> <%= @user.position %>
@@ -149,7 +148,7 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <%= form_with modal:@record, url: records_path, method: :post do |f| %>
+                <%= form_with modal:@record, url: records_path, method: :post, local: true do |f| %>
                   <div class="modal-body">
                     <div class="form_group">
                       <%= f.label :試合日, class: 'control-label' %>
