@@ -1,10 +1,11 @@
 <div class="body">
-  <div class="container mt-5">
+  <div class="container mt-5 flame">
     <div class="row record">
       <div class="col-xs-4">
         <h2>投手記録一覧</h2>
       </div>
       <div class="col-xs-8 record-select">
+        <!--ランキング項目の選択-->
         <%= form_with url: records_pitch_path, method: :get, local:true do |f| %>
           <%= f.select :search_column, [["防御率", "earned_run_average"], ["投球回", "inning"], ["勝数", "win"], ["敗数", "lose"],
             ["勝率", "win_rate"], ["失点", "to_be_point"], ["自責点", "earned_run"], ["奪三振", "to_be_strike_out"], ["被安打", "to_be_hit"],
@@ -21,7 +22,6 @@
       <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFDDFF;">
         <thead>
           <tr align="center">
-
             <th><span class="nowrap">順位</span></th>
             <th></th>
             <th><span class="nowrap">名前</span></th>

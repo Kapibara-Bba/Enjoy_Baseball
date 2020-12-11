@@ -1,0 +1,4 @@
+$(function() {
+$(".post_comments").html("<%= j(render 'posts/index', posts: @posts) %>")
+$("textarea").val("")
+});

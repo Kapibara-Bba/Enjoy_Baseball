@@ -22,6 +22,15 @@
   box-sizing: border-box;
 }
 
+.flame {
+  padding: 80px;
+  border-top: 3px solid red;
+  border-left: 3px solid green;
+  border-bottom: 3px solid blue;
+  border-right: 3px solid yellow;
+  border-radius: 10%;
+}
+
 .login-field {
   padding: 20px auto;
 }
@@ -116,8 +125,17 @@ header {
   margin-top: 50px;
 }
 
-.event {
-  margin-bottom: 30px;
+.team-event {
+  width: 100%;
+  text-align: right;
+}
+
+.share-link {
+  margin-top: 30px;
+}
+
+.team-calendar {
+  width: 100%;
 }
 
 .member {
@@ -147,11 +165,11 @@ header {
   font-size: 40px;
 }
 
-.post-comment {
-  margin: 15px auto;
-  display: inline-block;
-  padding: 15px;
-}
+// .post-comment {
+//   margin: 15px auto;
+//   display: inline-block;
+//   padding: 15px;
+// }
 
 .nowrap {
   white-space: nowrap;
@@ -316,4 +334,77 @@ nav.globalMenuSp ul li a {
 
 nav.globalMenuSp.active {
   transform: translateY(0%);
+}
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  #homes-index {
+    background-image: image-url("yakyujo.jpg");
+    // background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+}
+
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+
+  #homes-index {
+    width: 100%;
+    background-image: image-url("yakyujo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .home {
+    width: 100%;
+    margin-top: 100%;
+    margin-bottom: 100%;
+  }
+
+  .logo {
+    width: 100%;
+    background-image: image-url("logo.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .icon-form {
+    display: flex;
+    justify-content: center;
+  }
+
+  #team_records-index {
+    font-size: 8px;
+  }
+
+  .fa-image {
+    font-size: 30px;
+  }
+
+  .fa-paper-plane {
+    display: inline-block;
+    padding: 0;
+    font-size: 30px;
+  }
+
+  .sub-btn {
+    height: 50px;
+  }
+
+  .post-player {
+    margin: 20px 20px 20px 0;
+    padding: 0;
+  }
+
+  .nowrap {
+    white-space: nowrap;
+    font-size: 12px;
+  }
+
+  .simple_calendar {
+    font-size: 3rem;
+    margin-left: 0;
+  }
 }

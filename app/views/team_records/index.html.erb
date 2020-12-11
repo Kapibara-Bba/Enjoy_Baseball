@@ -1,46 +1,47 @@
-<div class="body">
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-xs-12">
-        <h2>試合結果一覧</h2>
-        <%= search_form_for @q do |f| %>
-          <%= f.search_field :team_teamname_or_opponent_cont, placeholder: "チーム名", class: "form-control" %>
-          <%= f.submit "検索", class: 'btn btn-primary' %>
-        <% end %>
-      </div>
-    </div>
-    <div class="game-index">
-      <table class="table table-hover table-inverse">
-        <thead>
-          <tr>
-            <th>日にち</th>
-            <th>チーム名</th>
-            <th>対戦チーム</th>
-            <th>スコア</th>
-            <th>勝敗</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @team_records.each do |record| %>
-            <tr>
-              <td><%= record.days %></td>
-              <td><%= link_to team_path(record.team), data: {"turbolinks" => false} do %>
-                  <%= record.team.teamname %>
-                  <% end %>
-              </td>
-              <td><%= record.opponent %></td>
-              <td><%= record.team_score %> ー <%= record.rival_score %></td>
-              <td><%= record.result %></td>
-              <td>
-                <div class="show-btn">
-                  <%= link_to "詳細", team_record_path(record), data: {"turbolinks" => false}, class: 'btn btn-success' %>
-                </div>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <%= paginate @team_records %>
+<div class="container mt-5 flame">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>試合結果一覧</h2>
+      <!--検索フォーム-->
+      <%= search_form_for @q do |f| %>
+        <%= f.search_field :team_teamname_or_opponent_cont, placeholder: "チーム名", class: "form-control" %>
+        <%= f.submit "検索", class: 'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
+  <div class="game-index">
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th><span class="nowrap">日にち</span></th>
+          <th><span class="nowrap">チーム名</span></th>
+          <th><span class="nowrap">対戦チーム</span></th>
+          <th><span class="nowrap">スコア</span></th>
+          <th><span class="nowrap">勝敗</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @team_records.each do |record| %>
+          <tr>
+            <td><span class="nowrap"><%= record.days %></span></td>
+            <td>
+              <%= link_to team_path(record.team), data: {"turbolinks" => false} do %>
+                <span class="nowrap"><%= record.team.teamname %></span>
+              <% end %>
+            </td>
+            <td><span class="nowrap"><%= record.opponent %></span></td>
+            <td><span class="nowrap"><%= record.team_score %> ー <%= record.rival_score %></span></td>
+            <td><span class="nowrap"><%= record.result %></span></td>
+            <td>
+              <div class="show-btn">
+                <span class="nowrap"><%= link_to "詳細", team_record_path(record), data: {"turbolinks" => false}, class: 'btn btn-success' %></span>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <%= paginate @team_records %>
+  </div>
 </div>
+

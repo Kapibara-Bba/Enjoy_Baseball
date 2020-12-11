@@ -1,10 +1,11 @@
 <div class="body">
-  <div class="container mt-5">
-    <div class="row record-top">
+  <div class="container mt-5 flame">
+    <div class="row record">
       <div class="col-xs-4">
         <h2>打者記録一覧</h2>
       </div>
       <div class="col-xs-8 record-select">
+        <!--ランキング項目の選択-->
         <%= form_with url: records_batter_path, method: :get, local:true do |f| %>
           <%= f.select :search_column, [["打率", "average"], ["打数", "batting"], ["安打", "hit"],
           ["本塁打", "homerun"], ["二塁打", "two_base_hit"], ["三塁打", "three_base_hit"], ["打点", "dot"], ["得点", "homein"], ["三振", "strike_out"],
@@ -19,7 +20,7 @@
       <div class="batter_logo"></div>
     </div>
     <div class="row">
-      <div class="row">
+      <div style="height:100%; width:100%; overflow-y:scroll; scrollbar-base-color:#99ff66 ; scrollbar-arrow-color:#ff0000;">
         <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #E4FF8D;">
           <thead>
             <tr align="center">

@@ -1,7 +1,8 @@
 <div class="body">
-  <div class="container mt-5">
+  <div class="container mt-5 flame">
     <h3>イベント追加</h3>
     <div class="modal-body">
+      <!--イベント追加フォーム-->
       <%= form_with model: @info, url: infos_path, method: :post, local: true do |f| %>
         <div class="form_group">
           <%= f.label :イベント名 %>
@@ -11,6 +12,7 @@
           <%= f.label :日時 %>
           <%= f.datetime_select :start_time %>
         </div>
+        <!--google map-->
         <div>
           <%= f.fields_for :spot do |spot| %>
             <%= spot.label :address, "イベント場所(Google Mapで検索)", class: "spot_title" %>
