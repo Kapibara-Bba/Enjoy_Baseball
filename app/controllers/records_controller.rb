@@ -54,7 +54,7 @@ class RecordsController < ApplicationController
     # #@users = @user.records
     @records = Record.all
     @users = User.joins(:records).group(:id).select('user_id, users.name, users.image_id, users.team_id,
-                                            SUM(earned_run) * 9 / SUM(inning) AS earned_run_average,
+                                            SUM(earned_run) * 9 * 10000/ SUM(inning) AS earned_run_average,
                                             SUM(win) * 10000 / (SUM(win) + SUM(lose)) AS win_rate,
                                             SUM(inning) AS inning,
                                             SUM(win) AS win,

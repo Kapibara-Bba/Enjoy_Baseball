@@ -57,7 +57,7 @@
               </td>
               <td>
                 <% begin %>
-                  <span class="nowrap"><%= sprintf("%.2f", user.earned_run_average) %></span>
+                  <span class="nowrap"><%= sprintf("%.2f", user.earned_run_average / 10000.0) %></span>
                 <% rescue %>
                   0
                 <% end %>
