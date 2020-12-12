@@ -15,13 +15,20 @@
  *= require_self
  */
  @import "bootstrap";
- @import "infos";
- @import "homes";
-
+// @import "infos";
+// @import "homes";
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper{
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 120px;
   box-sizing: border-box;
 }
 
@@ -34,139 +41,18 @@
   border-radius: 10%;
 }
 
-.login-field {
-  padding: 20px auto;
-}
-
-header {
-  width: 100%;
-  height: 70px;
-  background-color: maroon;
-}
-
-.header-logo {
-  height: 70px;
-  width: 110px;
-  margin: 0 auto;
-  background-image: image-url("logo.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-.new-team {
-  margin: 50px 0;
+.home-btn {
+  margin: 20px;
 }
 
 .login-button {
-  margin: 30px 0 30px 0;
-}
-
-.user-record {
-  margin: 30px;
-}
-
-.profile {
   display: flex;
-  // display: inline-block;
-}
-
-.record-select {
-  margin: 0 80px 0 80px;
-}
-
-.record_link {
-  margin-left: 80px;
-}
-
-.simple-calendar {
- .wday-0 {
-    color: red;
- }
-
- .wday-6 {
-    color: blue;
- }
-
- .calendar-head {
-   background-color: #F0E68C;
-   text-align: center;
- }
-
- .calendar-title {
-   font-size: 20px;
-   font-weight: bold;
- }
-
- .has-events {
-   background: #FFF8DC;
- }
-}
-
-.profile-image {
-  border: 1px solid #656565;  /* 枠線(=円形でも記述は同じ) */
-  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.record-top {
-  margin-top: 50px;
-}
-
-.team-event {
-  width: 100%;
-  text-align: right;
-}
-
-.share-link {
+  text-align: center;
   margin-top: 30px;
 }
 
-.team-calendar {
-  width: 100%;
-}
-
-.member {
-  margin-top: 40px;
-}
-
-.days {
-  margin-bottom: 30px;
-}
-
-.game-result {
-  margin-top: 50px;
-}
-
-.comment-form {
-  margin: 0 auto;
-  display: inline-block;
-}
-
-.fa-image {
-  font-size: 60px;
-}
-
-.fa-paper-plane {
-  display: inline-block;
-  padding: 0;
-  font-size: 40px;
-}
-
-// .post-comment {
-//   margin: 15px auto;
-//   display: inline-block;
-//   padding: 15px;
-// }
-
-.nowrap {
-  white-space: nowrap;
-}
-
-.flash {
-  color: #00DD00;
-  font-size: 15px;
+.login-field {
+  padding: 20px auto;
 }
 
 .sign {
@@ -191,6 +77,79 @@ header {
 .actions {
   margin-top:15px;
 }
+// ヘッダー
+header {
+  width: 100%;
+  height: 70px;
+  background-color: maroon;
+}
+
+.header-logo {
+  height: 70px;
+  width: 110px;
+  margin: 0 auto;
+  background-image: image-url("logo.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.new-team {
+  margin: 50px 0;
+}
+
+// カレンダー
+.simple-calendar {
+ .wday-0 {
+    color: red;
+ }
+
+ .wday-6 {
+    color: blue;
+ }
+
+ .calendar-head {
+   background-color: #F0E68C;
+   text-align: center;
+ }
+
+ .calendar-title {
+   font-size: 20px;
+   font-weight: bold;
+ }
+
+ .has-events {
+   background: #FFF8DC;
+ }
+}
+
+.days {
+  margin-bottom: 30px;
+}
+
+.game-result {
+  margin-top: 50px;
+}
+
+.comment-form {
+  margin: 0 auto;
+  display: inline-block;
+}
+
+// .post-comment {
+//   margin: 15px auto;
+//   display: inline-block;
+//   padding: 15px;
+// }
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.flash {
+  color: #00DD00;
+  font-size: 15px;
+}
+
 
 #map {
   width: 470px;
@@ -207,6 +166,16 @@ header {
   height: 300px;
   border: 2px solid red;
   margin-top: 15px;
+}
+
+// フッター
+footer{
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  background-color: #DDDDDD;
 }
 
 // 上に戻るボタン

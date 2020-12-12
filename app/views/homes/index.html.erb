@@ -2,67 +2,19 @@
   <div class="row home">
     <div class="mx-auto" style="width: 40%;">
       <div class="logo"></div>
-      <div class="row login-button">
-        <%= link_to "ログイン", new_user_session_path, data: {"turbolinks" => false}, class: 'btn btn-info btn-block' %>
-      </div>
-      <div class="row login-button">
-        <%= link_to "新規登録", new_user_registration_path, data: {"turbolinks" => false}, class: 'btn btn-primary btn-block' %>
-      </div>
-      <div class="row login-button">
-        <%= link_to 'かんたんログイン', users_guest_sign_in_path, data: {"turbolinks" => false}, method: :post, class: 'btn btn-warning btn-block' %>
+      <div class="col-xs-6"></div>
+      <div class="col-xs-6">
+        <div class="row login-button">
+          <%= link_to "ログイン", new_user_session_path, data: {"turbolinks" => false}, class: 'btn btn-info home-btn' %>
+          <%= link_to "新規登録", new_user_registration_path, data: {"turbolinks" => false}, class: 'btn btn-primary home-btn' %>
+          <%= link_to 'かんたんログイン', users_guest_sign_in_path, data: {"turbolinks" => false}, method: :post, class: 'btn btn-warning home-btn' %>
+        </div>
       </div>
     </div>
   </div>
   <div class="row">
-    <%= link_to homes_about_path, data: {"turbolinks" => false} do %>
-      <h2>What About Enjoy_Baseball!?</h2>
-    <% end %>
-
-    <div class="about-header">
-    </div>
-    <div class="about-main">
-      <p class="about-text">
-        Enjoy_Baseballは野球の記録を管理できるサイトです。<br>
-        選手や監督、子供のいる親御さんにも使っていただけます。<br>
-        個人の成績やチームの試合結果を記録し共有する事で、<br>
-        コミュニケーションツールとしても利用できます。
-      </p>
-      <div class="card">
-        <p class="card-head">
-          チームを選択 or チームの作成
-        </p>
-        <div class="setp1"></div>
-      </div>
-      <div class="card">
-        <p class="card-head">
-          個人成績の追加・確認
-        </p>
-        <div class="setp2"></div>
-      </div>
-      <div class="card">
-        <p class="card-head">
-          各項目のランキング表示
-        </p>
-        <div class="setp3"></div>
-      </div>
-      <div class="card">
-        <p class="card-head">
-          イベントの作成日程確認
-        </p>
-        <div class="setp2"></div>
-      </div>
-      <div class="card">
-        <p class="card-head">
-          試合結果の確認・メンバー情報
-        </p>
-        <div class="setp2"></div>
-      </div>
-      <div class="card">
-        <p class="card-head">
-          コメント・写真の共有
-        </p>
-        <div class="setp2"></div>
-      </div>
+    <div class="home-about">
+      <%= link_to "What About EnjoyBaseball!?", homes_about_path, data: {"turbolinks" => false} %>
     </div>
   </div>
 </div>
