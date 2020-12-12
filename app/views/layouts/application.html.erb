@@ -28,10 +28,10 @@
         <nav class="globalMenuSp">
           <ul>
             <% if current_user.team_id.present? %>
-              <li><%= link_to "試合一覧", team_records_path, data: {"turbolinks" => false} %></li>
               <li><%= link_to "マイチーム", team_path(current_user.team_id), data: {"turbolinks" => false} %></li>
+              <li><%= link_to "マイページ", user_path(current_user), data: {"turbolinks" => false} %></li>
             <% end %>
-            <li><%= link_to "マイページ", user_path(current_user), data: {"turbolinks" => false} %></li>
+            <li><%= link_to "試合一覧", team_records_path, data: {"turbolinks" => false} %></li>
             <li><%= link_to "打撃成績一覧", records_batter_path, data: {"turbolinks" => false} %></li>
             <li><%= link_to "投手成績一覧", records_pitch_path, data: {"turbolinks" => false} %></li>
             <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {"turbolinks" => false} %></li>

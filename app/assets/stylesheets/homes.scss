@@ -40,10 +40,80 @@
 
 .about-card {
   height: 200px;
-  width: 250px;
+  width: 300px;
   margin: 10px auto;
   background-color: #FFFFBB;
   border-radius: 20%;
 }
 
+.card-head {
+  margin-top: 5px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.step1 {
+  background-image: image-url("team_select2.jpg");
+  background-size: cover;
+  height: 95%;
+  width: 80%;
+  margin: 0 auto ;
+  border-radius: 10%;
+}
+
+.uni {
+  background-image: image-url("uni.jpg");
+  background-size: cover;
+  height: 50%;
+  width: 40%;
+}
+
+.uniform {
+  background-image: image-url("uniform.jpg");
+  background-size: cover;
+  height: 40%;
+  margin: 0 0 0 auto;
+  width: 30%;
+}
+
+.step2 {
+  background-image: image-url("record.jpg");
+  background-size: cover;
+  height: 80%;
+  width: 80%;
+  margin: 0 auto ;
+}
+
+.step3 {
+  background-image: image-url("batter.jpg");
+  background-size: cover;
+  height: 80%;
+  width: 80%;
+  margin: 0 auto ;
+}
+
+.step4 {
+  background-image: image-url("nittei.jpg");
+  // background-image: image-url("event.jpg");
+  background-size: cover;
+  height: 80%;
+  width: 80%;
+  margin: 0 auto ;
+}
+
+.step5 {
+  background-image: image-url("player.jpg");
+  background-size: cover;
+  height: 80%;
+  width: 80%;
+  margin: 0 auto ;
+}
+
+.step6 {
+  background-image: image-url("comment.jpg");
+  background-size: cover;
+  height: 80%;
+  width: 80%;
+  margin: 0 auto ;
+}
 
