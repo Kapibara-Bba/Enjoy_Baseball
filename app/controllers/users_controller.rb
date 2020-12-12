@@ -11,10 +11,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    # @teams = Team.all
-    # if @user.id != current_user.id
-    #   redirect_to user_path(current_user)
-    # end
+    @teams = Team.all
+    if @user.id != current_user.id
+      redirect_to user_path(current_user)
+    end
   end
 
   def update

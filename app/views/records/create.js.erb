@@ -1,0 +1,5 @@
+$("textarea").val("0");
+$("input").val("0");
+$('#exampleModal').modal('hide');
+$(".user-record-batter").html("<%= j(render 'users/batter-show', user_record: @user_record) %>");
+$(".user-record-pitch").html("<%= j(render 'users/pitch-show', user_record: @user_record) %>");

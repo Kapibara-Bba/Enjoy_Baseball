@@ -74,15 +74,16 @@ class RecordsController < ApplicationController
     # Record.create(record_params)
     @record = Record.new(record_params)
     @record.user_id = current_user.id
-    #binding.pry
-    if @record.save!
-      redirect_to user_path(current_user)
-      flash[:notice] = "記録の作成に成功しました"
-    else
-      @records = Record.all
-      @user_record = current_user.records
-      render 'users#show'
-    end
+    @user_record = current_user.records
+    @record.save
+    # if @record.save
+    #   redirect_to user_path(current_user)
+    #   flash[:notice] = "記録の作成に成功しました"
+    # elses
+    #   @records = Record.all
+    #   @user_record = current_user.records
+    #   render 'users#show'
+    # end
   end
 
   private

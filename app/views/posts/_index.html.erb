@@ -5,7 +5,7 @@
         <%= attachment_image_tag post.user, :image, fallback: "no_image.jpg", format: 'jpeg', size:'40x40', class: "profile-image" %>
         <%= post.user.name %>
       <% end %>
-      <%= post.comment %>
+      <%= simple_format post.comment %>
       <%= attachment_image_tag post, :image, format: 'jpeg', size:'200x200' %>
     </td>
   </tr>
