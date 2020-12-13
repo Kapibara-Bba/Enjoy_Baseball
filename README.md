@@ -3,8 +3,11 @@
 # Enjoy_Baseball
 
 ## サイト概要
-- 野球チームの登録
-- 所属チーム・選手の成績、スケジュール管理
+- 「野球をもっと楽しく」
+  野球の記録を管理できるサイトです。
+
+## URL
+<img width="1440" alt="Enjoy_Baseballトップページ" src="https://user-images.githubusercontent.com/70389126/102007257-ccfea400-3d6a-11eb-8657-5324f3fe0926.png">
 
 ## サイトテーマ
 - 試合や成績を共有して野球をもっと楽しくやろう。

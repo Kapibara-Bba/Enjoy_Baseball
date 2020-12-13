@@ -52,6 +52,9 @@ class TeamsController < ApplicationController
 
   def edit
     @team = Team.find(params[:id])
+    if @team.id != current_user.team_id
+      redirect_to team_path(current_user.team_id)
+    end
   end
 
   def update
@@ -78,3 +81,4 @@ class TeamsController < ApplicationController
   end
 
 end
+

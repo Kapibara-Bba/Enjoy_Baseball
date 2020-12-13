@@ -31,7 +31,12 @@
   font-size: 40px;
 }
 
-table {
-  table-layout: fixed;
+.word {
+  // table-layout: fixed;
   word-wrap: break-word;
 }
+
+.post_comments {
+  width: 480px;
+}
+

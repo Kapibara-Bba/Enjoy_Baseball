@@ -65,18 +65,17 @@
   margin-bottom: 0;
 }
 
-#registrations-new {
+#registrations-new, #sessions-new, #registrations-create {
   background-image: image-url("yakyujo.jpg");
-  // background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
 
-#sessions-new {
-  background-image: image-url("yakyujo.jpg");
-  background-size: cover;
-  background-position: center;
-}
+// #sessions-new {
+//   background-image: image-url("yakyujo.jpg");
+//   background-size: cover;
+//   background-position: center;
+// }
 
 .sub-sign-up {
   font-size: 25px;
