@@ -45,14 +45,48 @@
   margin: 20px;
 }
 
+// 新規登録・ログイン
 .login-button {
   display: flex;
   text-align: center;
   margin-top: 30px;
 }
 
+.devise-form {
+  background-color: #ffffbb;
+  height: 600px;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 20%;
+}
+
+.sign-up {
+  font-size: 80px;
+  margin-bottom: 0;
+}
+
+#registrations-new {
+  background-image: image-url("yakyujo.jpg");
+  // background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#sessions-new {
+  background-image: image-url("yakyujo.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.sub-sign-up {
+  font-size: 25px;
+  text-align: center;
+  margin: 0 auto;
+}
+
 .login-field {
   padding: 20px auto;
+  margin-top: 30px;
 }
 
 .sign {
@@ -65,7 +99,9 @@
 }
 
 .login {
+  height: 300px;
   width: 300px;
+  margin-top: 40px;
   padding: 20px 0 20px 60px;
   border-top: 3px solid red;
   border-left: 3px solid green;
@@ -77,6 +113,12 @@
 .actions {
   margin-top:15px;
 }
+
+.sign_up-link {
+  font-size: 20px;
+  padding-top: 40px;
+}
+
 // ヘッダー
 header {
   width: 100%;

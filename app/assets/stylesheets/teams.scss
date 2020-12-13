@@ -14,6 +14,44 @@
 //   background-size: 20px 20px;
 // }
 
+#teams-new, #teams-create {
+  background-image: image-url("yakyujo.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.new-team-form {
+  background-color: #ffffbb;
+  height: 600px;
+  width: 60%;
+  margin: 0 100%;
+  border-radius: 20%;
+}
+
+.new-team-head {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.team-select {
+  padding: 60px 110px 60px 110px;
+  margin-top: 20px;
+  border-top: 3px solid red;
+  border-left: 3px solid green;
+  border-bottom: 3px solid blue;
+  border-right: 3px solid #FFD700;
+  border-radius: 15%;
+}
+
+.new-team {
+  margin: 0 auto;
+}
+
+.team-actions {
+  margin-top: 30px;
+  padding: 0 0 0 40px;
+}
+
 .team-event {
   width: 100%;
   text-align: right;

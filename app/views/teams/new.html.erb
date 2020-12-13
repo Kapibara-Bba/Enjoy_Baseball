@@ -1,44 +1,41 @@
-<div class="body">
-  <div class="container mt-5 flame">
-    <div class="row">
-      <div class="mx-auto">
-        <h2>チーム選択</h2>
-        <% if @team.errors.any? %>
-          <div id="error_explanation">
-            <h2>チーム名を記入してください</h2>
+<div class="container mt-5">
+  <div class="row new-team-form">
+    <div class="mx-auto">
+      <h2 class="new-team-head">チーム選択</h2>
+      <% if @team.errors.any? %>
+        <div id="error_explanation">
+          <h2>チーム名を記入してください</h2>
+        </div>
+      <% end %>
+      <div class="team-select">
+        <%= form_with model:@team, local: true do |f| %>
+          <div class="already-team">
+          　<%= f.radio_button :team, 0, checked: "checked" %>
+            <%= f.label :teamselect, "既にチームに加入している方" %><br>
+            <%= f.collection_select(:id, @teams, :id,:team_address, {prompt: "チームを選択してください"} ) %>
+          </div>
+          <div class="new-team">
+            <%= f.radio_button :team, 1 %>
+            <%= f.label :teamselect, "新しくチームを作る方" %>
+            <div class="field">
+              <label for="teamname">チーム名</label>
+                <%= f.text_field :teamname, class: 'col-xs-12' %>
+            </div>
+            <div class="field">
+              <label for="prefecture_code">都道府県</label>
+              <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
+            </div>
+            <div class="field">
+              <label for="city">市町村</label>
+              <%= f.text_field :city %>
+            </div>
+            <div class="team-actions">
+              <%= f.submit "登録する", class: "btn btn-info" %>
+            </div>
           </div>
         <% end %>
-        <div class="team-select">
-          <%= form_with model:@team, local: true do |f| %>
-        　<%= f.radio_button :team, 0, checked: "checked" %>
-          <%= f.label :teamselect, "既にチームに加入している方" %>
-          <%= f.collection_select(:id, @teams, :id,:team_address, {prompt: "チームを選択してください"} ) %>
-          <div class="row">
-            <div class="new-team">
-              <%= f.radio_button :team, 1 %>
-              <%= f.label :teamselect, "新しくチームを作る方" %>
-              <div class="field">
-                <label for="teamname">チーム名</label>
-                <div class="row">
-                  <%= f.text_field :teamname, class: 'col-xs-12' %>
-                </div>
-              </div>
-              <div class="field">
-                <label for="prefecture_code">都道府県</label>
-                <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name %>
-              </div>
-              <div class="field">
-                <label for="city">市町村</label>
-                <%= f.text_field :city %>
-              </div>
-              <div class="row">
-                <%= f.submit "登録する", class: "btn btn-info btn-block" %>
-              </div>
-            </div>
-            <% end %>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </div>
+
