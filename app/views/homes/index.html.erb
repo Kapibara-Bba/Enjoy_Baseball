@@ -1,33 +1,21 @@
-<div class="background">
-  <div class="home-top">
-    <div class="container">
-      <div class="row">
-        <div class="mx-auto" style="width: 40%;">
-
-          <div class="logo"></div>
-          <div class="row">
-
-          </div>
-          <div class="row login-button">
-            <%= link_to "ログイン", new_user_session_path, data: {"turbolinks" => false}, class: 'btn btn-info btn-block' %>
-          </div>
-          <div class="row login-button">
-            <%= link_to "新規登録", new_user_registration_path, data: {"turbolinks" => false}, class: 'btn btn-primary btn-block' %>
-          </div>
-          <div class="row login-button">
-            <%= link_to 'かんたんログイン', users_guest_sign_in_path, data: {"turbolinks" => false}, method: :post, class: 'btn btn-warning btn-block' %>
-          </div>
+<div class="container">
+  <div class="row home">
+    <div class="mx-auto" style="width: 40%;">
+      <div class="logo"></div>
+      <div class="col-xs-6"></div>
+      <div class="col-xs-6">
+        <div class="row login-button">
+          <%= link_to "ログイン", new_user_session_path, data: {"turbolinks" => false}, class: 'btn btn-info home-btn' %>
+          <%= link_to "新規登録", new_user_registration_path, data: {"turbolinks" => false}, class: 'btn btn-primary home-btn' %>
+          <%= link_to 'かんたんログイン', users_guest_sign_in_path, data: {"turbolinks" => false}, method: :post, class: 'btn btn-warning home-btn' %>
         </div>
       </div>
     </div>
   </div>
-  <div class="about">
-    <div class="container mt-5">
-      <div class="row">
-        <div class="mx-auto" style="width: 40%;">
-
-        </div>
-      </div>
+  <div class="row">
+    <div class="home-about">
+      <%= link_to "What About EnjoyBaseball!?", homes_about_path, data: {"turbolinks" => false} %>
     </div>
   </div>
 </div>
+

@@ -1,7 +1,8 @@
 <div class="body">
-  <div class="container mt-5">
+  <div class="container mt-5 flame">
     <h3>イベント編集</h3>
     <div class="modal-body">
+      <!--イベント修正のフォーム-->
       <%= form_with model:@info, url: info_path(@info), method: :patch, local:true do |f| %>
         <div class="form_group">
           <%= f.label :イベント名 %>
@@ -11,12 +12,12 @@
           <%= f.label :日時 %>
           <%= f.datetime_select :start_time %>
         </div>
-
+        <!--google map-->
         <div>
           <%= f.fields_for :spot do |spot| %>
             <%= spot.label :address, "イベント場所(Google Mapで検索)", class: "spot_title" %>
             <%= spot.text_field :address, placeholder: "場所を入力", id: "address", class: "spot_text" %>
-            <%= spot.submit "検索する", onclick: "codeAddress()", type: "button" %>
+            <%= spot.submit "検索する", onclick: "codeAddress()", type: "button", class: "seach_button" %>
           <% end %>
         </div>
         <div id="edit_map"></div>

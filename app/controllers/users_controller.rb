@@ -11,10 +11,10 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    # @teams = Team.all
-    # if @user.id != current_user.id
-    #   redirect_to user_path(current_user)
-    # end
+    @teams = Team.all
+    if @user.id != current_user.id
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
@@ -33,7 +33,6 @@ class UsersController < ApplicationController
     flash[:notice] = 'ユーザーを削除しました。'
     redirect_to :root #削除に成功すればrootページに戻る
   end
-
 
   private
   def user_params

@@ -1,11 +1,11 @@
 <div class="body">
-  <div class="container mt-5">
+  <div class="container mt-5 flame">
     <div class="row">
       <div class="mx-auto">
         <div class="row days">
           <h3><%= @team_record.days %></h3>
         </div>
-        <div class="score">
+        <div class="">
           <h3><%= @team_record.team.teamname %><%= @team_record.team_score %> ー <%= @team_record.rival_score %><%= @team_record.opponent %></h3>
         </div>
         <div class="game-result">
@@ -20,8 +20,8 @@
             </tr>
           </table>
         </div>
-        <% if @team_record.team_id == current_user.team_id %>
-          <div class="row result-btn">
+        <div class="row result-btn">
+          <% if @team_record.team_id == current_user.team_id %>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">
               編集する
             </button>
@@ -35,6 +35,7 @@
                     </button>
                   </div>
                   <div class="modal-body">
+                    <!--試合結果の修正フォーム-->
                     <%= form_with model:@team_record, url: team_record_path(@team_record), method: :patch, local:true do |f| %>
                       <div class="form_group">
                         <%= f.label :試合日 %>
@@ -72,8 +73,10 @@
               </div>
             </div>
             <%= link_to "削除する", team_record_path(@team_record), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger' %>
-          </div>
-        <% end %>
+            <%= link_to "戻る", team_path(current_user.team_id), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-secondary" %>
+          <% end %>
+          <%= link_to "試合一覧", team_records_path, data: {"turbolinks" => false}, class: "col-xs-12 btn btn-info" %>
+        </div>
       </div>
     </div>
   </div>
