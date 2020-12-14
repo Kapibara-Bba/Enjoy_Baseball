@@ -32,7 +32,7 @@ class RecordsController < ApplicationController
                                             SUM(sacrifice_fly) AS sacrifice_fly,
                                             SUM(still) AS still,
                                             SUM(error) AS error
-                                            ').order("#{search_column} DESC")
+                                            ').order("#{search_column} DESC").limit(50)
 
   end
 
@@ -65,17 +65,17 @@ class RecordsController < ApplicationController
                                             SUM(to_be_hit) AS to_be_hit,
                                             SUM(to_be_homerun) AS to_be_homerun,
                                             SUM(to_be_ball) AS to_be_ball
-                                            ').order("#{search_column} DESC")
+                                            ').order("#{search_column} DESC").limit(50)
 
   end
 
   def create
-    # @user = User.find(params[:id])
-    # Record.create(record_params)
+  # 非同期通信
     @record = Record.new(record_params)
     @record.user_id = current_user.id
     @user_record = current_user.records
     @record.save
+    # 非同期でない場合
     # if @record.save
     #   redirect_to user_path(current_user)
     #   flash[:notice] = "記録の作成に成功しました"
@@ -85,6 +85,7 @@ class RecordsController < ApplicationController
     #   render 'users#show'
     # end
   end
+  
 
   private
   def record_params

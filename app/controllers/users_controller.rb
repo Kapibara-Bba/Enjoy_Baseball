@@ -34,7 +34,6 @@ class UsersController < ApplicationController
     redirect_to :root #削除に成功すればrootページに戻る
   end
 
-
   private
   def user_params
     params.require(:user).permit(:name, :image, :team_id, :position, :throw)

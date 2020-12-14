@@ -39,6 +39,7 @@
   border-bottom: 3px solid blue;
   border-right: 3px solid yellow;
   border-radius: 10%;
+  background-color: #fff;
 }
 
 .home-btn {
@@ -65,11 +66,17 @@
   margin-bottom: 0;
 }
 
-#registrations-new, #sessions-new, #registrations-create {
+body {
   background-image: image-url("yakyujo.jpg");
   background-size: cover;
   background-position: center;
 }
+
+// #registrations-new, #sessions-new, #registrations-create, #users-show, #records-batter_index {
+//   background-image: image-url("yakyujo.jpg");
+//   background-size: cover;
+//   background-position: center;
+// }
 
 // #sessions-new {
 //   background-image: image-url("yakyujo.jpg");

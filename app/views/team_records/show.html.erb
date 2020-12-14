@@ -20,8 +20,8 @@
             </tr>
           </table>
         </div>
-        <% if @team_record.team_id == current_user.team_id %>
-          <div class="row result-btn">
+        <div class="row result-btn">
+          <% if @team_record.team_id == current_user.team_id %>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">
               編集する
             </button>
@@ -73,9 +73,10 @@
               </div>
             </div>
             <%= link_to "削除する", team_record_path(@team_record), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger' %>
-            <%= link_to "戻る", team_path(current_user.team_id), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-secondary" %>
-          </div>
-        <% end %>
+          <% end %>
+          <%= link_to "チーム詳細", team_path(current_user.team_id), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-secondary" %>
+          <%= link_to "試合一覧", team_records_path, data: {"turbolinks" => false}, class: "col-xs-12 btn btn-info" %>
+        </div>
       </div>
     </div>
   </div>

@@ -8,18 +8,17 @@
         <h2><%= @info.team.teamname %></h2>
         <div class="row">
           <table class="table">
-            <thead>
               <tr>
                 <th><h4>イベント内容</h4></th>
                 <th><h5><%= @info.body %></h5></th>
               </tr>
-            </thead>
-            <tbody>
+              <tr>
+                <th><h4>日時</h4></th>
+                <th><h5><%= @info.start_time.strftime('%Y/%m/%d %H') %>時</h5></th>
               <tr>
                 <td><h4>場所</h4></td>
                 <td><h5><%= @info.spot.address %></h5></td>
               </tr>
-            </tbody>
           </table>
         </div>
       </div>
