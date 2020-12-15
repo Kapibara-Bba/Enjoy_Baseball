@@ -20,6 +20,28 @@
         </div>
       </div>
       <!--記録追加のフォーム-->
+    </div>
+    <div class="user-record-batter">
+    <!--打撃成績の表示-->
+      <h2>打撃成績</h2>
+      <div class="row">
+        <div style="height:100%; width:100%; overflow-y:scroll; scrollbar-base-color:#99ff66 ; scrollbar-arrow-color:#ff0000;">
+          <div class="user-record-batter">
+            <%= render 'users/batter-show', user_record: @user_record %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="user-record-pitch">
+    <!--投手成績の表示-->
+      <h2>投手成績</h2>
+      <div class="row">
+        <div style="height:100%; width:100%; overflow-y:scroll; scrollbar-base-color:#99ff66 ; scrollbar-arrow-color:#ff0000;">
+          <div class="user-record-pitch">
+            <%= render 'users/pitch-show', user_record: @user_record %>
+          </div>
+        </div>
+      </div>
       <% if @user == current_user %>
         <div class="new-record">
           <div class="row">
@@ -38,6 +60,10 @@
                     </div>
                     <%= form_with modal:@record, url: records_path, method: :post do |f| %>
                       <div class="modal-body">
+                        <div class="form_group">
+                          <%= f.label :試合日 %>
+                          <%= f.date_field :days, class: 'form-control' %>
+                        </div>
                         <h2>打者記録</h2>
                         <div class="form_group">
                           <%= f.label :打席, class: "col-sm-3" %>
@@ -145,29 +171,6 @@
           </div>
         </div>
       <% end %>
-    </div>
-    <div class="user-record-batter">
-    <!--打撃成績の表示-->
-    <h2>打撃成績</h2>
-    <div class="row">
-      <div style="height:100%; width:100%; overflow-y:scroll; scrollbar-base-color:#99ff66 ; scrollbar-arrow-color:#ff0000;">
-        <div class="user-record-batter">
-          <%= render 'users/batter-show', user_record: @user_record %>
-        </div>
-      </div>
-    </div>
-    <div class="user-record-pitch">
-    <!--投手成績の表示-->
-    <h2>投手成績</h2>
-    <div class="row">
-      <div style="height:100%; width:100%; overflow-y:scroll; scrollbar-base-color:#99ff66 ; scrollbar-arrow-color:#ff0000;">
-        <div class="user-record-pitch">
-          <%= render 'users/pitch-show', user_record: @user_record %>
-        </div>
-      </div>
-    </div>
-    <div class="record-list">
-      
     </div>
   </div>
 </div>
