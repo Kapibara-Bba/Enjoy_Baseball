@@ -14,16 +14,32 @@
   height: 110px;
   width: 110px;
   margin: 0 auto;
-  background-image: image-url("104719.jpg");
-  background-size: cover;
-  background-position: center;
+  // background-image: image-url("104719.jpg");
+  // background-size: cover;
+  // background-position: center;
 }
 
 .batter_logo {
   height: 110px;
   width: 110px;
   margin: 0 auto;
-  background-image: image-url("174539.jpg");
-  background-size: cover;
-  background-position: center;
+  // background-image: image-url("174539.jpg");
+  // background-size: cover;
+  // background-position: center;
+}
+
+.record-top {
+  margin-top: 50px;
+}
+
+.record-select {
+  margin: 0 80px 0 80px;
+}
+
+.record_link {
+  margin-left: 80px;
+}
+
+table {
+  word-wrap: break-word;
 }

@@ -21,7 +21,7 @@ class TeamsController < ApplicationController
   def create
     @teams = Team.all
     @user = current_user
-    pp params[:team][:team].class
+    params[:team][:team]
     if params[:team][:team] == '0'
       # byebug
       if params[:team][:id].present?
@@ -42,6 +42,9 @@ class TeamsController < ApplicationController
          redirect_to team_path(@team)
          flash[:notice] = "チームの作成に成功しました"
       else
+        @teams = Team.all
+        @team = Team.new
+        @team.errors.add(:id, 'チームを選択してください')
         render 'new'
       end
     end
@@ -49,6 +52,9 @@ class TeamsController < ApplicationController
 
   def edit
     @team = Team.find(params[:id])
+    if @team.id != current_user.team_id
+      redirect_to team_path(current_user.team_id)
+    end
   end
 
   def update
@@ -75,3 +81,4 @@ class TeamsController < ApplicationController
   end
 
 end
+

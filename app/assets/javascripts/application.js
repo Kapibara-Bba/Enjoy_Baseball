@@ -71,7 +71,8 @@ let geocoder //変数の定義
         center: {lat: gon.lat, lng: gon.lng}, //controllerで定義した変数を緯度・経度の値とする
         zoom: 15, //拡大率（1〜21まで設定可能）
       });
-
+　　　$('.seach_button').click();
+　　　
       marker = new google.maps.Marker({ //GoogleMapにマーカーを落とす
         position:  {lat: gon.lat, lng: gon.lng}, //マーカーを落とす位置を決める（値はDBに入っている）
         map: map //マーカーを落とすマップを指定

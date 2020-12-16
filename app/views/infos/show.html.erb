@@ -1,5 +1,5 @@
 <div class="body">
-  <div class="container mt-5">
+  <div class="container mt-5 flame">
     <div class="flash">
       <%= flash[:info_update] %>
     </div>
@@ -8,24 +8,32 @@
         <h2><%= @info.team.teamname %></h2>
         <div class="row">
           <table class="table">
-            <thead>
               <tr>
                 <th><h4>イベント内容</h4></th>
                 <th><h5><%= @info.body %></h5></th>
               </tr>
-            </thead>
-            <tbody>
+              <tr>
+                <th><h4>日時</h4></th>
+                <th><h5><%= @info.start_time.strftime('%Y/%m/%d %H') %>時</h5></th>
               <tr>
                 <td><h4>場所</h4></td>
                 <td><h5><%= @info.spot.address %></h5></td>
               </tr>
-            </tbody>
           </table>
         </div>
       </div>
     </div>
     <%= link_to "戻る", team_path(current_user.team_id), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-secondary" %>
     <%= link_to "イベントを修正する", edit_info_path(@info), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success" %>
+    <div class="show_map">
+      <%= form_with model:@info, url: info_path(@info), method: :patch, local:true do |f| %>
+        <%= f.fields_for :spot do |spot| %>
+          <%= spot.label :address, "イベント場所(Google Mapで検索)", class: "spot_title" %>
+          <%= spot.text_field :address, placeholder: "場所を入力", id: "address", class: "spot_text" %>
+          <%= spot.submit "検索する", onclick: "codeAddress()", type: "button", class: "seach_button" %>
+        <% end %>
+      <% end %>
+    </div>
     <div id="show_map"></div>
   </div>
 </div>

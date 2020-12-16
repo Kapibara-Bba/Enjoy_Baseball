@@ -1,5 +1,5 @@
 <div class="body">
-  <div class="container mt-5">
+  <div class="container mt-5 flame">
     <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
@@ -9,12 +9,15 @@
       <%= attachment_image_tag @team, :team_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'profile-image' %>
       <h2><%= @team.teamname %></h2>
     </div>
-    <div class="row float-right">
-      <div class="col-xs-6"></div>
-      <div class="col-xs-6">
-        <% if @team.id == current_user.team_id %>
+    <div class="row">
+      <% if @team.id == current_user.team_id %>
+        <div class="team-event">
           <%= link_to "チーム情報", edit_team_path(@team), data: {"turbolinks" => false}, class: 'btn btn-success' %>
-          <div class="event">
+          <div class="share-link">
+            <%= link_to "チームシェア", team_posts_path(@team), data: {"turbolinks" => false}, class: 'btn btn-warning' %>
+          </div>
+        </div>
+          <div class="">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
               イベントを追加
             </button>
@@ -28,8 +31,8 @@
                     </button>
                   </div>
                   <div class="modal-body">
+                    <!--イベント追加のフォーム-->
                     <%= form_with model: @info, url: infos_path, method: :post, local: true do |f| %>
-                    <%#= form_with model: @info, url: infos_path, method: :post, local: true do |f| %>
                       <div class="form_group">
                         <%= f.label :イベント名 %>
                         <%= f.text_area :body %>
@@ -38,7 +41,6 @@
                         <%= f.label :日時 %>
                         <%= f.datetime_select :start_time %>
                       </div>
-
                       <div>
                         <%= f.fields_for :spot do |spot| %>
                           <%= spot.label :address, "イベント場所(Google Mapで検索)", class: "spot_title" %>
@@ -57,50 +59,49 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="share-link">
-        <%= link_to "チーム共有", team_posts_path(@team), data: {"turbolinks" => false}, class: 'btn btn-primary' %>
-      </div>
-      <%= month_calendar events: @infos do |date, infos| %>
-        <%= date.day %>
-        <% infos.each do |info| %>
-          <div>
-            <%= link_to info_path(info), data: {"turbolinks" => false} do %>
-             <%= info.body %>
-           <% end %>
-          </div>
-        <% end %>
-      <% end %>
-    <% end %>
-    <h4>試合結果一覧</h4>
-    <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFDBC9;">
-      <thead>
-        <tr>
-          <th>日にち</th>
-          <th>対戦チーム</th>
-          <th>スコア</th>
-          <th>勝敗</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @team_records.each do |record| %>
-          <tr>
-            <td><%= record.days %></td>
-            <td><%= record.opponent %></td>
-            <td><%= record.team_score %> ー <%= record.rival_score %></td>
-            <td><%= record.result %></td>
-            <td>
-              <div class="show-btn">
-                <%= link_to "詳細", team_record_path(record), data: {"turbolinks" => false}, class: 'btn btn-success' %>
+        <div class="team-calendar">
+          <%= month_calendar events: @infos do |date, infos| %>
+            <%= date.day %>
+            <% infos.each do |info| %>
+              <div>
+                <%= link_to info_path(info), data: {"turbolinks" => false} do %>
+                 <%= info.body %>
+                <% end %>
               </div>
-            </td>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <h4>試合結果一覧</h4>
+    <div style="height:100%; width:100%; overflow-y:scroll; scrollbar-base-color:#99ff66 ; scrollbar-arrow-color:#ff0000;">
+      <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFDBC9;">
+        <thead>
+          <tr>
+            <th><span class="nowrap">日にち</span></th>
+            <th><span class="nowrap">対戦チーム</span></th>
+            <th><span class="nowrap">スコア</span></th>
+            <th><span class="nowrap">勝敗</span></th>
+            <th></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-
+        </thead>
+        <tbody>
+          <% @team_records.each do |record| %>
+            <tr>
+              <td><span class="nowrap"><%= record.days %></span></td>
+              <td><span class="nowrap"><%= record.opponent %></span></td>
+              <td><span class="nowrap"><%= record.team_score %> ー <%= record.rival_score %></span></td>
+              <td><span class="nowrap"><%= record.result %></span></td>
+              <td>
+                <div class="show-btn">
+                  <span class="nowrap"><%= link_to "詳細", team_record_path(record), data: {"turbolinks" => false}, class: 'btn btn-success' %></span>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
     <% if @team.id == current_user.team_id %>
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
         試合結果を追加する
@@ -115,6 +116,7 @@
               </button>
             </div>
             <div class="modal-body">
+              <!--試合結果追加のフォーム-->
               <%= form_with url: team_records_path, local:true do |f| %>
                 <div class="form_group">
                   <%= f.label :試合日 %>
@@ -152,7 +154,6 @@
         </div>
       </div>
     <% end %>
-
     <div class="row">
       <div class="row member">
         <h4>選手一覧</h4>
@@ -160,28 +161,27 @@
       <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #E6FFE9;">
         <thead>
           <tr>
-            <th>名前 </th>
-            <th>ポジション </th>
-            <th>投打 </th>
-            <th>打率</th>
+            <th><span class="nowrap">名前 </span></th>
+            <th><span class="nowrap">ポジション </span></th>
+            <th><span class="nowrap">投打 </span></th>
+            <th><span class="nowrap">打率</span></th>
           </tr>
         </thead>
         <tbody>
           <% @team_users.each do |user| %>
             <tr>
               <td><%= link_to user_path(user), data: {"turbolinks" => false} do %>
-                <%= user.name %>
+                <span class="nowrap"><%= user.name %></span>
                 <% end %>
               </td>
-              <td><%= user.position %></td>
-              <td><%= user.throw %></td>
+              <td><span class="nowrap"><%= user.position %></span></td>
+              <td><span class="nowrap"><%= user.throw %></span></td>
               <% average = user.records.all.sum(:hit)/user.records.all.sum(:batting).to_f %>
-              <td><%= sprintf("%.3f",average) %></td>
+              <td><span class="nowrap"><%= sprintf("%.3f",average) %></span></td>
             </tr>
           <% end %>
         </tbody>
       </table>
     </div>
-
   </div>
 </div>

@@ -32,7 +32,7 @@ class RecordsController < ApplicationController
                                             SUM(sacrifice_fly) AS sacrifice_fly,
                                             SUM(still) AS still,
                                             SUM(error) AS error
-                                            ').order("#{search_column} DESC")
+                                            ').order("#{search_column} DESC").limit(50)
 
   end
 
@@ -54,7 +54,7 @@ class RecordsController < ApplicationController
     # #@users = @user.records
     @records = Record.all
     @users = User.joins(:records).group(:id).select('user_id, users.name, users.image_id, users.team_id,
-                                            SUM(earned_run) * 9 / SUM(inning) AS earned_run_average,
+                                            SUM(earned_run) * 9 * 10000/ SUM(inning) AS earned_run_average,
                                             SUM(win) * 10000 / (SUM(win) + SUM(lose)) AS win_rate,
                                             SUM(inning) AS inning,
                                             SUM(win) AS win,
@@ -65,25 +65,27 @@ class RecordsController < ApplicationController
                                             SUM(to_be_hit) AS to_be_hit,
                                             SUM(to_be_homerun) AS to_be_homerun,
                                             SUM(to_be_ball) AS to_be_ball
-                                            ').order("#{search_column} DESC")
+                                            ').order("#{search_column} DESC").limit(50)
 
   end
 
   def create
-    # @user = User.find(params[:id])
-    # Record.create(record_params)
+  # 非同期通信
     @record = Record.new(record_params)
     @record.user_id = current_user.id
-    #binding.pry
-    if @record.save!
-      redirect_to user_path(current_user)
-      flash[:notice] = "記録の作成に成功しました"
-    else
-      @records = Record.all
-      @user_record = current_user.records
-      render 'users#show'
-    end
+    @user_record = current_user.records
+    @record.save
+    # 非同期でない場合
+    # if @record.save
+    #   redirect_to user_path(current_user)
+    #   flash[:notice] = "記録の作成に成功しました"
+    # elses
+    #   @records = Record.all
+    #   @user_record = current_user.records
+    #   render 'users#show'
+    # end
   end
+  
 
   private
   def record_params

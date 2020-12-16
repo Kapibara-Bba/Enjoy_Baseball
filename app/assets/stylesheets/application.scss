@@ -15,6 +15,8 @@
  *= require_self
  */
  @import "bootstrap";
+// @import "infos";
+// @import "homes";
 
 * {
   margin: 0;
@@ -22,10 +24,108 @@
   box-sizing: border-box;
 }
 
-.login-field {
-  padding: 20px auto;
+.wrapper{
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 120px;
+  box-sizing: border-box;
 }
 
+.flame {
+  padding: 80px;
+  border-top: 3px solid red;
+  border-left: 3px solid green;
+  border-bottom: 3px solid blue;
+  border-right: 3px solid yellow;
+  border-radius: 10%;
+  background-color: #fff;
+}
+
+.home-btn {
+  margin: 20px;
+}
+
+// 新規登録・ログイン
+.login-button {
+  display: flex;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.devise-form {
+  background-color: #ffffbb;
+  height: 600px;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 20%;
+}
+
+.sign-up {
+  font-size: 80px;
+  margin-bottom: 0;
+}
+
+body {
+  background-image: image-url("yakyujo.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+// #registrations-new, #sessions-new, #registrations-create, #users-show, #records-batter_index {
+//   background-image: image-url("yakyujo.jpg");
+//   background-size: cover;
+//   background-position: center;
+// }
+
+// #sessions-new {
+//   background-image: image-url("yakyujo.jpg");
+//   background-size: cover;
+//   background-position: center;
+// }
+
+.sub-sign-up {
+  font-size: 25px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.login-field {
+  padding: 20px auto;
+  margin-top: 30px;
+}
+
+.sign {
+  padding: 20px 15px 20px 25px;
+  border-top: 3px solid red;
+  border-left: 3px solid green;
+  border-bottom: 3px solid blue;
+  border-right: 3px solid yellow;
+  border-radius: 15%;
+}
+
+.login {
+  height: 300px;
+  width: 300px;
+  margin-top: 40px;
+  padding: 20px 0 20px 60px;
+  border-top: 3px solid red;
+  border-left: 3px solid green;
+  border-bottom: 3px solid blue;
+  border-right: 3px solid yellow;
+  border-radius: 20%;
+}
+
+.actions {
+  margin-top:15px;
+}
+
+.sign_up-link {
+  font-size: 20px;
+  padding-top: 40px;
+}
+
+// ヘッダー
 header {
   width: 100%;
   height: 70px;
@@ -41,45 +141,11 @@ header {
   background-position: center;
 }
 
-.about {
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-
 .new-team {
   margin: 50px 0;
 }
 
-
-.login-button {
-  margin: 30px 0 30px 0;
-}
-
-.logo {
-  height: 300px;
-  margin-top: 50px;
-  background-image: image-url("logo.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-.user-record {
-  margin: 30px;
-}
-
-.profile {
-  display: flex;
-  // display: inline-block;
-}
-
-.record-select {
-  margin: 0 80px 0 80px;
-}
-
-.record_link {
-  margin-left: 80px;
-}
-
+// カレンダー
 .simple-calendar {
  .wday-0 {
     color: red;
@@ -104,26 +170,6 @@ header {
  }
 }
 
-.profile-image {
-  border: 1px solid #656565;  /* 枠線(=円形でも記述は同じ) */
-  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.record-top {
-  margin-top: 50px;
-}
-
-.event {
-  margin-bottom: 30px;
-}
-
-.member {
-  margin-top: 40px;
-}
-
 .days {
   margin-bottom: 30px;
 }
@@ -137,21 +183,11 @@ header {
   display: inline-block;
 }
 
-.fa-image {
-  font-size: 60px;
-}
-
-.fa-paper-plane {
-  display: inline-block;
-  padding: 0;
-  font-size: 40px;
-}
-
-.post-comment {
-  margin: 15px auto;
-  display: inline-block;
-  padding: 15px;
-}
+// .post-comment {
+//   margin: 15px auto;
+//   display: inline-block;
+//   padding: 15px;
+// }
 
 .nowrap {
   white-space: nowrap;
@@ -162,28 +198,6 @@ header {
   font-size: 15px;
 }
 
-.sign {
-  padding: 20px 15px 20px 25px;
-  border-top: 3px solid red;
-  border-left: 3px solid green;
-  border-bottom: 3px solid blue;
-  border-right: 3px solid yellow;
-  border-radius: 15%;
-}
-
-.login {
-  width: 300px;
-  padding: 20px 0 20px 60px;
-  border-top: 3px solid red;
-  border-left: 3px solid green;
-  border-bottom: 3px solid blue;
-  border-right: 3px solid yellow;
-  border-radius: 20%;
-}
-
-.actions {
-  margin-top:15px;
-}
 
 #map {
   width: 470px;
@@ -202,6 +216,16 @@ header {
   margin-top: 15px;
 }
 
+// フッター
+footer{
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  background-color: #DDDDDD;
+}
+
 // 上に戻るボタン
 #back {
   position: fixed;
@@ -212,8 +236,6 @@ header {
   width:      50px;
   height:     50px;
 }
-
-
 
 /*　ハンバーガーボタン　*/
 .hamburger {
@@ -316,4 +338,79 @@ nav.globalMenuSp ul li a {
 
 nav.globalMenuSp.active {
   transform: translateY(0%);
+}
+
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width:768px) {
+  #homes-index {
+    background-image: image-url("yakyujo.jpg");
+    // background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+}
+
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width:425px) {
+
+  #homes-index {
+    width: 100%;
+    background-image: image-url("yakyujo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .home {
+    width: 100%;
+    margin-top: 50%;
+    margin-bottom: 100%;
+  }
+
+  .logo {
+    height: 0;
+    /* 表示画像の高さ ÷ 表示画像の幅 × 100 */
+    padding-top: 50%;
+    background-image: image-url("logo.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .icon-form {
+    display: flex;
+    justify-content: center;
+  }
+
+  #team_records-index {
+    font-size: 8px;
+  }
+
+  .fa-image {
+    font-size: 30px;
+  }
+
+  .fa-paper-plane {
+    display: inline-block;
+    padding: 0;
+    font-size: 30px;
+  }
+
+  .sub-btn {
+    height: 50px;
+  }
+
+  .post-player {
+    margin: 20px 20px 20px 0;
+    padding: 0;
+  }
+
+  .nowrap {
+    white-space: nowrap;
+    font-size: 12px;
+  }
+
+  .simple_calendar {
+    font-size: 3rem;
+    margin-left: 0;
+  }
 }

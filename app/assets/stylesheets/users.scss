@@ -3,13 +3,40 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .user-name {
-  font-size: 30px;
+  font-size: 40px;
+  margin-left: 50px;
 }
+
 .user-show-profile {
-  width: 400px;
-  margin: 0 auto;
+  width: 200px;
+  white-space: nowrap;
+  margin-left: 25%;
 }
 
 .profile-font {
   font-size: 22px;
+}
+
+.profile-image {
+  border: 1px solid #656565;  /* 枠線(=円形でも記述は同じ) */
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.user-record-pitch {
+  margin: 0;
+}
+
+.user-record-batter {
+  margin-top: 0;
+}
+
+.profile {
+  display: flex;
+}
+
+.record-success {
+  margin-top: 30px;
 }

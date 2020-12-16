@@ -11,21 +11,24 @@ class PostsController < ApplicationController
   end
 
   def create
+    # @team = Post.where(team_id: params[:team_id])
+    @posts = Post.where(team_id: params[:team_id])
     @post = current_user.posts.new(post_params)
     @post.team_id = current_user.team_id
     @post.user_id = current_user.id
-    if @post.save
-      redirect_to team_posts_path(@post.team_id)
-    else
-      render 'index'
-    end
+    @post.save
+    # if @post.save
+    # redirect_to team_posts_path(@post.team_id)
+    # else
+    #   render 'index'
+    # end
   end
 
   def destroy
     @post = Post.find(params[:id])
     # @book_comment = current_user.posts.find_by(book_id: @book.id)
     @post.destroy
-    redirect_to team_posts_path
+    # redirect_to team_posts_path
   end
 
   private

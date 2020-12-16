@@ -1,11 +1,11 @@
 <div class="container mt-5">
-  <div class="row">
-    <div class="col-5 mx-auto">
-      <h2>ログイン</h2>
-
-      <div class="login">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field">
+  <div class="row devise-form">
+    <div class="mx-auto">
+      <p class="sign-up">Sign In</p>
+      <p class="sub-sign-up">ログイン</p>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="login">
+          <div class="login-field">
             <%= f.label :メールアドレス %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
           </div>
@@ -18,7 +18,6 @@
           </div>
         <% end %>
       </div>
-
       <div class="container mt-3">
         <div class="sign_up-link">
           <%= link_to "新規登録の方", new_user_registration_path, data: {"turbolinks" => false} %>
