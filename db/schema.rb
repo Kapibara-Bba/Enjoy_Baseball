@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2020_12_08_141639) do
     t.integer "to_be_ball"
     t.integer "to_be_point"
     t.integer "earned_run"
+    t.string "opponent"
     t.date "days"
     t.integer "user_id"
     t.datetime "created_at", null: false
