@@ -71,7 +71,7 @@ class RecordsController < ApplicationController
 
   def create
   # 非同期通信
-    @record = Record.new(record_params)
+    @record = Record.new(record_create_params)
     @record.user_id = current_user.id
     @user_record = current_user.records
     @record.save
@@ -85,12 +85,36 @@ class RecordsController < ApplicationController
     #   render 'users#show'
     # end
   end
-  
+
+  def show
+    @user = User.find(params[:id])
+    @record = Record.find(params[:id])
+    # @user_record = @user.records
+  end
+
+  def edit
+    @record = Record.find(params[:id])
+  end
+
+  def update
+    @record = Record.find(params[:id])
+    @record.user_id = current_user.id
+    if @record.update(record_update_params)
+      redirect_to record_path(@record)
+    else
+      render 'edit'
+    end
+  end
 
   private
-  def record_params
+  def record_create_params
     params.permit(:bat, :batting, :hit, :two_base_hit, :three_base_hit, :homerun, :strike_out, :ball, :bunt, :dot, :homein,
      :sacrifice_fly, :still, :error, :game, :pitch_game, :win, :lose, :inning, :to_be_hit, :to_be_homerun, :to_be_strike_out, :to_be_ball,
-     :to_be_point, :earned_run, :days, :search_column)
+     :to_be_point, :earned_run, :days, :opponent, :team_score, :rival_score, :search_column)
+  end
+  def record_update_params
+    params.require(:record).permit(:bat, :batting, :hit, :two_base_hit, :three_base_hit, :homerun, :strike_out, :ball, :bunt, :dot, :homein,
+     :sacrifice_fly, :still, :error, :game, :pitch_game, :win, :lose, :inning, :to_be_hit, :to_be_homerun, :to_be_strike_out, :to_be_ball,
+     :to_be_point, :earned_run, :days, :opponent, :team_score, :rival_score, :search_column)
   end
 end

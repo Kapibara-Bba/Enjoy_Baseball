@@ -18,24 +18,26 @@
     </tr>
   </thead>
   <tbody>
-    <tr align="center">
-      <td><span class="nowrap"><%= user_record.days %></span></td>
-      <td><span class="nowrap"><%= user_record.opponent %></span></td>
-      <td><span class="nowrap"><%= user_record.team_score %> - <%= @user_record.rival_score %></span></td>
-      <td><span class="nowrap"><%= user_record.batting %></span></td>
-      <td><span class="nowrap"><%= user_record.hit %></span></td>
-      <td><span class="nowrap"><%= user_record.dot %></span></td>
-      <td><span class="nowrap"><%= user_record.still %></span></td>
-      <td></td>
-      <td><span class="nowrap"><%= user_record.inning %></span></td>
-      <td><span class="nowrap"><%= user_record.to_be_point %></span></td>
-      <td><span class="nowrap"><%= user_record.to_be_strike_out %></span></td>
-      <td><span class="nowrap"><%= user_record.to_be_hit %></span></td>
-      <td>
-        <% if user_record.user_id == current_user %>
-          <%= link_to "詳細", record_path(user_record), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success" %>
-        <% end %>
-      </td>
-    </tr>
+    <% user_record.each do |user| %>
+      <tr align="center">
+        <td><span class="nowrap"><%= user.days %></span></td>
+        <td><span class="nowrap"><%= user.opponent %></span></td>
+        <td><span class="nowrap"><%= user.team_score %> - <%= user.rival_score %></span></td>
+        <td><span class="nowrap"><%= user.batting %></span></td>
+        <td><span class="nowrap"><%= user.hit %></span></td>
+        <td><span class="nowrap"><%= user.dot %></span></td>
+        <td><span class="nowrap"><%= user.still %></span></td>
+        <td></td>
+        <td><span class="nowrap"><%= user.inning %></span></td>
+        <td><span class="nowrap"><%= user.to_be_point %></span></td>
+        <td><span class="nowrap"><%= user.to_be_strike_out %></span></td>
+        <td><span class="nowrap"><%= user.to_be_hit %></span></td>
+        <td>
+          <% if user.user_id == current_user.id %>
+            <%= link_to "詳細", record_path(user), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
