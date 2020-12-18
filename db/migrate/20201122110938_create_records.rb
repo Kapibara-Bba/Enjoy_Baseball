@@ -27,7 +27,9 @@ class CreateRecords < ActiveRecord::Migration[5.2]
       t.integer :to_be_ball
       t.integer :to_be_point
       t.integer :earned_run
-
+      t.integer :team_score
+      t.integer :rival_score
+      t.string :opponent
       t.date :days
       t.integer :user_id
       t.timestamps

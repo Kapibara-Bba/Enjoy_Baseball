@@ -1,0 +1,41 @@
+<!--試合記録-->
+<table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFDDFF;">
+  <thead>
+    <tr>
+      <th><span class="nowrap">日にち</span></th>
+      <th><span class="nowrap">対戦チーム</span></th>
+      <th><span class="nowrap">スコア</span></th>
+      <th><span class="nowrap">打数</span></th>
+      <th><span class="nowrap">安打</span></th>
+      <th><span class="nowrap">打点</span></th>
+      <th><span class="nowrap">盗塁</span></th>
+      <th><span class="nowrap"></span></th>
+      <th><span class="nowrap">投球回</span></th>
+      <th><span class="nowrap">失点</span></th>
+      <th><span class="nowrap">奪三振</span></th>
+      <th><span class="nowrap">被安打</span></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr align="center">
+      <td><span class="nowrap"><%= user_record.days %></span></td>
+      <td><span class="nowrap"><%= user_record.opponent %></span></td>
+      <td><span class="nowrap"><%= user_record.team_score %> - <%= @user_record.rival_score %></span></td>
+      <td><span class="nowrap"><%= user_record.batting %></span></td>
+      <td><span class="nowrap"><%= user_record.hit %></span></td>
+      <td><span class="nowrap"><%= user_record.dot %></span></td>
+      <td><span class="nowrap"><%= user_record.still %></span></td>
+      <td></td>
+      <td><span class="nowrap"><%= user_record.inning %></span></td>
+      <td><span class="nowrap"><%= user_record.to_be_point %></span></td>
+      <td><span class="nowrap"><%= user_record.to_be_strike_out %></span></td>
+      <td><span class="nowrap"><%= user_record.to_be_hit %></span></td>
+      <td>
+        <% if user_record.user_id == current_user %>
+          <%= link_to "詳細", record_path(user_record), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success" %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
