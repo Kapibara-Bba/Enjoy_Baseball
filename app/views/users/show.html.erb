@@ -61,6 +61,20 @@
                   </div>
                   <%= form_with modal:@record, url: records_path, method: :post do |f| %>
                     <div class="modal-body">
+                      <div class="form_group">
+                        <%= f.label :試合日 %>
+                        <%= f.date_field :days, class: 'form-control' %>
+                      </div>
+                      <div class="form_group">
+                        <%= f.label :対戦チーム %>
+                        <%= f.text_field :opponent %>
+                      </div>
+                       <div class="form_group">
+                        <%= f.label :スコア %>
+                        <%= f.number_field :team_score %><br>
+                        <%= f.label :相手スコア %>
+                        <%= f.number_field :rival_score %>
+                      </div>
                       <h2>打者記録</h2>
                       <div class="form_group">
                         <%= f.label :打席, class: "col-sm-3" %>
@@ -170,40 +184,11 @@
     <% end %>
     <div class="record-list">
       <h3>試合結果</h3>
-      <table class="">
-        <thead>
-          <tr>
-            <th><span class="nowrap">日にち</span></th>
-            <th><span class="nowrap">対戦チーム</span></th>
-            <th><span class="nowrap">スコア</span></th>
-            <th><span class="nowrap">打数</span></th>
-            <th><span class="nowrap">安打</span></th>
-            <th><span class="nowrap">打点</span></th>
-            <th><span class="nowrap">盗塁</span></th>
-            <th><span class="nowrap"></span></th>
-            <th><span class="nowrap">投球回</span></th>
-            <th><span class="nowrap">失点</span></th>
-            <th><span class="nowrap">奪三振</span></th>
-            <th><span class="nowrap">被安打</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr align="center">
-            <td><span class="nowrap"></span></td>
-            <td><span class="nowrap"></span></td>
-            <td><span class="nowrap"></span></td>
-            <td><span class="nowrap"><%= @user_record.batting %></span></td>
-            <td><span class="nowrap"><%= @user_record.hit %></span></td>
-            <td><span class="nowrap"><%= @user_record.dot %></span></td>
-            <td><span class="nowrap"><%= @user_record.still %></span></td>
-            <td></td>
-            <td><span class="nowrap"><%= @user_record.inning %></span></td>
-            <td><span class="nowrap"><%= @user_record.to_be_point %></span></td>
-            <td><span class="nowrap"><%= @user_record.to_be_strike_out %></span></td>
-            <td><span class="nowrap"><%= @user_record.to_be_hit %></span></td>
-          </tr>
-        </tbody>
-      </table>
+      <div style="height:100%; width:100%; overflow-y:scroll; scrollbar-base-color:#99ff66 ; scrollbar-arrow-color:#ff0000;">
+        <div class="user-record-list">
+          <%= render 'users/record-list', user_record: @user_record %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
