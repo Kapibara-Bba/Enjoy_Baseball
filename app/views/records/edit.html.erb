@@ -12,7 +12,7 @@
         </div>
          <div class="form_group">
           <%= f.label :スコア %>
-          <%= f.number_field :team_score, value: 0, min: 0 %><br>
+          <%= f.number_field :team_score, value: 0, min: 0 %>
           <%= f.label :相手スコア %>
           <%= f.number_field :rival_score, value: 0, min: 0 %>
         </div>
@@ -20,11 +20,11 @@
       <div class="row">
         <div class="col-xs-6 batter-edit">
           <h2>打者記録</h2>
-          <div class="form_group">
+  　　　 　　　<div class="form_group">
             <%= f.label :打席, class: "col-sm-3" %>
             <%= f.number_field :bat, value: 0, min: 0 %>
           </div>
-  　　　 　　　<div class="form_group">
+          <div class="form_group">
             <%= f.label :打数, class: "col-sm-3" %>
             <%= f.number_field :batting, value: 0, min: 0 %>
           </div>
@@ -78,7 +78,7 @@
           </div>
         </div>
         <div class="col-xs-6 pitch-edit">
-          <h2>投手記録</h2>
+          <h2 class="user-record-pitch-title">投手記録</h2>
           <div class="form_group">
             <%= f.label :勝, class: "col-sm-3 control-label" %>
             <%= f.number_field :win, value: 0, max: 1, min: 0 %>
@@ -115,10 +115,10 @@
             <%= f.label :自責点, class: "col-sm-3 control-label" %>
             <%= f.number_field :earned_run, value: 0, min: 0 %>
           </div>
-          <div class="modal-footer">
-            <%= f.submit "記録を変更する", class: "btn btn-primary" %>
-          </div>
         </div>
+      </div>
+      <div class="row modal-footer">
+        <%= f.submit "記録を変更する", class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>

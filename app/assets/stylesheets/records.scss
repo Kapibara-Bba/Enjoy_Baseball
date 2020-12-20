@@ -44,11 +44,48 @@ table {
   word-wrap: break-word;
 }
 
-.batter-edit, .pitch-edit {
-  margin-top: 50px;
-  margin-left: 60px;
-}
-
 .form_group {
   white-space: nowrap;
+}
+
+.batter-new input {
+  margin-left: 5%;
+  width: 20%;
+}
+
+.pitch-new input {
+  margin-left: 5%;
+  width: 20%;
+}
+.batter-edit, .pitch-edit {
+  margin-top: 5%;
+  margin-left: 18%;
+}
+
+.batter-edit input {
+  margin-left: 5%;
+  width: 20%;
+}
+
+.pitch-edit input {
+  margin-left: 10%;
+  width: 20%;
+}
+
+.user-record-pitch-title {
+  margin-bottom: 30px;
+}
+
+.user-game-days {
+  margin: auto 0;
+  display: flex;
+  width: 150px;
+}
+
+.user-game-days input {
+  margin-left: 23%
+}
+
+.user-score input {
+  margin-left: 7%;
 }
