@@ -1,7 +1,7 @@
 class RecordsController < ApplicationController
 
   def batter_index
-    search_column = record_params[:search_column]
+    search_column = record_create_params[:search_column]
     if search_column.nil?
       search_column = "batting"
     end
@@ -37,7 +37,7 @@ class RecordsController < ApplicationController
   end
 
   def pitch_index
-    search_column = record_params[:search_column]
+    search_column = record_create_params[:search_column]
     if search_column.nil?
       search_column = "win"
     end
@@ -87,8 +87,8 @@ class RecordsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @record = Record.find(params[:id])
+    @user = @record.user
     # @user_record = @user.records
   end
 
