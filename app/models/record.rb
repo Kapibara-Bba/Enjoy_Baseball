@@ -28,6 +28,7 @@ class Record < ApplicationRecord
     validates :to_be_ball, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
     validates :to_be_point, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
     validates :earned_run, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
+
     # def batter_average
     #   puts 'batter_average'
     #   puts self.hit
@@ -36,8 +37,6 @@ class Record < ApplicationRecord
     # def batter_base
     #   puts 'batter_base'
     # end
-
-
 
 
 end
