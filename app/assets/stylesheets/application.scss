@@ -24,7 +24,7 @@
   box-sizing: border-box;
 }
 
-.wrapper{
+.wrapper {
   height: 100%;
   min-height: 100vh;
   position: relative;
@@ -71,18 +71,6 @@ body {
   background-size: cover;
   background-position: center;
 }
-
-// #registrations-new, #sessions-new, #registrations-create, #users-show, #records-batter_index {
-//   background-image: image-url("yakyujo.jpg");
-//   background-size: cover;
-//   background-position: center;
-// }
-
-// #sessions-new {
-//   background-image: image-url("yakyujo.jpg");
-//   background-size: cover;
-//   background-position: center;
-// }
 
 .sub-sign-up {
   font-size: 25px;
@@ -490,6 +478,31 @@ nav.globalMenuSp.active {
   .team-calendar {
     height: 100%;
     width: 100%;
+  }
+
+  // 試合結果詳細画面
+  #team_records-show .container, #team_records-show header, #team_records-show footer {
+    width: 135%;
+  }
+
+  #team_records-show .wrapper {
+    min-height: 135vh;
+  }
+
+  .game-score-show {
+    white-space: nowrap;
+  }
+
+  .user-rival_score input {
+    margin-left: 0%;
+  }
+
+  .team-game-result select {
+    margin-left: 10%;
+  }
+
+  .team-game-homerun textarea {
+    margin-left: 7%;
   }
 
   .fa-image {
