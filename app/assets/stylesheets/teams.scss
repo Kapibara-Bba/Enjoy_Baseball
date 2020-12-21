@@ -70,7 +70,22 @@
   width: 100%;
 }
 
-.member {
-  margin-top: 40px;
+.team-game-index {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+  scrollbar-base-color: #99ff66;
+  scrollbar-arrow-color: #ff0000;
 }
 
+.team-event-new {
+  margin-bottom: 30px;
+}
+
+.team-game-new {
+  margin-bottom: 30px;
+}
+
+.team-member-table {
+  width: 100%;
+}

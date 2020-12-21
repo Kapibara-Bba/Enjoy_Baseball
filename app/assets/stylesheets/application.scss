@@ -170,6 +170,7 @@ header {
  }
 }
 
+
 .days {
   margin-bottom: 30px;
 }
@@ -438,6 +439,40 @@ nav.globalMenuSp.active {
     border-radius: 15%;
   }
 
+  // チーム詳細画面
+  #teams-show header, footer {
+    width: 130%;
+  }
+
+  #teams-show .flame {
+    padding: 80px;
+    width: 130%;
+    border-top: 3px solid red;
+    border-left: 3px solid green;
+    border-bottom: 3px solid blue;
+    border-right: 3px solid yellow;
+    border-radius: 0%;
+    background-color: #fff;
+  }
+
+  .team-game-index {
+    height: 100%;
+    width: 130%;
+    overflow-y: scroll;
+    margin-left: -14%;
+  }
+
+  .team-member-table {
+    margin-top: 10px;
+    height: 100%;
+    width: 130%;
+    margin-left: -14%;
+  }
+
+  .team-event-new {
+    margin-bottom: 30px;
+  }
+
   .icon-form {
     display: flex;
     justify-content: center;
@@ -445,6 +480,16 @@ nav.globalMenuSp.active {
 
   #team_records-index {
     font-size: 8px;
+  }
+
+  .simple_calendar {
+    font-size: 3rem;
+    margin-left: 0%;
+  }
+
+  .team-calendar {
+    height: 100%;
+    width: 100%;
   }
 
   .fa-image {
@@ -471,8 +516,4 @@ nav.globalMenuSp.active {
     font-size: 12px;
   }
 
-  .simple_calendar {
-    font-size: 3rem;
-    margin-left: 0;
-  }
 }
