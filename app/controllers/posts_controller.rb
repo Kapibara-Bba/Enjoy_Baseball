@@ -17,6 +17,7 @@ class PostsController < ApplicationController
     @post.team_id = current_user.team_id
     @post.user_id = current_user.id
     @post.save
+
     # if @post.save
     # redirect_to team_posts_path(@post.team_id)
     # else

@@ -1,11 +1,11 @@
 class InfosController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new
     @info = Info.new
     @info.build_spot
   end
-  
+
   def create
     # @team = Team.find(params[:id])
     @info = Info.new(create_info_params)
@@ -52,7 +52,7 @@ class InfosController < ApplicationController
       redirect_to team_path(@info.team_id)
       flash[:info_update] = "イベント内容を変更しました"
     else
-      render 'users#edit'
+      render 'edit'
     end
   end
 

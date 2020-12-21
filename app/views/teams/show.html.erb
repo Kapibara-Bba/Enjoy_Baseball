@@ -118,7 +118,7 @@
             <div class="modal-body">
               <!--試合結果追加のフォーム-->
               <%= form_with url: team_records_path, local:true do |f| %>
-                <div class="form_group">
+                <div class="form_group user-game-days">
                   <%= f.label :試合日 %>
                   <%= f.date_field :days, class: 'form-control' %>
                 </div>
@@ -126,13 +126,15 @@
                   <%= f.label :対戦チーム %>
                   <%= f.text_field :opponent %>
                 </div>
-                <div class="form_group">
+                <div class="form_group user-score">
                   <%= f.label :スコア %>
-                  <%= f.number_field :team_score, value: 0 %><br>
+                  <%= f.number_field :team_score, value: 0 %>
+                </div>
+                <div class="form_group user-rival-score">
                   <%= f.label :相手スコア %>
                   <%= f.number_field :rival_score, value: 0 %>
                 </div>
-                <div class="form_group">
+                <div class="form_group team-game-result">
                   <%= f.label :勝敗 %>
                   <%= f.select :result, TeamRecord.results.keys, {} %>
                 </div>
@@ -140,7 +142,7 @@
                   <%= f.label :バッテリー %>
                   <%= f.text_area :battery %>
                 </div>
-                <div class="form_group">
+                <div class="form_group team-game-homerun">
                   <%= f.label :本塁打 %>
                   <%= f.text_area :homerun %>
                 </div>
