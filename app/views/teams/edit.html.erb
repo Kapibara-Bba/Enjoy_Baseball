@@ -1,6 +1,6 @@
 <div class="body">
   <div class="container mt-5 flame">
-    <!--ユーザー情報の編集フォーム-->
+    <!--チーム情報の編集フォーム-->
     <%= form_with model: @team, method: :patch, local: true do |f| %>
     <div class="row">
     　<div class="mx-auto">
@@ -24,7 +24,8 @@
           <%= f.text_field :city %>
         </div>
         <div class="actions col-xs-12 text-right">
-            <%= f.submit "変更を保存", class: "btn btn-primary btn-lg active" %>
+            <%= f.submit "変更を保存", class: "btn btn-primary active" %>
+            <%= link_to "戻る", team_path(@team), data: {"turbolinks" => false}, class: 'btn btn-secondary' %>
         </div>
       </div>
     <% end %>

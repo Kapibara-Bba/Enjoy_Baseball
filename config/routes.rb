@@ -20,5 +20,4 @@ Rails.application.routes.draw do
   resources :infos, only: [:new, :create, :show, :edit, :update, :destroy]
   get '/map_request', to: 'infos#map', as: 'map_request'
   resources :team_records, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  #resources :posts, only: [:show, :create, :destroy]
 end

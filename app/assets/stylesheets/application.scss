@@ -522,11 +522,12 @@ nav.globalMenuSp.active {
   }
 
   // イベント編集画面
-  #infos-edit header, #infos-edit footer, #infos-new header, #infos-new footer {
+  #infos-edit header, #infos-edit footer, #infos-new header, #infos-new footer,
+  #infos-create header, #infos-create footer, #infos-update header, #infos-update footer {
     width: 180%;
   }
 
-  #infos-edit .flame, #infos-new .flame {
+  #infos-edit .flame, #infos-new .flame, #infos-update .flame {
     padding: 80px;
     border-top: 3px solid red;
     border-left: 3px solid green;
@@ -537,12 +538,8 @@ nav.globalMenuSp.active {
     width: 180%;
   }
 
-  #infos-edit .wrapper, #infos-new .wrapper {
+  #infos-edit .wrapper, #infos-new .wrapper, #infos-update .wrapper {
     min-height: 180vh;
-  }
-
-  #infos-create header, #infos-create footer {
-    width: 180%;
   }
 
   #infos-create .flame {
@@ -558,6 +555,46 @@ nav.globalMenuSp.active {
 
   #infos-create .wrapper {
     min-height: 180vh;
+  }
+
+  // チーム編集画面
+  #teams-edit .flame, #teams-update .flame {
+    padding: 80px;
+    border-top: 3px solid red;
+    border-left: 3px solid green;
+    border-bottom: 3px solid blue;
+    border-right: 3px solid yellow;
+    border-radius: 0%;
+    background-color: #fff;
+    width: 130%;
+  }
+
+  #teams-edit header, #teams-edit footer, #teams-update header, #teams-update footer {
+    width: 130%;
+  }
+
+  #teams-edit .wrapper, #teams-update .wrapper {
+    min-height: 130vh;
+  }
+
+  // チームシェア画面
+  #posts-index .flame {
+    padding: 80px;
+    border-top: 3px solid red;
+    border-left: 3px solid green;
+    border-bottom: 3px solid blue;
+    border-right: 3px solid yellow;
+    border-radius: 10%;
+    background-color: #fff;
+    width: 176%;
+  }
+
+  #posts-index header, #posts-index footer {
+    width: 175%;
+  }
+
+  #posts-index .wrapper {
+    min-height: 176vh;
   }
 
   .fa-image {
