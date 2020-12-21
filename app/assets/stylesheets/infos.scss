@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#infos-show .flame {
+#infos-show .flame, #infos-edit .flame {
   padding: 80px;
   border-top: 3px solid red;
   border-left: 3px solid green;
@@ -15,4 +15,15 @@
 
 .show_map {
   display: none;
+}
+
+#infos-new .flame {
+  padding: 80px;
+  border-top: 3px solid red;
+  border-left: 3px solid green;
+  border-bottom: 3px solid blue;
+  border-right: 3px solid yellow;
+  border-radius: 15%;
+  background-color: #fff;
+  width: 55%;
 }

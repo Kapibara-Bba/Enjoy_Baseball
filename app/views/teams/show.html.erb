@@ -65,7 +65,7 @@
             <% infos.each do |info| %>
               <div>
                 <%= link_to info_path(info), data: {"turbolinks" => false} do %>
-                 <%= info.body %>
+                 <p><%= info.body %></p>
                 <% end %>
               </div>
             <% end %>
