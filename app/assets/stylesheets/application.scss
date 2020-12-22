@@ -597,6 +597,61 @@ nav.globalMenuSp.active {
     min-height: 176vh;
   }
 
+  // ユーザー詳細画面
+  #users-show .flame, #users-edit .flame {
+    padding: 80px;
+    border-top: 3px solid red;
+    border-left: 3px solid green;
+    border-bottom: 3px solid blue;
+    border-right: 3px solid yellow;
+    border-radius: 0%;
+    background-color: #fff;
+    width: 130%;
+  }
+
+  #users-show header, #users-show footer, #users-edit header, #users-edit footer {
+    width: 130%;
+  }
+
+  .profile-font {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .record-success {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  .record-list {
+    width: 112%;
+    margin-left: -7%;
+  }
+
+  #users-show .wrapper {
+    min-height: 170vh;
+  }
+
+  .batter-new input, .pitch-new input, .batter-edit input {
+    margin-left: 5%;
+    width: 30%;
+  }
+
+  .batter-edit, .pitch-edit {
+    margin-top: 5%;
+    margin-left: 28%;
+  }
+
+  .pitch-edit input {
+    margin-left: 10%;
+    width: 30%;
+  }
+
+  // ユーザー編集画面
+  #users-edit .wrapper {
+    min-height: 130vh;
+  }
+
   .fa-image {
     font-size: 30px;
   }

@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     #@team_post = @team.posts
     @posts = Post.where(team_id: params[:team_id])
     @post = Post.new
+    # @image_url = "https://msy-eb-resize.s3-ap-northeast-1.amazonaws.com/store/" + @post.image_id + "-thumbnail."
   end
 
   def create
