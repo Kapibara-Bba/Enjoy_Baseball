@@ -5,6 +5,7 @@
     </div>
     <div class="row">
       <div class="col-xs-6 user-show-profile">
+        <%#= image_tag @image_url, fallback: "no_image.jpg", format: 'jpeg', size:'200x200', class: 'profile-image' %>
         <%= attachment_image_tag @user, :image, fallback: "no_image.jpg", format: 'jpeg', size:'200x200', class: 'profile-image' %>
       </div>
       <div class="col-xs-6 user-name"><%= @user.name %>
@@ -59,7 +60,7 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <%= form_with modal:@record, url: records_path, method: :post do |f| %>
+                  <%= form_with model:@record, url: records_path, method: :post do |f| %>
                     <div class="modal-body">
                       <div class="form_group user-game-days">
                         <%= f.label :試合日 %>

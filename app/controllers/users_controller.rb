@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     # @records = Record.all
     @user_record = @user.records
     @record = Record.new
-    # @image_url = "https://msy-eb-resize.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
+    @image_url = "https://msy-eb-resize.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
   end
 
   def edit
@@ -22,10 +22,10 @@ class UsersController < ApplicationController
    @user = User.find(params[:id])
     if @user.update(user_params)
       @user.team_id = current_user.team_id
-      flash[:notice] = "プロフィールの変更に成功しました"
+      # flash[:notice] = "プロフィールの変更に成功しました"
+      # redirect_to user_path(@user)
+      sleep(3) # S3への画像反映のタイムラグを考慮して3秒待機
       redirect_to user_path(@user)
-      # sleep(3) # S3への画像反映のタイムラグを考慮して3秒待機
-      # redirect_to image_url(@user)
     else
       render 'edit'
     end
