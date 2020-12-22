@@ -48,23 +48,14 @@ table {
   white-space: nowrap;
 }
 
-.batter-new input {
+.batter-new input, .pitch-new input, .batter-edit input {
   margin-left: 5%;
   width: 20%;
 }
 
-.pitch-new input {
-  margin-left: 5%;
-  width: 20%;
-}
 .batter-edit, .pitch-edit {
   margin-top: 5%;
   margin-left: 18%;
-}
-
-.batter-edit input {
-  margin-left: 5%;
-  width: 20%;
 }
 
 .pitch-edit input {
