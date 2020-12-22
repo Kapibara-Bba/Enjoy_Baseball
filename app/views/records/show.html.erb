@@ -19,10 +19,7 @@
     </div>
     <div class="game-info">
       <p class="game-days"><%= @record.days %></p>
-      <p class="user-opponent">対 <b><%= @record.opponent %></b></p>
-      <p class="user-record-score">
-        <%= @user.team.teamname %><%= @record.team_score %> ー <%= @record.rival_score %><%= @record.opponent %>
-      </p>
+      <p class="user-record-score"><b><%= @user.team.teamname %><%= @record.team_score %></b> ー <%= @record.rival_score %><%= @record.opponent %></p>
     </div>
     <!--打撃成績の表示-->
     <h2>打撃成績</h2>

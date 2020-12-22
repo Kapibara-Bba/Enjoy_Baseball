@@ -53,9 +53,18 @@ table {
   width: 20%;
 }
 
-.batter-edit, .pitch-edit {
+.batter-edit {
   margin-top: 5%;
-  margin-left: 18%;
+  margin-left: 12%;
+  display: flex;
+  width: 46%;
+}
+
+.pitch-edit {
+  margin-top: 5%;
+  margin-left: -5%;
+  width: 47%;
+  display: flex;
 }
 
 .pitch-edit input {
@@ -80,3 +89,21 @@ table {
 .user-score input {
   margin-left: 7%;
 }
+
+.game-info {
+  font-size: 30px;
+}
+
+.user-record-score {
+  margin-left: 30%;
+}
+
+.user-record-edit {
+  display: flex;
+}
+
+.user-record-half {
+  margin-top: 14%;
+  margin-left: -20%;
+}
+

@@ -598,7 +598,7 @@ nav.globalMenuSp.active {
   }
 
   // ユーザー詳細画面
-  #users-show .flame, #users-edit .flame {
+  #users-show .flame, #users-edit .flame, #records-show .flame {
     padding: 80px;
     border-top: 3px solid red;
     border-left: 3px solid green;
@@ -609,7 +609,7 @@ nav.globalMenuSp.active {
     width: 130%;
   }
 
-  #users-show header, #users-show footer, #users-edit header, #users-edit footer {
+  #users-show header, #users-show footer, #users-edit header, #users-edit footer, #records-show header, #records-show footer {
     width: 130%;
   }
 
@@ -650,6 +650,36 @@ nav.globalMenuSp.active {
   // ユーザー編集画面
   #users-edit .wrapper {
     min-height: 130vh;
+  }
+
+  // 個人記録詳細画面
+  .user-record-score {
+    margin-left: -5%;
+    white-space: nowrap;
+  }
+
+  // 個人記録編集画面
+  #records-edit .flame {
+    padding: 80px;
+    border-top: 3px solid red;
+    border-left: 3px solid green;
+    border-bottom: 3px solid blue;
+    border-right: 3px solid yellow;
+    border-radius: 0%;
+    background-color: #fff;
+    width: 178%;
+  }
+
+  #records-edit header, #records-edit footer {
+    width: 178%;
+  }
+
+  #records-edit .batter-edit, #records-edit .pitch-edit {
+    margin-left: 12%;
+  }
+
+  #records-edit .batter-edit input, #records-edit .pitch-edit input {
+    margin-left: -35%;
   }
 
   .fa-image {
