@@ -126,6 +126,7 @@
         </div>
       </div>
       <div class="row modal-footer">
+        <%= link_to "戻る", record_path(@record), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-secondary" %>
         <%= f.submit "記録を変更する", class: "btn btn-primary" %>
       </div>
     <% end %>

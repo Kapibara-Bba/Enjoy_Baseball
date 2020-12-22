@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     # @records = Record.all
     @user_record = @user.records
     @record = Record.new
-    @image_url = "https://msy-eb-resize.s3-ap-northeast-1.amazonaws.com/store/" + @user.image_id + "-thumbnail."
   end
 
   def edit
