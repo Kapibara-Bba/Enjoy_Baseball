@@ -553,7 +553,7 @@ nav.globalMenuSp.active {
     width: 180%;
   }
 
-  #infos-create .wrapper {
+  #infos-create .wrapper, #records-edit .wrapper {
     min-height: 180vh;
   }
 
@@ -597,8 +597,22 @@ nav.globalMenuSp.active {
     min-height: 176vh;
   }
 
+  .team-post-comment {
+    margin: 0 -17% 0 9%;
+    width: 48%;
+  }
+
+  .post_comments {
+    width: 265px;
+  }
+
+  .member {
+    margin-left: -5%;
+  }
+
   // ユーザー詳細画面
-  #users-show .flame, #users-edit .flame, #records-show .flame {
+  #users-show .flame, #users-edit .flame, #records-show .flame,
+  #records-batter_index .flame, #records-pitch_index .flame {
     padding: 80px;
     border-top: 3px solid red;
     border-left: 3px solid green;
@@ -609,7 +623,10 @@ nav.globalMenuSp.active {
     width: 130%;
   }
 
-  #users-show header, #users-show footer, #users-edit header, #users-edit footer, #records-show header, #records-show footer {
+  #users-show header, #users-show footer, #users-edit header,
+  #users-edit footer, #records-show header, #records-show footer,
+  #records-batter_index header, #records-batter_index footer,
+  #records-pitch_index header, #records-pitch_index footer {
     width: 130%;
   }
 
@@ -648,7 +665,7 @@ nav.globalMenuSp.active {
   }
 
   // ユーザー編集画面
-  #users-edit .wrapper {
+  #users-edit .wrapper, #records-batter_index .wrapper, #records-pitch_index .wrapper {
     min-height: 130vh;
   }
 
@@ -674,12 +691,37 @@ nav.globalMenuSp.active {
     width: 178%;
   }
 
-  #records-edit .batter-edit, #records-edit .pitch-edit {
-    margin-left: 12%;
+  #records-edit .batter-edit {
+    margin-left: -6%;
+  }
+
+  #records-edit .pitch-edit {
+    margin-left: 9%;
   }
 
   #records-edit .batter-edit input, #records-edit .pitch-edit input {
-    margin-left: -35%;
+    margin-left: -42%;
+  }
+
+  .user-record-half {
+    margin-top: 29%;
+    margin-left: -5%;
+  }
+
+  // 成績一覧
+  .record_link {
+    margin-left: 100px;
+    margin-top: 5%;
+  }
+
+  .batter_logo, .pitch_logo {
+    height: 80px;
+    width: 80px;
+  }
+
+  .users-record-index-table {
+    width: 140%;
+    margin-left: -20%;
   }
 
   .fa-image {
