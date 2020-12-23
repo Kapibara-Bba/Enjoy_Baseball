@@ -60,7 +60,7 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <%= form_with model:@record, url: records_path, method: :post do |f| %>
+                  <%= form_with model:@record, method: :post do |f| %>
                     <div class="modal-body">
                       <div class="form_group user-game-days">
                         <%= f.label :試合日 %>

@@ -332,9 +332,20 @@ nav.globalMenuSp.active {
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width:768px) {
   #homes-index {
+    width: 100%;
     background-image: image-url("yakyujo.jpg");
-    // background-repeat: no-repeat;
-    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .logo {
+    height: 300px;
+    margin-top: 55%;
+    margin-left: -32%;
+    width: 163%;
+    background-image: image-url("logo.jpg");
+    background-size: cover;
     background-position: center;
   }
 }
@@ -359,6 +370,13 @@ nav.globalMenuSp.active {
     background-position: center;
   }
 
+  #homes-index header, #homes-index footer,
+  #homes-about header, #homes-about footer,
+  #sessions-new header, #sessions-new footer,
+  #registrations-new header, #registrations-new footer {
+    width: 130%;
+  }
+
   .home {
     width: 100%;
     margin-top: 50%;
@@ -379,6 +397,17 @@ nav.globalMenuSp.active {
   }
 
 // アバウトページ
+  #homes-about .flame {
+    padding: 80px;
+    border-top: 3px solid red;
+    border-left: 3px solid green;
+    border-bottom: 3px solid blue;
+    border-right: 3px solid yellow;
+    border-radius: 0%;
+    background-color: #fff;
+    width: 130%;
+  }
+
   .about-header {
     text-align: center;
     width: 100%;
@@ -401,10 +430,18 @@ nav.globalMenuSp.active {
     height: 0%;
   }
 
+  .about-text {
+    margin-left: 10%;
+  }
+
+  #homes-index .container {
+    margin-left: 22%;
+  }
+
   // ログインページ
   .devise-form {
     height: 600px;
-    width: 100%;
+    width: 132%;
     margin: 0 auto;
     border-radius: 4%;
   }
@@ -722,6 +759,26 @@ nav.globalMenuSp.active {
   .users-record-index-table {
     width: 140%;
     margin-left: -20%;
+  }
+
+  // 試合一覧
+  #team_records-index .flame {
+    padding: 80px;
+    border-top: 3px solid red;
+    border-left: 3px solid green;
+    border-bottom: 3px solid blue;
+    border-right: 3px solid yellow;
+    border-radius: 0%;
+    background-color: #fff;
+    width: 145%;
+  }
+
+  #team_records-index header, #team_records-index footer {
+    width: 145%;
+  }
+
+  #team_records-index .wrapper {
+    min-height: 146vh;
   }
 
   .fa-image {

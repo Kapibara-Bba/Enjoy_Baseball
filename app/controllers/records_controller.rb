@@ -1,7 +1,7 @@
 class RecordsController < ApplicationController
 
   def batter_index
-    search_column = record_create_params[:search_column]
+    search_column = params[:search_column]
     if search_column.nil?
       search_column = "batting"
     end
@@ -37,7 +37,7 @@ class RecordsController < ApplicationController
   end
 
   def pitch_index
-    search_column = record_create_params[:search_column]
+    search_column = params[:search_column]
     if search_column.nil?
       search_column = "win"
     end
@@ -71,7 +71,7 @@ class RecordsController < ApplicationController
 
   def create
   # 非同期通信
-    @record = Record.new(record_create_params)
+    @record = Record.new(record_params)
     @record.user_id = current_user.id
     @user_record = current_user.records
     @record.save
@@ -99,7 +99,7 @@ class RecordsController < ApplicationController
   def update
     @record = Record.find(params[:id])
     @record.user_id = current_user.id
-    if @record.update(record_update_params)
+    if @record.update(record_params)
       redirect_to record_path(@record)
     else
       render 'edit'
@@ -107,12 +107,13 @@ class RecordsController < ApplicationController
   end
 
   private
-  def record_create_params
-    params.permit(:bat, :batting, :hit, :two_base_hit, :three_base_hit, :homerun, :strike_out, :ball, :bunt, :dot, :homein,
-     :sacrifice_fly, :still, :error, :game, :pitch_game, :win, :lose, :inning, :to_be_hit, :to_be_homerun, :to_be_strike_out, :to_be_ball,
-     :to_be_point, :earned_run, :days, :opponent, :team_score, :rival_score, :search_column)
-  end
-  def record_update_params
+  # def record_create_params
+  #   params.permit(:bat, :batting, :hit, :two_base_hit, :three_base_hit, :homerun, :strike_out, :ball, :bunt, :dot, :homein,
+  #   :sacrifice_fly, :still, :error, :game, :pitch_game, :win, :lose, :inning, :to_be_hit, :to_be_homerun, :to_be_strike_out, :to_be_ball,
+  #   :to_be_point, :earned_run, :days, :opponent, :team_score, :rival_score, :search_column)
+  # end
+
+  def record_params
     params.require(:record).permit(:bat, :batting, :hit, :two_base_hit, :three_base_hit, :homerun, :strike_out, :ball, :bunt, :dot, :homein,
      :sacrifice_fly, :still, :error, :game, :pitch_game, :win, :lose, :inning, :to_be_hit, :to_be_homerun, :to_be_strike_out, :to_be_ball,
      :to_be_point, :earned_run, :days, :opponent, :team_score, :rival_score, :search_column)
