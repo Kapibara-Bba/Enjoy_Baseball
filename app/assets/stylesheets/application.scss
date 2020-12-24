@@ -338,7 +338,7 @@ nav.globalMenuSp.active {
     background-size: cover;
     background-position: center;
   }
-  
+
   .logo {
     height: 300px;
     margin-top: 55%;
@@ -347,6 +347,20 @@ nav.globalMenuSp.active {
     background-image: image-url("logo.jpg");
     background-size: cover;
     background-position: center;
+  }
+
+  // アバウトページ
+  #homes-about .flame {
+    min-height: 94vh;
+  }
+
+  .about {
+    height: 800px;
+    margin: 10px 0 10px 0;
+  }
+
+  .about-card {
+    width: 260px;
   }
 }
 
