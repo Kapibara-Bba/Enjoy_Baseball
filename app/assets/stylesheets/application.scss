@@ -362,6 +362,15 @@ nav.globalMenuSp.active {
   .about-card {
     width: 260px;
   }
+
+  .team-edit-show {
+     white-space: nowrap;
+  }
+
+  #team-edit .user input {
+    margin-left: 10px;
+  }
+
 }
 
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
