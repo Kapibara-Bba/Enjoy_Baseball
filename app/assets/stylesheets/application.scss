@@ -363,6 +363,8 @@ nav.globalMenuSp.active {
     width: 260px;
   }
 
+  // チーム編集画面
+
   .team-edit-show {
      white-space: nowrap;
   }
@@ -370,6 +372,47 @@ nav.globalMenuSp.active {
   #team-edit .user input {
     margin-left: 10px;
   }
+
+  // チームシェア画面
+  #posts-index .flame {
+   width: 100%;
+  }
+
+  .team-post-comment {
+    margin: 0 -17% 0 4%;
+    width: 55%;
+  }
+
+  #posts-index header, #posts-index footer {
+    width: 117%;
+  }
+
+  #posts-index .wrapper {
+    min-height: 117vh;
+  }
+
+  .member {
+    margin-left: -8%;
+    width: 60%;
+    font-size: 12px;
+  }
+
+  .fa-image {
+    font-size: 21px;
+  }
+
+  .fa-image:before {
+    font-size: 60px;
+  }
+
+  .post-player {
+    padding: 20px 30px 20px 3px;
+    width: 80%;
+  }
+
+  // .img_prev {
+  //   font-size: 40px;
+  // }
 
 }
 
@@ -646,20 +689,21 @@ nav.globalMenuSp.active {
     border-right: 3px solid yellow;
     border-radius: 10%;
     background-color: #fff;
-    width: 176%;
+    width: 192%;
+    margin: 0;
   }
 
   #posts-index header, #posts-index footer {
-    width: 175%;
+    width: 192%;
   }
 
   #posts-index .wrapper {
-    min-height: 176vh;
+    min-height: 192vh;
   }
 
   .team-post-comment {
-    margin: 0 -17% 0 9%;
-    width: 48%;
+    margin: 0 -17% 0 0%;
+    width: 56%;
   }
 
   .post_comments {
