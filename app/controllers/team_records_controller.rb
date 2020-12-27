@@ -13,16 +13,19 @@ class TeamRecordsController < ApplicationController
   end
 
   def create
+    # 非同期通信
+    @team_records = TeamRecord.all
     @team_record = TeamRecord.new(create_team_record_params)
     @team_record.team_id = current_user.team_id
-    if @team_record.save
-      redirect_to team_path(current_user.team_id)
-      flash[:team_record_create] = "試合結果を作成しました"
-    else
-      render 'users#show'
-    end
+    @team_record.save
+    # 非同期でない場合
+    # if @team_record.save
+    #   redirect_to team_path(current_user.team_id)
+    #   flash[:team_record_create] = "試合結果を作成しました"
+    # else
+    #   render 'users#show'
+    # end
   end
-
 
   def edit
   end

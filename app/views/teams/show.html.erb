@@ -73,34 +73,9 @@
         </div>
       <% end %>
     </div>
-    <h4>試合結果一覧</h4>
     <div class="team-game-index">
-      <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFDBC9;">
-        <thead>
-          <tr>
-            <th><span class="nowrap">日にち</span></th>
-            <th><span class="nowrap">対戦チーム</span></th>
-            <th><span class="nowrap">スコア</span></th>
-            <th><span class="nowrap">勝敗</span></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @team_records.each do |record| %>
-            <tr>
-              <td><span class="nowrap"><%= record.days %></span></td>
-              <td><span class="nowrap"><%= record.opponent %></span></td>
-              <td><span class="nowrap"><%= record.team_score %> ー <%= record.rival_score %></span></td>
-              <td><span class="nowrap"><%= record.result %></span></td>
-              <td>
-                <div class="show-btn">
-                  <span class="nowrap"><%= link_to "詳細", team_record_path(record), data: {"turbolinks" => false}, class: 'btn btn-success' %></span>
-                </div>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <h4>試合結果一覧</h4>
+      <%= render 'teams/team-record-list', team_records: @team_records %>
     </div>
     <% if @team.id == current_user.team_id %>
       <button type="button" class="btn btn-primary team-game-new" data-toggle="modal" data-target="#exampleModalLong">
@@ -117,7 +92,7 @@
             </div>
             <div class="modal-body">
               <!--試合結果追加のフォーム-->
-              <%= form_with url: team_records_path, local:true do |f| %>
+              <%= form_with url: team_records_path do |f| %>
                 <div class="form_group user-game-days">
                   <%= f.label :試合日 %>
                   <%= f.date_field :days, class: 'form-control' %>
@@ -128,11 +103,11 @@
                 </div>
                 <div class="form_group user-score">
                   <%= f.label :スコア %>
-                  <%= f.number_field :team_score, value: 0 %>
+                  <%= f.number_field :team_score, value: 0, min: 0 %>
                 </div>
                 <div class="form_group user-rival-score">
                   <%= f.label :相手スコア %>
-                  <%= f.number_field :rival_score, value: 0 %>
+                  <%= f.number_field :rival_score, value: 0, min: 0 %>
                 </div>
                 <div class="form_group team-game-result">
                   <%= f.label :勝敗 %>
