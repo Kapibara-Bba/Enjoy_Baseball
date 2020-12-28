@@ -1,0 +1,5 @@
+$(function() {
+$(".post_comments").html("<%= j(render 'index', posts: @posts) %>")
+$("textarea").val("")
+<!--$('attachment_image_tag').val("")-->
+});
