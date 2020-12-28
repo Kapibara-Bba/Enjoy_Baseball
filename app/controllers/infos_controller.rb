@@ -8,15 +8,18 @@ class InfosController < ApplicationController
 
   def create
     # @team = Team.find(params[:id])
+    @infos = Info.all
     @info = Info.new(create_info_params)
     # @infos = Info.all
     @info.team_id = current_user.team_id
-    if @info.save
-      redirect_to team_path(@info.team_id)
-      flash[:info_create] = "イベントを追加しました"
-    else
-      render 'new'
-    end
+    # @team = User.where(team_id: params[:id])
+    @info.save
+    # if @info.save
+    #   redirect_to team_path(@info.team_id)
+    #   flash[:info_create] = "イベントを追加しました"
+    # else
+    #   render 'new'
+    # end
     # # google map
     # @review = Review.new(review_params)
     # if @map.save
