@@ -32,7 +32,7 @@
                 </div>
                 <div class="modal-body">
                   <!--イベント追加のフォーム-->
-                  <%= form_with model: @info, url: infos_path, method: :post, local: true do |f| %>
+                  <%= form_with model: @info, url: infos_path, method: :post do |f| %>
                     <div class="form_group">
                       <%= f.label :イベント名 %>
                       <%= f.text_area :body %>
@@ -60,21 +60,12 @@
           </div>
         </div>
         <div class="team-calendar">
-          <%= month_calendar events: @infos do |date, infos| %>
-            <%= date.day %>
-            <% infos.each do |info| %>
-              <div>
-                <%= link_to info_path(info), data: {"turbolinks" => false} do %>
-                 <p><%= info.body %></p>
-                <% end %>
-              </div>
-            <% end %>
-          <% end %>
+          <%= render 'teams/team-calendar', infos: @infos %>
         </div>
       <% end %>
     </div>
-    <div class="team-game-index">
     <h4>試合結果一覧</h4>
+    <div class="team-game-index overflow-auto" style="height:350px;">
       <%= render 'teams/team-record-list', team_records: @team_records %>
     </div>
     <% if @team.id == current_user.team_id %>
