@@ -2,23 +2,8 @@
   <div class="container mt-5 flame">
     <div class="row">
       <div class="mx-auto">
-        <div class="row days">
-          <h3><%= @team_record.days %></h3>
-        </div>
-        <div class="game-score-show">
-          <h3><%= @team_record.team.teamname %><%= @team_record.team_score %> ー <%= @team_record.rival_score %><%= @team_record.opponent %></h3>
-        </div>
-        <div class="game-result">
-          <table class="table table-hover table-inverse">
-            <tr>
-              <td><h5>バッテリー</h5></td>
-              <td><p><%= @team_record.battery %></p></td>
-            </tr>
-            <tr>
-              <td><h5>本塁打</h5></td>
-              <td><p><%= @team_record.homerun %></p></td>
-            </tr>
-          </table>
+        <div class="update-team-record">
+          <%= render 'team_records/team-record-update', team_record: @team_record %>
         </div>
         <div class="row result-btn">
           <% if @team_record.team_id == current_user.team_id %>
@@ -36,7 +21,7 @@
                   </div>
                   <div class="modal-body">
                     <!--試合結果の修正フォーム-->
-                    <%= form_with model:@team_record, url: team_record_path(@team_record), method: :patch, local:true do |f| %>
+                    <%= form_with model:@team_record, url: team_record_path(@team_record), method: :patch do |f| %>
                       <div class="form_group user-game-days">
                         <%= f.label :試合日 %>
                         <%= f.date_field :days, class: 'form-control' %>

@@ -1,0 +1,4 @@
+$("textarea").val("");
+$("input").val("0");
+$('#exampleModalLong').modal('hide');
+$(".update-team-record").html("<%= j(render 'team_records/team-record-update', team_record: @team_record) %>");

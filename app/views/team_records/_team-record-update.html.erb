@@ -1,0 +1,18 @@
+<div class="row days">
+  <h3><%= team_record.days %></h3>
+</div>
+<div class="game-score-show">
+  <h3><%= team_record.team.teamname %><%= team_record.team_score %> ー <%= team_record.rival_score %><%= team_record.opponent %></h3>
+</div>
+<div class="game-result">
+  <table class="table table-hover table-inverse">
+    <tr>
+      <td><h5>バッテリー</h5></td>
+      <td><p><%= team_record.battery %></p></td>
+    </tr>
+    <tr>
+      <td><h5>本塁打</h5></td>
+      <td><p><%= team_record.homerun %></p></td>
+    </tr>
+  </table>
+</div>
