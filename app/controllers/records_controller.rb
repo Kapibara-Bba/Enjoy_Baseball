@@ -106,6 +106,12 @@ class RecordsController < ApplicationController
     end
   end
 
+  def destroy
+    @record = Record.find(params[:id])
+    @record.destroy
+    redirect_to user_path(current_user)
+  end
+
   private
   # def record_create_params
   #   params.permit(:bat, :batting, :hit, :two_base_hit, :three_base_hit, :homerun, :strike_out, :ball, :bunt, :dot, :homein,
