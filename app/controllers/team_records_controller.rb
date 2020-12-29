@@ -27,18 +27,18 @@ class TeamRecordsController < ApplicationController
     # end
   end
 
-  def edit
-  end
-
   def update
+    # 非同期通信
     @team_record = TeamRecord.find(params[:id])
     @team_record.team_id = current_user.team_id
-    if @team_record.update(update_team_record_params)
-      flash[:team_record_update] = "試合結果を変更しました"
-      redirect_to team_record_path(@team_record)
-    else
-      render 'edit'
-    end
+    @team_record.update(update_team_record_params)
+    # 非同期通信でない時
+    # if @team_record.update(update_team_record_params)
+    #   flash[:team_record_update] = "試合結果を変更しました"
+    #   redirect_to team_record_path(@team_record)
+    # else
+    #   render 'show'
+    # end
   end
 
   def destroy
