@@ -167,11 +167,6 @@ header {
   margin-top: 50px;
 }
 
-.comment-form {
-  margin: 0 auto;
-  display: inline-block;
-}
-
 // .post-comment {
 //   margin: 15px auto;
 //   display: inline-block;
@@ -389,7 +384,7 @@ nav.globalMenuSp.active {
 
   .team-post-comment {
     margin: 0 -17% 0 4%;
-    width: 55%;
+    width: 48%;
   }
 
   .post_comments {
@@ -413,6 +408,17 @@ nav.globalMenuSp.active {
   .post-player {
     padding: 20px 30px 20px 3px;
     width: 80%;
+  }
+
+  .icon-form {
+    font-size: 5px;
+  }
+
+  .submit-icon {
+    margin-top: -19%;
+    margin-left: 0%;
+    width: 17%;
+    height: 40px;
   }
 
   // .img_prev {
@@ -693,6 +699,7 @@ nav.globalMenuSp.active {
     width: 156%;
     margin-left: 0;
     border-radius: 0;
+    background-color: #EEFFFF	;
   }
 
   #teams-room header, #teams-room footer {
@@ -704,16 +711,34 @@ nav.globalMenuSp.active {
   }
 
   .team-post-comment {
-    margin: 0 -17% 0 0%;
-    width: 56%;
+    margin: 0;
+    width: 98%;
   }
 
   .post_comments {
     width: 250px;
+    height: 900px;
   }
 
   .member {
-    margin-left: -5%;
+    margin-left: -10%;
+    display: none;
+  }
+
+  .comment-form {
+    width: 111%;
+    padding-bottom: 2%;
+    background-color: #EEFFFF;
+  }
+
+  .comment-form textarea {
+    width: 69%;
+  }
+
+  .submit-icon {
+    margin-top: -8%;
+    margin-left: 2%;
+    width: 13%;
   }
 
   // ユーザー詳細画面
