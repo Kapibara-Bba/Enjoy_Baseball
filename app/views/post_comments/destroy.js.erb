@@ -1,0 +1,5 @@
+$(function() {
+$(".post_comments").html("<%= j(render 'index', team: @team) %>")
+$("textarea").val("")
+$('.img_prev').attr('src', "<%= asset_path("no_image.jpg") %>");
+});
