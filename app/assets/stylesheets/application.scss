@@ -374,8 +374,17 @@ nav.globalMenuSp.active {
   }
 
   // チームシェア画面
-  #posts-index .flame {
-   width: 100%;
+  #teams-room .flame {
+    width: 145%;
+    margin-left: 11%;
+  }
+
+  #teams-room header, #teams-room footer {
+    width: 117%;
+  }
+
+  #teams-room .wrapper {
+    min-height: 118vh;
   }
 
   .team-post-comment {
@@ -383,12 +392,8 @@ nav.globalMenuSp.active {
     width: 55%;
   }
 
-  #posts-index header, #posts-index footer {
-    width: 117%;
-  }
-
-  #posts-index .wrapper {
-    min-height: 117vh;
+  .post_comments {
+    width: 250px;
   }
 
   .member {
@@ -684,24 +689,18 @@ nav.globalMenuSp.active {
   }
 
   // チームシェア画面
-  #posts-index .flame {
-    padding: 80px;
-    border-top: 3px solid red;
-    border-left: 3px solid green;
-    border-bottom: 3px solid blue;
-    border-right: 3px solid yellow;
-    border-radius: 10%;
-    background-color: #fff;
-    width: 192%;
-    margin: 0;
+  #teams-room .flame {
+    width: 156%;
+    margin-left: 0;
+    border-radius: 0;
   }
 
-  #posts-index header, #posts-index footer {
-    width: 192%;
+  #teams-room header, #teams-room footer {
+    width: 156%;
   }
 
-  #posts-index .wrapper {
-    min-height: 192vh;
+  #teams-room .wrapper {
+    min-height: 156vh;
   }
 
   .team-post-comment {
@@ -710,7 +709,7 @@ nav.globalMenuSp.active {
   }
 
   .post_comments {
-    width: 265px;
+    width: 250px;
   }
 
   .member {

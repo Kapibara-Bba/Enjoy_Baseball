@@ -4,7 +4,7 @@ class CreatePostImages < ActiveRecord::Migration[5.2]
 
       t.string :image_id
       t.integer :user_id
-      t.integer :post_id
+      t.integer :team_id
       t.timestamps
     end
   end

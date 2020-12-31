@@ -18,6 +18,14 @@ class TeamsController < ApplicationController
     @team_record_new = TeamRecord.new(team_record_params)
   end
 
+  def room
+    @user = User.where(user_id: params[:id])
+    @team_users = User.where(team_id: params[:team_id])
+    @team = Team.find(params[:team_id])
+    @post_comment = PostComment.new
+    @post_comments = @team.post_comments
+  end
+
   def create
     @teams = Team.all
     @user = current_user

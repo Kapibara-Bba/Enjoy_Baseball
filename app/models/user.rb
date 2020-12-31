@@ -20,7 +20,8 @@ class User < ApplicationRecord
    has_many :records, dependent: :destroy
    has_many :posts, dependent: :destroy
    belongs_to :team, optional: true
-
+   has_many :post_comments
+   has_many :post_images
 
    attachment :image
 

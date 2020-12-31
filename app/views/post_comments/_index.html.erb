@@ -1,5 +1,5 @@
 <table>
-  <% posts.post_comment.reverse.each do |post| %>
+  <% team.post_comments.reverse.each do |post| %>
     <tr>
       <td class="post-comment">
         <%= link_to user_path(post.user), data: {"turbolinks" => false} do %>
@@ -9,7 +9,10 @@
         <div class="word">
           <%= simple_format post.comment %>
         </div>
-        <%#= attachment_image_tag post, :image, format: 'jpeg', size:'200x200' %>
+        <%= attachment_image_tag post, :image, format: 'jpeg', size:'200x200' %>
+        <% if current_user == post.user %>
+          <%= link_to "削除", team_post_comment_path(team, post), method: :delete, "data-confirm" => "本当に削除してもいいですか？", class: 'btn btn-danger' %>
+        <% end %>
       </td>
     </tr>
   <% end %>
