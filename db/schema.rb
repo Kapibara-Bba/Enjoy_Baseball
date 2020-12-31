@@ -33,14 +33,6 @@ ActiveRecord::Schema.define(version: 2020_12_30_075317) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "team_id"
-    t.string "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "infos", force: :cascade do |t|
     t.string "body"
     t.string "location"
@@ -55,21 +47,6 @@ ActiveRecord::Schema.define(version: 2020_12_30_075317) do
     t.integer "user_id"
     t.integer "team_id"
     t.string "image_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "post_images", force: :cascade do |t|
-    t.string "image_id"
-    t.integer "user_id"
-    t.integer "team_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
