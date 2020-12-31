@@ -30,7 +30,7 @@
       </div>
       <div class="col-xs-6 team-post-comment">
         <div class="comment-form">
-          <%= form_with(model:[@team, @post_comment], local: true) do |f| %>
+          <%= form_with(model:[@team, @post_comment]) do |f| %>
             <%= f.text_area :comment, rows:'1', class: "form-control",placeholder: "コメント" %>
             <%#= f.submit "送信", class: 'btn btn-primary' %>
             <%#= form_with model:[@team, @post_comment], url: team_post_comments_path, local: true do |f| %>
