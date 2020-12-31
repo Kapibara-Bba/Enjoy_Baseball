@@ -2,11 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#posts-index {
-  background-color: #FFFAF0;
-}
 
-#posts-index .flame {
+#teams-room .flame {
   padding: 80px;
   border-top: 3px solid red;
   border-left: 3px solid green;
@@ -20,11 +17,6 @@
 .post-player {
   width: 100%;
   padding: 20px 30px 20px 30px;
-  border-top: 3px solid red;
-  border-left: 3px solid green;
-  border-bottom: 3px solid blue;
-  border-right: 3px solid #FFD700	;
-  border-radius: 10%;
 }
 
 .fa-image {

@@ -11,10 +11,9 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   resources :teams, only: [:show, :new, :create, :edit, :update] do
-    resources :posts, only: [:index, :create, :destroy] do
-      resources :post_comments, only: [:create, :destroy]
-      resources :post_images, only: [:create, :destroy]
-    end
+    get 'teams/room' => 'teams#room'
+    resources :post_comments, only: [:create, :destroy]
+    resources :post_images, only: [:create, :destroy]
   end
   resources :users, only: [:index, :show, :edit, :update, :destroy]
   get 'records/batter' => 'records#batter_index'
