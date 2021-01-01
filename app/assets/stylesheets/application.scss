@@ -358,14 +358,23 @@ nav.globalMenuSp.active {
     width: 260px;
   }
 
-  // チーム編集画面
+  // チーム詳細画面
+  .team-profile {
+    width: 78%;
+    white-space: nowrap;
+  }
 
+  // チーム編集画面
   .team-edit-show {
      white-space: nowrap;
   }
 
   #team-edit .user input {
     margin-left: 10px;
+  }
+
+  #teams-edit .flame {
+    width: 85%;
   }
 
   // チームシェア画面
@@ -430,8 +439,13 @@ nav.globalMenuSp.active {
     width: 80%;
   }
 
+  // チームイベント詳細画面
+  #infos-show .flame {
+    width: 80%;
+  }
+
   // ユーザー編集画面
-  #users-edit .flame {
+  #users-edit .flame, #infos-edit .flame {
     width: 90%;
   }
 
@@ -526,10 +540,10 @@ nav.globalMenuSp.active {
 
   .about {
     margin-top: 10px;
-    margin-left: -32%;
-    width: 165%;
+    margin-left: -24%;
+    width: 149%;
     background-color: #EEEEEE;
-    border-radius: 10%;
+    border-radius: 0;
     text-align: left;
     font-size: 0.8rem;
     height: 0%;
@@ -541,6 +555,11 @@ nav.globalMenuSp.active {
 
   #homes-index .container {
     margin-left: 22%;
+  }
+
+  .about-card {
+    width: 215px;
+    height: 190px;
   }
 
   // ログインページ
@@ -616,6 +635,22 @@ nav.globalMenuSp.active {
     height: 100%;
     width: 100%;
     white-space: nowrap;
+  }
+
+  .team-profile {
+    width: 110%;
+    margin: 0 auto;
+    display: flex;
+    white-space: nowrap;
+  }
+
+  .team-event {
+    margin-left: 210%;
+    margin-top: -57%;
+  }
+
+  .share-link {
+    margin-top: 10px;
   }
 
   // 試合結果詳細画面
