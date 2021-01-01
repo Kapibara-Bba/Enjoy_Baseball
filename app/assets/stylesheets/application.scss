@@ -408,6 +408,7 @@ nav.globalMenuSp.active {
   .post-player {
     padding: 20px 30px 20px 3px;
     width: 80%;
+    font-size: 10px;
   }
 
   .icon-form {
@@ -427,6 +428,11 @@ nav.globalMenuSp.active {
   // チーム記録詳細画面
   #team_records-show .flame {
     width: 80%;
+  }
+
+  // ユーザー編集画面
+  #users-edit .flame {
+    width: 90%;
   }
 }
 
@@ -716,8 +722,9 @@ nav.globalMenuSp.active {
   }
 
   .post_comments {
-    width: 250px;
+    width: 85%;
     height: 900px;
+    margin-left: 15%;
   }
 
   .member {
@@ -727,8 +734,9 @@ nav.globalMenuSp.active {
 
   .comment-form {
     width: 111%;
-    padding-bottom: 2%;
+    padding-bottom: 5%;
     background-color: #EEFFFF;
+    margin-top: -18%;
   }
 
   .comment-form textarea {
