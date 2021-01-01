@@ -15,12 +15,13 @@
 
 .profile-font {
   font-size: 22px;
+  margin-bottom: 15px;
 }
 
 .profile-image {
-  border: 1px solid #656565;  /* 枠線(=円形でも記述は同じ) */
-  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-  object-fit: cover; /* 縦横比固定したまま上2つの縦横の範囲内に収まるように配置する */
+  border: 1px solid #656565;
+  border-radius: 50%;
+  object-fit: cover;
   display: inline-block;
   margin-bottom: 10px;
 }
@@ -38,7 +39,8 @@
 }
 
 .record-success {
-  margin-top: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .record-list {

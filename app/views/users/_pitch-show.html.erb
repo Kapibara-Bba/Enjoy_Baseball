@@ -1,46 +1,47 @@
 <!--投手成績-->
-<table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFDDFF;">
-  <thead>
+<div style="height:100%; width:100%; overflow-y:scroll; scrollbar-base-color:#99ff66 ; scrollbar-arrow-color:#ff0000;">
+  <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFDDFF;">
+    <thead>
+      <tr align="center">
+        <th><span class="nowrap">防御率</span></th>
+        <th><span class="nowrap">投球回</span></th>
+        <th><span class="nowrap">勝</span></th>
+        <th><span class="nowrap">敗</span></th>
+        <th><span class="nowrap">勝率</span></th>
+        <th><span class="nowrap">失点</span></th>
+        <th><span class="nowrap">自責点</span></th>
+        <th><span class="nowrap">奪三振</span></th>
+        <th><span class="nowrap">被安打</span></th>
+        <th><span class="nowrap">被本塁打</span></th>
+        <th><span class="nowrap">与四死球</span></th>
+      </tr>
+    </thead>
     <tr align="center">
-      <th><span class="nowrap">防御率</span></th>
-      <th><span class="nowrap">投球回</span></th>
-      <th><span class="nowrap">勝</span></th>
-      <th><span class="nowrap">敗</span></th>
-      <th><span class="nowrap">勝率</span></th>
-      <th><span class="nowrap">失点</span></th>
-      <th><span class="nowrap">自責点</span></th>
-      <th><span class="nowrap">奪三振</span></th>
-      <th><span class="nowrap">被安打</span></th>
-      <th><span class="nowrap">被本塁打</span></th>
-      <th><span class="nowrap">与四死球</span></th>
+      <td>
+        <% begin %>
+          <% earned_run_average = user_record.all.sum(:earned_run)*9/user_record.all.sum(:inning).to_f %>
+          <span class="nowrap"><%= sprintf("%.2f",earned_run_average) %></span>
+        <% rescue %>
+          0
+        <% end %>
+      </td>
+      <td><span class="nowrap"><%= user_record.all.sum(:inning) %></span></td>
+      <td><span class="nowrap"><%= user_record.all.sum(:win) %></span></td>
+      <td><span class="nowrap"><%= user_record.all.sum(:lose) %></span></td>
+      <td>
+        <% begin %>
+          <% win_rate = user_record.all.sum(:win)/(user_record.all.sum(:win)+user_record.all.sum(:lose)).to_f %>
+          <span class="nowrap"><%= sprintf("%.3f",win_rate) %></span>
+        <% rescue %>
+          0
+        <% end %>
+      </td>
+      <td><span class="nowrap"><%= user_record.all.sum(:to_be_point) %></span></td>
+      <td><span class="nowrap"><%= user_record.all.sum(:earned_run) %></span></td>
+      <td><span class="nowrap"><%= user_record.all.sum(:to_be_strike_out) %></span></td>
+      <td><span class="nowrap"><%= user_record.all.sum(:to_be_hit) %></span></td>
+      <td><span class="nowrap"><%= user_record.all.sum(:to_be_homerun) %></span></td>
+      <td><span class="nowrap"><%= user_record.all.sum(:to_be_ball) %></span></td>
     </tr>
-  </thead>
-  <tr align="center">
-    <td>
-      <% begin %>
-        <% earned_run_average = user_record.all.sum(:earned_run)*9/user_record.all.sum(:inning).to_f %>
-        <span class="nowrap"><%= sprintf("%.2f",earned_run_average) %></span>
-      <% rescue %>
-        0
-      <% end %>
-    </td>
-    <td><span class="nowrap"><%= user_record.all.sum(:inning) %></span></td>
-    <td><span class="nowrap"><%= user_record.all.sum(:win) %></span></td>
-    <td><span class="nowrap"><%= user_record.all.sum(:lose) %></span></td>
-    <td>
-      <% begin %>
-        <% win_rate = user_record.all.sum(:win)/(user_record.all.sum(:win)+user_record.all.sum(:lose)).to_f %>
-        <span class="nowrap"><%= sprintf("%.3f",win_rate) %></span>
-      <% rescue %>
-        0
-      <% end %>
-    </td>
-    <td><span class="nowrap"><%= user_record.all.sum(:to_be_point) %></span></td>
-    <td><span class="nowrap"><%= user_record.all.sum(:earned_run) %></span></td>
-    <td><span class="nowrap"><%= user_record.all.sum(:to_be_strike_out) %></span></td>
-    <td><span class="nowrap"><%= user_record.all.sum(:to_be_hit) %></span></td>
-    <td><span class="nowrap"><%= user_record.all.sum(:to_be_homerun) %></span></td>
-    <td><span class="nowrap"><%= user_record.all.sum(:to_be_ball) %></span></td>
-  </tr>
-</table>
-
+  </table>
+</div>
