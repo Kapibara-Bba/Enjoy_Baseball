@@ -434,6 +434,25 @@ nav.globalMenuSp.active {
   #users-edit .flame {
     width: 90%;
   }
+
+  // 個人成績編集画面
+  .user-record-half {
+    margin-top: 29%;
+    margin-left: -5%;
+  }
+
+  #records-edit .batter-edit input, #records-edit .pitch-edit input {
+    margin-left: 32%;
+    width: 30%;
+  }
+
+  .batter-edit {
+    margin-left: 0;
+  }
+
+  .pitch-edit {
+    margin-left: 5%;
+  }
 }
 
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
@@ -788,9 +807,14 @@ nav.globalMenuSp.active {
     min-height: 170vh;
   }
 
-  .batter-new input, .pitch-new input, .batter-edit input {
+  .batter-edit input {
     margin-left: 5%;
     width: 30%;
+  }
+
+  .batter-new input, .pitch-new input {
+    margin-left: -60%;
+    width: 15%;
   }
 
   .batter-edit, .pitch-edit {

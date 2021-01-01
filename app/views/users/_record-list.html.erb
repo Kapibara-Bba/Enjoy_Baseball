@@ -1,43 +1,45 @@
 <!--試合記録-->
-<table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #D7EEFF;">
-  <thead>
-    <tr>
-      <th></th>
-      <th><span class="nowrap">日にち</span></th>
-      <th><span class="nowrap">対戦チーム</span></th>
-      <th><span class="nowrap">スコア</span></th>
-      <th><span class="nowrap">打数</span></th>
-      <th><span class="nowrap">安打</span></th>
-      <th><span class="nowrap">打点</span></th>
-      <th><span class="nowrap">盗塁</span></th>
-      <th><span class="nowrap"></span></th>
-      <th><span class="nowrap">投球回</span></th>
-      <th><span class="nowrap">失点</span></th>
-      <th><span class="nowrap">奪三振</span></th>
-      <th><span class="nowrap">被安打</span></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% user_record.each do |user| %>
-      <tr align="center">
-        <td>
-          <% if user.user_id == current_user.id %>
-            <%= link_to "詳細", record_path(user), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success" %>
-          <% end %>
-        </td>
-        <td><span class="nowrap"><%= user.days %></span></td>
-        <td><span class="nowrap"><%= user.opponent %></span></td>
-        <td><span class="nowrap"><%= user.team_score %> - <%= user.rival_score %></span></td>
-        <td><span class="nowrap"><%= user.batting %></span></td>
-        <td><span class="nowrap"><%= user.hit %></span></td>
-        <td><span class="nowrap"><%= user.dot %></span></td>
-        <td><span class="nowrap"><%= user.still %></span></td>
-        <td></td>
-        <td><span class="nowrap"><%= user.inning %></span></td>
-        <td><span class="nowrap"><%= user.to_be_point %></span></td>
-        <td><span class="nowrap"><%= user.to_be_strike_out %></span></td>
-        <td><span class="nowrap"><%= user.to_be_hit %></span></td>
+<div style="height:100%; width:100%; overflow-y:scroll; scrollbar-base-color:#99ff66 ; scrollbar-arrow-color:#ff0000;">
+  <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #D7EEFF;">
+    <thead>
+      <tr>
+        <th></th>
+        <th><span class="nowrap">日にち</span></th>
+        <th><span class="nowrap">対戦チーム</span></th>
+        <th><span class="nowrap">スコア</span></th>
+        <th><span class="nowrap">打数</span></th>
+        <th><span class="nowrap">安打</span></th>
+        <th><span class="nowrap">打点</span></th>
+        <th><span class="nowrap">盗塁</span></th>
+        <th><span class="nowrap"></span></th>
+        <th><span class="nowrap">投球回</span></th>
+        <th><span class="nowrap">失点</span></th>
+        <th><span class="nowrap">奪三振</span></th>
+        <th><span class="nowrap">被安打</span></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% user_record.each do |user| %>
+        <tr align="center">
+          <td>
+            <% if user.user_id == current_user.id %>
+              <%= link_to "詳細", record_path(user), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success" %>
+            <% end %>
+          </td>
+          <td><span class="nowrap"><%= user.days %></span></td>
+          <td><span class="nowrap"><%= user.opponent %></span></td>
+          <td><span class="nowrap"><%= user.team_score %> - <%= user.rival_score %></span></td>
+          <td><span class="nowrap"><%= user.batting %></span></td>
+          <td><span class="nowrap"><%= user.hit %></span></td>
+          <td><span class="nowrap"><%= user.dot %></span></td>
+          <td><span class="nowrap"><%= user.still %></span></td>
+          <td></td>
+          <td><span class="nowrap"><%= user.inning %></span></td>
+          <td><span class="nowrap"><%= user.to_be_point %></span></td>
+          <td><span class="nowrap"><%= user.to_be_strike_out %></span></td>
+          <td><span class="nowrap"><%= user.to_be_hit %></span></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
