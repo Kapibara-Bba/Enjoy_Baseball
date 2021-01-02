@@ -18,10 +18,10 @@ class User < ApplicationRecord
 
    has_many :comments, dependent: :destroy
    has_many :records, dependent: :destroy
-   has_many :posts, dependent: :destroy
    belongs_to :team, optional: true
    has_many :post_comments
-   has_many :post_images
+   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
    attachment :image
 
