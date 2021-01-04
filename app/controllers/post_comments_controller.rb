@@ -6,7 +6,7 @@ class PostCommentsController < ApplicationController
     @post_comment = current_user.post_comments.new(post_comment_params)
     @post_comment.team_id = @team.id
     @post_comment.save
-    @team.create_notification_comment!(current_user, @post_comment.id)
+    @team.create_notification_comment(current_user, @post_comment.id)
     # 非同期通信でない時
     # if @post_comment.save!
     #   redirect_to team_teams_room_path(@team)
