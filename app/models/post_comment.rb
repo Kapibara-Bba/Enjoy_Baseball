@@ -5,4 +5,5 @@ class PostComment < ApplicationRecord
   has_many :notifications, dependent: :destroy
 
   attachment :image
+
 end
