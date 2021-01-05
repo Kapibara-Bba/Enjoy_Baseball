@@ -369,6 +369,11 @@ nav.globalMenuSp.active {
     width: 58%;
   }
 
+  .header-bell {
+    margin-right: 9%;
+    margin-top: -8%;
+  }
+
   // アバウトページ
   #homes-about .flame {
     min-height: 94vh;
@@ -385,8 +390,19 @@ nav.globalMenuSp.active {
 
   // チーム詳細画面
   .team-profile {
-    width: 78%;
+    width: 100%;
     white-space: nowrap;
+  }
+
+  .team-event {
+    width: 100%;
+    text-align: right;
+    margin-left: 210px;
+    margin-top: -60px;
+  }
+
+  .share-link {
+    margin-top: 10px;
   }
 
   // チーム編集画面
@@ -414,6 +430,11 @@ nav.globalMenuSp.active {
 
   #teams-room .wrapper {
     min-height: 118vh;
+  }
+
+  #teams-room .header-bell {
+    margin-right: 9%;
+    margin-top: -7%;
   }
 
   .team-post-comment {
@@ -505,6 +526,12 @@ nav.globalMenuSp.active {
     border-radius: 0%;
     background-color: #fff;
   }
+
+  .header-bell {
+    margin-right: 16%;
+    margin-top: -14%;
+  }
+
   // トップページ
   #homes-index {
     width: 100%;
@@ -615,18 +642,27 @@ nav.globalMenuSp.active {
 
   // チーム詳細画面
   #teams-show header, footer {
-    width: 135%;
+    width: 160%;
+  }
+
+  #teams-show .wrapper {
+    min-height: 160vh;
   }
 
   #teams-show .flame {
     padding: 80px;
-    width: 135%;
+    width: 160%;
     border-top: 3px solid red;
     border-left: 3px solid green;
     border-bottom: 3px solid blue;
     border-right: 3px solid yellow;
     border-radius: 0%;
     background-color: #fff;
+  }
+
+  #teams-show .header-bell {
+    margin-right: 12%;
+    margin-top: -12%;
   }
 
   .team-game-index {
@@ -680,11 +716,17 @@ nav.globalMenuSp.active {
 
   // 試合結果詳細画面
   #team_records-show .container, #team_records-show header, #team_records-show footer {
-    width: 135%;
+    width: 173%;
+    border-radius: 0;
   }
 
   #team_records-show .wrapper {
-    min-height: 135vh;
+    min-height: 173vh;
+  }
+
+  #team_records-show .header-bell {
+    margin-right: 13%;
+    margin-top: -11%;
   }
 
   .game-score-show {
@@ -768,15 +810,24 @@ nav.globalMenuSp.active {
     border-right: 3px solid yellow;
     border-radius: 0%;
     background-color: #fff;
-    width: 130%;
+    width: 184%;
   }
 
   #teams-edit header, #teams-edit footer, #teams-update header, #teams-update footer {
-    width: 130%;
+    width: 184%;
   }
 
   #teams-edit .wrapper, #teams-update .wrapper {
-    min-height: 130vh;
+    min-height: 184vh;
+  }
+
+  #teams-edit .header-bell, #teams-update .header-bell {
+    margin-right: 13%;
+    margin-top: -10%;
+  }
+
+  .team-edit-show {
+    white-space: normal;
   }
 
   // チームシェア画面
@@ -793,6 +844,11 @@ nav.globalMenuSp.active {
 
   #teams-room .wrapper {
     min-height: 156vh;
+  }
+
+  #teams-room .header-bell {
+    margin-right: 14%;
+    margin-top: -12%;
   }
 
   .team-post-comment {
@@ -898,6 +954,11 @@ nav.globalMenuSp.active {
     white-space: nowrap;
   }
 
+  #records-edit .header-bell {
+    margin-right: 13%;
+    margin-top: -9%;
+  }
+
   // 個人記録編集画面
   #records-edit .flame {
     padding: 80px;
@@ -956,15 +1017,20 @@ nav.globalMenuSp.active {
     border-right: 3px solid yellow;
     border-radius: 0%;
     background-color: #fff;
-    width: 145%;
+    width: 186%;
   }
 
   #team_records-index header, #team_records-index footer {
-    width: 145%;
+    width: 186%;
   }
 
   #team_records-index .wrapper {
-    min-height: 146vh;
+    min-height: 186vh;
+  }
+
+  #team_records-index .header-bell {
+    margin-right: 13%;
+    margin-top: -10%;
   }
 
   .fa-image {
