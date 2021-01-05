@@ -32,13 +32,8 @@
         <div class="comment-form">
           <%= form_with(model:[@team, @post_comment]) do |f| %>
             <%= f.text_area :comment, rows:'1', class: "form-control",placeholder: "メッセージ" %>
-            <%#= f.submit "送信", class: 'btn btn-primary' %>
-            <%#= form_with model:[@team, @post_comment], url: team_post_comments_path, local: true do |f| %>
             <div class="icon-form">
-              <%#= f.label :image, for: "file-input", class: "fas fa-image" do %>
-            　   <%#= attachment_image_tag @post_comment, :image, format: 'jpeg', size:'100x100', onChange: "$('.img_field').change()", class: 'center-block img_prev'%>
-              　<%= f.file_field :image, class: 'img_field', id: "file-input" %>
-              <%# end %>
+              <%= f.file_field :image, class: 'img_field', id: "file-input" %>
               <%= button_tag :type => "submit", :class =>"btn sub-btn submit-icon" do %>
                 <i class="fas fa-paper-plane"></i>
               <% end %>
