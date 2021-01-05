@@ -10,7 +10,7 @@
           <%= f.select :search_column, [["打率", "average"], ["打数", "batting"], ["安打", "hit"],
           ["本塁打", "homerun"], ["二塁打", "two_base_hit"], ["三塁打", "three_base_hit"], ["打点", "dot"], ["得点", "homein"], ["三振", "strike_out"],
           ["四死球", "ball"], ["犠打", "bunt"], ["犠飛", "sacrifice_fly"], ["出塁率", "base"], ["盗塁", "still"], ["失策", "error"]],
-          {selected: "search_column"} %>
+          {selected: "batting"} %>
           <%= f.submit "更新する" %>
         <% end %>
       </div>
@@ -64,7 +64,7 @@
                   <% begin %>
                     <span class="nowrap"><%= sprintf("%.3f", user.average / 10000.0) %></span>
                   <% rescue %>
-                    0
+                    0.000
                   <% end %>
                 </td>
                 <td><span class="nowrap"><%= user.batting %></span></td>
@@ -82,7 +82,7 @@
                   <% begin %>
                     <span class="nowrap"><%= sprintf("%.3f", user.base / 10000.0) %></span>
                   <% rescue %>
-                    0
+                    0.000
                   <% end %>
                 </td>
                 <td><span class="nowrap"><%= user.still %></span></td>

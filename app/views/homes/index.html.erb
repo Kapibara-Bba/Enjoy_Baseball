@@ -7,7 +7,8 @@
         <div class="row login-button">
           <%= link_to "ログイン", new_user_session_path, data: {"turbolinks" => false}, class: 'btn btn-info home-btn' %>
           <%= link_to "新規登録", new_user_registration_path, data: {"turbolinks" => false}, class: 'btn btn-primary home-btn' %>
-          <%= link_to 'かんたんログイン', users_guest_sign_in_path, data: {"turbolinks" => false}, method: :post, class: 'btn btn-warning home-btn' %>
+          <%= link_to 'ゲストログイン', users_guest_sign_in_path, data: {"turbolinks" => false}, method: :post, class: 'btn btn-warning home-btn' %>
+          <p class="login-message">※ポートフォリオ用の為、通常はログイン又は、新規登録からお入りください</p>
         </div>
       </div>
     </div>

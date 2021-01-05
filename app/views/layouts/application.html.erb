@@ -19,14 +19,22 @@
     <div class="wrapper">
       <header>
         <div class="header-logo"></div>
+        <div class="header-bell">
         <% if user_signed_in? && current_user.team_id.present? %>
           <% if unchecked_notifications.any? %>
-              <i class="fa fa-circle" style="color: gold;"></i>
+              <%= link_to team_teams_room_path(current_user.team_id), data: {"turbolinks" => false} do %>
+                <i class="fas fa-bell"></i>
+                <div class="circle-icon">
+                  <i class="fa fa-circle"></i>
+                </div>
+              <% end %>
+          <% else %>
+            <%= link_to team_teams_room_path(current_user.team_id), data: {"turbolinks" => false} do %>
+              <i class="fas fa-bell"></i>
+            <% end %>
           <% end %>
-          <li>
-              <%= link_to "NOTICE", team_teams_room_path(current_user.team_id), data: {"turbolinks" => false} %>
-          </li>
         <% end %>
+        </div>
         <div class="hamburger">
           <span></span>
           <span></span>

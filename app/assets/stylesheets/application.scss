@@ -129,6 +129,25 @@ header {
   background-position: center;
 }
 
+.header-bell {
+  text-align: right;
+  margin-right: 5%;
+  margin-top: -4%;
+}
+
+.fa-bell {
+  color: #EEFFFF;
+  font-size: 47px;
+}
+
+.fa-circle {
+  color: gold;
+}
+
+.circle-icon {
+  margin-top: -4%;
+}
+
 .new-team {
   margin: 50px 0;
 }
@@ -342,6 +361,12 @@ nav.globalMenuSp.active {
     background-image: image-url("logo.jpg");
     background-size: cover;
     background-position: center;
+  }
+
+  .login-message {
+    margin-left: 4%;
+    margin-top: -15px;
+    width: 58%;
   }
 
   // アバウトページ
