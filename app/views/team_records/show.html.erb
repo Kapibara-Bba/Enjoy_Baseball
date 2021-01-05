@@ -60,7 +60,7 @@
               </div>
             </div>
             <%= link_to "削除する", team_record_path(@team_record), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger' %>
-            <%= link_to "戻る", team_path(current_user.team_id), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-secondary" %>
+            <%= link_to "チーム詳細", team_path(current_user.team_id), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-secondary" %>
           <% end %>
           <%= link_to "試合一覧", team_records_path, data: {"turbolinks" => false}, class: "col-xs-12 btn btn-info" %>
         </div>
