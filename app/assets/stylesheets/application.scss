@@ -848,7 +848,7 @@ nav.globalMenuSp.active {
 
   #teams-room .header-bell {
     margin-right: 14%;
-    margin-top: -12%;
+    margin-top: -10%;
   }
 
   .team-post-comment {
@@ -871,17 +871,41 @@ nav.globalMenuSp.active {
     width: 111%;
     padding-bottom: 5%;
     background-color: #EEFFFF;
-    margin-top: -18%;
+    margin-top: -15%;
   }
 
   .comment-form textarea {
-    width: 69%;
+    width: 72%;
   }
 
   .submit-icon {
-    margin-top: -8%;
-    margin-left: 2%;
-    width: 13%;
+    margin-top: -37px;
+    margin-left: 81px;
+    width: 48px;
+  }
+
+  .fa-image {
+    font-size: 30px;
+  }
+
+  .fa-paper-plane {
+    display: inline-block;
+    padding: 0;
+    font-size: 22px;
+  }
+
+  .sub-btn {
+    height: 37px;
+  }
+
+  .post-player {
+    margin: 20px 20px 20px 0;
+    padding: 0;
+  }
+
+  .icon-form {
+    display: flex;
+    justify-content: center;
   }
 
   // ユーザー詳細画面
@@ -1031,30 +1055,6 @@ nav.globalMenuSp.active {
   #team_records-index .header-bell {
     margin-right: 13%;
     margin-top: -10%;
-  }
-
-  .fa-image {
-    font-size: 30px;
-  }
-
-  .fa-paper-plane {
-    display: inline-block;
-    padding: 0;
-    font-size: 30px;
-  }
-
-  .sub-btn {
-    height: 50px;
-  }
-
-  .post-player {
-    margin: 20px 20px 20px 0;
-    padding: 0;
-  }
-
-  .icon-form {
-    display: flex;
-    justify-content: center;
   }
 
   .nowrap {
