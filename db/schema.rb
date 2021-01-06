@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_08_141639) do
+ActiveRecord::Schema.define(version: 2021_01_01_101716) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,14 +33,6 @@ ActiveRecord::Schema.define(version: 2020_12_08_141639) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "team_id"
-    t.string "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "infos", force: :cascade do |t|
     t.string "body"
     t.string "location"
@@ -50,11 +42,21 @@ ActiveRecord::Schema.define(version: 2020_12_08_141639) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "team_id"
+    t.integer "post_comment_id"
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "post_comments", force: :cascade do |t|
+    t.string "comment"
     t.integer "user_id"
     t.integer "team_id"
     t.string "image_id"
-    t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -85,6 +87,9 @@ ActiveRecord::Schema.define(version: 2020_12_08_141639) do
     t.integer "to_be_ball"
     t.integer "to_be_point"
     t.integer "earned_run"
+    t.integer "team_score"
+    t.integer "rival_score"
+    t.string "opponent"
     t.date "days"
     t.integer "user_id"
     t.datetime "created_at", null: false

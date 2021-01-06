@@ -17,6 +17,10 @@
   background-position: center;
 }
 
+.home-main {
+  width: 40%;
+}
+
 .home-about {
   font-size: 3rem;
   font-family: Times New Roman;
@@ -183,5 +187,11 @@
   background-size: cover;
   height: 50%;
   width: 40%;
+}
+
+.login-message {
+  font-size: 10px;
+  margin-left: 56%;
+  margin-top: -16px;
 }
 

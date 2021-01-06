@@ -43,3 +43,67 @@
 table {
   word-wrap: break-word;
 }
+
+.form_group {
+  white-space: nowrap;
+}
+
+.batter-new input, .pitch-new input, .batter-edit input {
+  margin-left: 5%;
+  width: 20%;
+}
+
+.batter-edit {
+  margin-top: 5%;
+  margin-left: 12%;
+  display: flex;
+  width: 46%;
+}
+
+.pitch-edit {
+  margin-top: 5%;
+  margin-left: -5%;
+  width: 47%;
+  display: flex;
+}
+
+.pitch-edit input {
+  margin-left: 10%;
+  width: 20%;
+}
+
+.user-record-pitch-title {
+  margin-bottom: 30px;
+}
+
+.user-game-days {
+  margin: auto 0;
+  display: flex;
+  width: 180px;
+}
+
+.user-game-days input {
+  margin-left: 19%
+}
+
+.user-score input {
+  margin-left: 7%;
+}
+
+.game-info {
+  font-size: 30px;
+}
+
+.user-record-score {
+  margin-left: 30%;
+}
+
+.user-record-edit {
+  display: flex;
+}
+
+.user-record-half {
+  margin-top: 14%;
+  margin-left: -20%;
+}
+

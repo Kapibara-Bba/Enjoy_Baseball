@@ -5,105 +5,73 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
-    <div class="team-profile">
-      <%= attachment_image_tag @team, :team_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'profile-image' %>
-      <h2><%= @team.teamname %></h2>
-    </div>
     <div class="row">
-      <% if @team.id == current_user.team_id %>
-        <div class="team-event">
-          <%= link_to "チーム情報", edit_team_path(@team), data: {"turbolinks" => false}, class: 'btn btn-success' %>
-          <div class="share-link">
-            <%= link_to "チームシェア", team_posts_path(@team), data: {"turbolinks" => false}, class: 'btn btn-warning' %>
+      <div class="col-xs-6 team-profile">
+        <%= attachment_image_tag @team, :team_image, :fill, 200, 200, format: 'jpeg', fallback: "no_image.jpg", size:'200x200', class: 'profile-image' %>
+        <p class="team-show-teamname"><%= @team.teamname %></p>
+      </div>
+      <div class="col-xs-6">
+        <% if @team.id == current_user.team_id %>
+          <div class="team-event">
+            <%= link_to "チーム情報", edit_team_path(@team), data: {"turbolinks" => false}, class: 'btn btn-success' %>
+            <div class="share-link">
+              <%= link_to "チームコメント", team_teams_room_path(@team), data: {"turbolinks" => false}, class: 'btn btn-warning' %>
+            </div>
           </div>
         </div>
-          <div class="">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-              イベントを追加
-            </button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">イベントを追加する</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
+      </div>
+      <div class="team-event-new">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          イベントを追加
+        </button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">イベントを追加する</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!--イベント追加のフォーム-->
+                <%= form_with model: @info, url: infos_path, method: :post do |f| %>
+                  <div class="form_group">
+                    <%= f.label :イベント名 %>
+                    <%= f.text_area :body %>
                   </div>
-                  <div class="modal-body">
-                    <!--イベント追加のフォーム-->
-                    <%= form_with model: @info, url: infos_path, method: :post, local: true do |f| %>
-                      <div class="form_group">
-                        <%= f.label :イベント名 %>
-                        <%= f.text_area :body %>
-                      </div>
-                      <div class="form_group">
-                        <%= f.label :日時 %>
-                        <%= f.datetime_select :start_time %>
-                      </div>
-                      <div>
-                        <%= f.fields_for :spot do |spot| %>
-                          <%= spot.label :address, "イベント場所(Google Mapで検索)", class: "spot_title" %>
-                          <%= spot.text_field :address, placeholder: "場所を入力", id: "address", class: "spot_text" %>
-                          <%= spot.submit "表示する", onclick: "codeAddress()", type: "button" %>
-                        <% end %>
-                      </div>
-                      <div id="map"></div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                        <%= f.submit "イベントを追加する", class: 'btn btn-primary' %>
-                      </div>
+                  <div class="form_group">
+                    <%= f.label :日時 %>
+                    <%= f.datetime_select :start_time %>
+                  </div>
+                  <div>
+                    <%= f.fields_for :spot do |spot| %>
+                      <%= spot.label :address, "イベント場所(Google Mapで検索)", class: "spot_title" %>
+                      <%= spot.text_field :address, placeholder: "場所を入力", id: "address", class: "spot_text" %>
+                      <%= spot.submit "表示する", onclick: "codeAddress()", type: "button" %>
                     <% end %>
                   </div>
-                </div>
+                  <div id="map"></div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                    <%= f.submit "イベントを追加する", class: 'btn btn-primary' %>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>
+        </div>
         <div class="team-calendar">
-          <%= month_calendar events: @infos do |date, infos| %>
-            <%= date.day %>
-            <% infos.each do |info| %>
-              <div>
-                <%= link_to info_path(info), data: {"turbolinks" => false} do %>
-                 <%= info.body %>
-                <% end %>
-              </div>
-            <% end %>
-          <% end %>
+          <%= render 'teams/team-calendar', infos: @infos %>
         </div>
       <% end %>
     </div>
     <h4>試合結果一覧</h4>
-    <div style="height:100%; width:100%; overflow-y:scroll; scrollbar-base-color:#99ff66 ; scrollbar-arrow-color:#ff0000;">
-      <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #FFDBC9;">
-        <thead>
-          <tr>
-            <th><span class="nowrap">日にち</span></th>
-            <th><span class="nowrap">対戦チーム</span></th>
-            <th><span class="nowrap">スコア</span></th>
-            <th><span class="nowrap">勝敗</span></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @team_records.each do |record| %>
-            <tr>
-              <td><span class="nowrap"><%= record.days %></span></td>
-              <td><span class="nowrap"><%= record.opponent %></span></td>
-              <td><span class="nowrap"><%= record.team_score %> ー <%= record.rival_score %></span></td>
-              <td><span class="nowrap"><%= record.result %></span></td>
-              <td>
-                <div class="show-btn">
-                  <span class="nowrap"><%= link_to "詳細", team_record_path(record), data: {"turbolinks" => false}, class: 'btn btn-success' %></span>
-                </div>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div class="team-game-index overflow-auto" style="height:300px;">
+      <%= render 'teams/team-record-list', team_records: @team_records %>
     </div>
     <% if @team.id == current_user.team_id %>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+      <button type="button" class="btn btn-primary team-game-new" data-toggle="modal" data-target="#exampleModalLong">
         試合結果を追加する
       </button>
       <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -117,8 +85,8 @@
             </div>
             <div class="modal-body">
               <!--試合結果追加のフォーム-->
-              <%= form_with url: team_records_path, local:true do |f| %>
-                <div class="form_group">
+              <%= form_with url: team_records_path do |f| %>
+                <div class="form_group user-game-days">
                   <%= f.label :試合日 %>
                   <%= f.date_field :days, class: 'form-control' %>
                 </div>
@@ -126,13 +94,15 @@
                   <%= f.label :対戦チーム %>
                   <%= f.text_field :opponent %>
                 </div>
-                <div class="form_group">
+                <div class="form_group user-score">
                   <%= f.label :スコア %>
-                  <%= f.number_field :team_score, value: 0 %><br>
-                  <%= f.label :相手スコア %>
-                  <%= f.number_field :rival_score, value: 0 %>
+                  <%= f.number_field :team_score, value: 0, min: 0 %>
                 </div>
-                <div class="form_group">
+                <div class="form_group user-rival-score">
+                  <%= f.label :相手スコア %>
+                  <%= f.number_field :rival_score, value: 0, min: 0 %>
+                </div>
+                <div class="form_group team-game-result">
                   <%= f.label :勝敗 %>
                   <%= f.select :result, TeamRecord.results.keys, {} %>
                 </div>
@@ -140,7 +110,7 @@
                   <%= f.label :バッテリー %>
                   <%= f.text_area :battery %>
                 </div>
-                <div class="form_group">
+                <div class="form_group team-game-homerun">
                   <%= f.label :本塁打 %>
                   <%= f.text_area :homerun %>
                 </div>
@@ -154,11 +124,9 @@
         </div>
       </div>
     <% end %>
-    <div class="row">
-      <div class="row member">
-        <h4>選手一覧</h4>
-      </div>
-      <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #E6FFE9;">
+    <h4>選手一覧</h4>
+    <div class="team-member-table">
+      <table class="table table-hover table-inverse" style="table-layout: auto; background-color: #E6FFE9;">
         <thead>
           <tr>
             <th><span class="nowrap">名前 </span></th>

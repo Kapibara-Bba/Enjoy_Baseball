@@ -1,0 +1,134 @@
+<div class="body">
+  <div class="container mt-5 flame">
+    <%= form_with model: @record, method: :patch, local: true do |f| %>
+      <div class="row">
+        <div class="form_group">
+          <%= f.label :試合日 %>
+          <%= f.date_field :days, class: 'form-control' %>
+        </div>
+        <div class="form_group">
+          <%= f.label :対戦チーム %>
+          <%= f.text_field :opponent %>
+        </div>
+         <div class="form_group">
+          <%= f.label :スコア %>
+          <%= f.number_field :team_score, min: 0 %>
+          <%= f.label :相手スコア %>
+          <%= f.number_field :rival_score, min: 0 %>
+        </div>
+      </div>
+      <div class="row user-record-edit">
+        <div class="batter-edit">
+          <div class="">
+            <h2>打者記録</h2>
+    　　　 　　　<div class="form_group">
+              <%= f.label :打席, class: "col-sm-3" %>
+              <%= f.number_field :bat, min: 0 %>
+            </div>
+            <div class="form_group">
+              <%= f.label :打数, class: "col-sm-3" %>
+              <%= f.number_field :batting, min: 0 %>
+            </div>
+            <div class="form_group">
+              <%= f.label :安打, class: "col-sm-3 control-label" %>
+              <%= f.number_field :hit, min: 0 %>
+            </div>
+            <div class="form_group">
+              <%= f.label :二塁打, class: "col-sm-3 control-label" %>
+              <%= f.number_field :two_base_hit, min: 0 %>
+            </div>
+            <div class="form_group">
+              <%= f.label :三塁打, class: "col-sm-3 control-label" %>
+              <%= f.number_field :three_base_hit, min: 0 %>
+            </div>
+            <div class="form_group">
+              <%= f.label :本塁打, class: "col-sm-3 control-label" %>
+              <%= f.number_field :homerun, min: 0 %>
+            </div>
+            <div class="form_group">
+              <%= f.label :三振, class: "col-sm-3 control-label" %>
+              <%= f.number_field :strike_out, min: 0 %>
+            </div>
+          </div>
+          <div class="user-record-half">
+            <div class="form_group">
+              <%= f.label :四死球, class: "col-sm-3 control-label" %>
+              <%= f.number_field :ball, min: 0 %>
+            </div>
+            <div class="form_group">
+              <%= f.label :犠打, class: "col-sm-3 control-label" %>
+              <%= f.number_field :bunt, min: 0 %>
+            </div>
+            <div class="form_group">
+              <%= f.label :犠飛, class: "col-sm-3 control-label" %>
+              <%= f.number_field :sacrifice_fly, min: 0 %>
+            </div>
+            <div class="form_group">
+              <%= f.label :打点, class: "col-sm-3 control-label" %>
+              <%= f.number_field :dot, min: 0 %>
+            </div>
+            <div class="form_group">
+              <%= f.label :得点, class: "col-sm-3 control-label" %>
+              <%= f.number_field :homein, min: 0 %>
+            </div>
+            <div class="form_group">
+              <%= f.label :盗塁, class: "col-sm-3 control-label" %>
+              <%= f.number_field :still, min: 0 %>
+            </div>
+            <div class="form_group">
+              <%= f.label :失策, class: "col-sm-3 control-label" %>
+              <%= f.number_field :error, min: 0 %>
+            </div>
+          </div>
+        </div>
+        <div class="pitch-edit">
+          <div class="">
+          <h2 class="user-record-pitch-title">投手記録</h2>
+          <div class="form_group">
+            <%= f.label :勝, class: "col-sm-3 control-label" %>
+            <%= f.number_field :win, max: 1, min: 0 %>
+          </div>
+          <div class="form_group">
+            <%= f.label :敗, class: "col-sm-3 control-label" %>
+            <%= f.number_field :lose, max: 1, min: 0 %>
+          </div>
+          <div class="form_group">
+            <%= f.label :投球回, class: "col-sm-3 control-label" %>
+            <%= f.number_field :inning, min: 0 %>
+          </div>
+          <div class="form_group">
+            <%= f.label :被安打, class: "col-sm-3 control-label" %>
+            <%= f.number_field :to_be_hit, min: 0 %>
+          </div>
+          <div class="form_group">
+            <%= f.label :被本塁打, class: "col-sm-3 control-label" %>
+            <%= f.number_field :to_be_homerun, min: 0 %>
+          </div>
+          </div>
+          <div class="user-record-half">
+          <div class="form_group">
+            <%= f.label :奪三振, class: "col-sm-3 control-label" %>
+            <%= f.number_field :to_be_strike_out, min: 0 %>
+          </div>
+          <div class="form_group">
+            <%= f.label :与四死球, class: "col-sm-3 control-label" %>
+            <%= f.number_field :to_be_ball, min: 0 %>
+          </div>
+          <div class="form_group">
+            <%= f.label :失点, class: "col-sm-3 control-label" %>
+            <%= f.number_field :to_be_point, min: 0 %>
+          </div>
+          <div class="form_group">
+            <%= f.label :自責点, class: "col-sm-3 control-label" %>
+            <%= f.number_field :earned_run, min: 0 %>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="row modal-footer">
+        <%= link_to "戻る", record_path(@record), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-secondary" %>
+        <%= f.submit "記録を変更する", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

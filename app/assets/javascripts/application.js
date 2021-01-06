@@ -72,7 +72,7 @@ let geocoder //変数の定義
         zoom: 15, //拡大率（1〜21まで設定可能）
       });
 　　　$('.seach_button').click();
-　　　
+
       marker = new google.maps.Marker({ //GoogleMapにマーカーを落とす
         position:  {lat: gon.lat, lng: gon.lng}, //マーカーを落とす位置を決める（値はDBに入っている）
         map: map //マーカーを落とすマップを指定
@@ -103,3 +103,4 @@ let geocoder //変数の定義
     });
   }
 // })
+

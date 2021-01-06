@@ -10,7 +10,7 @@
           <%= f.select :search_column, [["打率", "average"], ["打数", "batting"], ["安打", "hit"],
           ["本塁打", "homerun"], ["二塁打", "two_base_hit"], ["三塁打", "three_base_hit"], ["打点", "dot"], ["得点", "homein"], ["三振", "strike_out"],
           ["四死球", "ball"], ["犠打", "bunt"], ["犠飛", "sacrifice_fly"], ["出塁率", "base"], ["盗塁", "still"], ["失策", "error"]],
-          {selected: "search_column"} %>
+          {selected: "batting"} %>
           <%= f.submit "更新する" %>
         <% end %>
       </div>
@@ -19,7 +19,7 @@
       </div>
       <%= image_tag("174539.jpg", class: "batter_logo") %>
     </div>
-    <div class="row">
+    <div class="row users-record-index-table">
       <div style="height:100%; width:100%; overflow-y:scroll; scrollbar-base-color:#99ff66 ; scrollbar-arrow-color:#ff0000;">
         <table class="table table-hover table-inverse" width="100%" style="table-layout: auto; background-color: #E4FF8D;">
           <thead>
@@ -27,7 +27,7 @@
               <th><span class="nowrap">順位</span></th>
               <th></th>
               <th><span class="nowrap">名前</span></th>
-              <th></th>
+              <th><span class="nowrap">チーム</span></th>
               <th><span class="nowrap">打率</span></th>
               <th><span class="nowrap">打数</span></th>
               <th><span class="nowrap">安打</span></th>
@@ -64,7 +64,7 @@
                   <% begin %>
                     <span class="nowrap"><%= sprintf("%.3f", user.average / 10000.0) %></span>
                   <% rescue %>
-                    0
+                    0.000
                   <% end %>
                 </td>
                 <td><span class="nowrap"><%= user.batting %></span></td>
@@ -82,7 +82,7 @@
                   <% begin %>
                     <span class="nowrap"><%= sprintf("%.3f", user.base / 10000.0) %></span>
                   <% rescue %>
-                    0
+                    0.000
                   <% end %>
                 </td>
                 <td><span class="nowrap"><%= user.still %></span></td>

@@ -18,6 +18,19 @@ class TeamsController < ApplicationController
     @team_record_new = TeamRecord.new(team_record_params)
   end
 
+  def room
+    @user = User.where(user_id: params[:id])
+    @team_users = User.where(team_id: params[:team_id])
+    @team = Team.find(params[:team_id])
+    @post_comment = PostComment.new
+    @post_comments = @team.post_comments
+    # 通知機能
+    @notifications = current_user.passive_notifications
+    @notifications.where(checked: false).each do |notification|
+      notification.update_attributes(checked: true)
+    end
+  end
+
   def create
     @teams = Team.all
     @user = current_user

@@ -1,3 +1,41 @@
 // Place all the styles related to the team_records controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#team_records-show .flame {
+  padding: 80px;
+  border-top: 3px solid red;
+  border-left: 3px solid green;
+  border-bottom: 3px solid blue;
+  border-right: 3px solid yellow;
+  border-radius: 15%;
+  background-color: #fff;
+  width: 55%;
+}
+
+.game-score-show {
+  white-space: nowrap;
+}
+
+.user-rival_score input {
+  margin-left: 0%;
+}
+
+.team-game-result select {
+  margin-left: 10%;
+}
+
+.team-game-homerun textarea {
+  margin-left: 7%;
+}
+
+#team_records-show .flame {
+  padding: 80px;
+  border-top: 3px solid red;
+  border-left: 3px solid green;
+  border-bottom: 3px solid blue;
+  border-right: 3px solid yellow;
+  border-radius: 15%;
+  background-color: #fff;
+  width: 55%;
+}

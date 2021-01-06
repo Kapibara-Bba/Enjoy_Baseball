@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     # @team = Team.find(user_id: params[:id])
-    @records = Record.all
+    # @records = Record.all
     @user_record = @user.records
     @record = Record.new
   end
@@ -21,7 +21,9 @@ class UsersController < ApplicationController
    @user = User.find(params[:id])
     if @user.update(user_params)
       @user.team_id = current_user.team_id
-      flash[:notice] = "プロフィールの変更に成功しました"
+      # flash[:notice] = "プロフィールの変更に成功しました"
+      # redirect_to user_path(@user)
+      sleep(3) # S3への画像反映のタイムラグを考慮して3秒待機
       redirect_to user_path(@user)
     else
       render 'edit'
