@@ -3,7 +3,7 @@
     <div class="row">
       <div class="mx-auto">
         <div class="update-team-record">
-          <%= render 'team_records/team-record-update', team_record: @team_record %>
+          <%= render 'team_records/team-record-update', team_record: @team_record, team: @team %>
         </div>
         <div class="row result-btn">
           <% if @team_record.team_id == current_user.team_id %>

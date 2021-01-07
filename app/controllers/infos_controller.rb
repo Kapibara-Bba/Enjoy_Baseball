@@ -7,12 +7,10 @@ class InfosController < ApplicationController
   end
 
   def create
-    # @team = Team.find(params[:id])
-    @infos = Info.all
     @info = Info.new(create_info_params)
-    # @infos = Info.all
     @info.team_id = current_user.team_id
-    # @team = User.where(team_id: params[:id])
+    @team = current_user.team
+    @infos = @team.infos
     @info.save
     # if @info.save
     #   redirect_to team_path(@info.team_id)
