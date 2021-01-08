@@ -1,4 +1,5 @@
-$("textarea").val("");
-$("input").val("0");
+$("#team-game-record textarea").val("");
+$("#team-game-record .user-score").val("0")
+$("#team-game-record input").val("");
 $('#exampleModalLong').modal('hide');
 $(".team-game-index").html("<%= j(render 'teams/team-record-list', team_records: @team_records, team: @team) %>");

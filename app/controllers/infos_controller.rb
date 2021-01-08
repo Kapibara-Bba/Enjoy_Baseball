@@ -7,7 +7,7 @@ class InfosController < ApplicationController
   end
 
   def create
-    @info = Info.new(create_info_params)
+    @info = Info.new(info_params)
     @info.team_id = current_user.team_id
     @team = current_user.team
     @infos = @team.infos
@@ -49,7 +49,7 @@ class InfosController < ApplicationController
   def update
     @info = Info.find(params[:id])
     @info.team_id = current_user.team_id
-    if @info.update(update_info_params)
+    if @info.update(info_params)
       redirect_to team_path(@info.team_id)
       flash[:info_update] = "イベント内容を変更しました"
     else
@@ -58,12 +58,12 @@ class InfosController < ApplicationController
   end
 
   private
-  def create_info_params
+  def info_params
     params.require(:info).permit(:body, :start_time, :location, spot_attributes: [:address])
   end
 
-  def update_info_params
-    params.require(:info).permit(:body, :start_time, :location, spot_attributes: [:address])
-  end
+  # def update_info_params
+  #   params.require(:info).permit(:body, :start_time, :location, spot_attributes: [:address])
+  # end
 
 end
