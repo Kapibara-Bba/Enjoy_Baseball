@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_record = @user.records
     @record = Record.new
+    #@pitch_earned_run_average = @user_record.pitch_earned_run_average
   end
 
   def edit

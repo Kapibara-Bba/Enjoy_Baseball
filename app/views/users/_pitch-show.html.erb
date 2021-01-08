@@ -18,8 +18,8 @@
     </thead>
     <tr align="center">
       <td>
-        <% if user_record.all.sum(:earned_run) == 0 && user_record.all.sum(:inning) == 0 %>
-          <%= @earned_run_average %>
+        <% if user_record.all.sum(:earned_run) <= 0 && user_record.all.sum(:inning) <= 0 %>
+          0.00
         <% else %>
           <% begin %>
             <% earned_run_average = user_record.all.sum(:earned_run)*9/user_record.all.sum(:inning).to_f %>

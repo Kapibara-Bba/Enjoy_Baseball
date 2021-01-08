@@ -69,6 +69,7 @@ class RecordsController < ApplicationController
   def show
     @record = Record.find(params[:id])
     @user = @record.user
+    #@pitch_earned_run_average = pitch_earned_run_average
     # @user_record = @user.records
   end
 

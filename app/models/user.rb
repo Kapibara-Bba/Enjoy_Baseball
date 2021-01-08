@@ -30,4 +30,5 @@ class User < ApplicationRecord
   validates :name, presence: true
   # validates :team_id, presence: true
 
+
 end

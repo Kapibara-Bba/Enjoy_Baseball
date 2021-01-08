@@ -33,9 +33,20 @@ class Record < ApplicationRecord
       @batter_average = 0.000
     end
 
-    def earned_run_average
-      @earned_run_average = 0
+    def pitch_earned_run_average
+      if self.all.sum(:earned_run) <= 0 && self.all.sum(:inning) <= 0
+        0.00
+      else
+        begin
+          self.all.sum(:earned_run)*9/self.all.sum(:inning).to_f
+        rescue
+          0
+        end
+      end
     end
+    
+    
+
     # def batter_average
     #   puts 'batter_average'
     #   puts self.hit
