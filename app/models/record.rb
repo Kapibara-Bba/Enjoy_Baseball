@@ -29,6 +29,24 @@ class Record < ApplicationRecord
     validates :to_be_point, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
     validates :earned_run, presence: true, numericality: {only_integer: true, greater_than_or_equal_to: 0}
 
+    def batter_average
+      @batter_average = 0.000
+    end
+
+    def pitch_earned_run_average
+      if self.all.sum(:earned_run) <= 0 && self.all.sum(:inning) <= 0
+        0.00
+      else
+        begin
+          self.all.sum(:earned_run)*9/self.all.sum(:inning).to_f
+        rescue
+          0
+        end
+      end
+    end
+    
+    
+
     # def batter_average
     #   puts 'batter_average'
     #   puts self.hit

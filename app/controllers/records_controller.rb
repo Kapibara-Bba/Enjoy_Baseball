@@ -53,6 +53,7 @@ class RecordsController < ApplicationController
     @record = Record.new(record_params)
     @record.user_id = current_user.id
     @user_record = current_user.records
+    #byebug
     @record.save
     # 非同期でない場合
     # if @record.save
@@ -68,6 +69,7 @@ class RecordsController < ApplicationController
   def show
     @record = Record.find(params[:id])
     @user = @record.user
+    #@pitch_earned_run_average = pitch_earned_run_average
     # @user_record = @user.records
   end
 

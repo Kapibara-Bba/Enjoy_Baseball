@@ -33,7 +33,7 @@
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
+              <div id="info-create" class="modal-body">
                 <!--イベント追加のフォーム-->
                 <%= form_with model: @info, url: infos_path, method: :post do |f| %>
                   <div class="form_group">
@@ -42,11 +42,11 @@
                   </div>
                   <div class="form_group">
                     <%= f.label :日時 %>
-                    <%= f.datetime_select :start_time %>
+                    <%= raw sprintf(f.datetime_select(:start_time, use_month_numbers: true, date_separator: '%s', datetime_separator: '%s'), '年', '月', '日') %>
                   </div>
                   <div>
                     <%= f.fields_for :spot do |spot| %>
-                      <%= spot.label :address, "イベント場所(Google Mapで検索)", class: "spot_title" %>
+                      <%= spot.label :address, "イベント場所", class: "spot_title" %>
                       <%= spot.text_field :address, placeholder: "場所を入力", id: "address", class: "spot_text" %>
                       <%= spot.submit "表示する", onclick: "codeAddress()", type: "button" %>
                     <% end %>
@@ -83,9 +83,9 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div id="team-game-record" class="modal-body">
               <!--試合結果追加のフォーム-->
-              <%= form_with url: team_records_path do |f| %>
+              <%= form_with model: @team_record, method: :podt do |f| %>
                 <div class="form_group user-game-days">
                   <%= f.label :試合日 %>
                   <%= f.date_field :days, class: 'form-control' %>

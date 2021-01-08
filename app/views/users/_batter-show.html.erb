@@ -22,11 +22,15 @@
     </thead>
     <tr align="center">
       <td>
-        <% begin %>
-          <% average = user_record.all.sum(:hit)/user_record.all.sum(:batting).to_f %>
-          <span class="nowrap"><%= sprintf("%.3f",average) %></span>
-        <% rescue %>
-          0
+        <% if user_record.all.sum(:hit) == 0 && user_record.all.sum(:batting) == 0 %>
+          <%= @batter_average %>
+        <% else %>
+          <% begin %>
+            <% average = user_record.all.sum(:hit)/user_record.all.sum(:batting).to_f %>
+            <span class="nowrap"><%= sprintf("%.3f",average) %></span>
+          <% rescue %>
+            0
+          <% end %>
         <% end %>
       </td>
       <td><span class="nowrap"><%= user_record.all.sum(:bat) %></span></td>
