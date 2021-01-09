@@ -17,8 +17,35 @@
   background-position: center;
 }
 
+.fa-baseball-ball {
+  font-size: 150px;
+  color: white;
+  margin-left: 40px;
+}
+
+// .fa-baseball-ball:hover {
+//   font-size: 200px;
+// }
+
+.login-ball-text {
+  padding-left: 40px;
+  margin-top: -50%;
+  font-size: 25px;
+  color: red;
+  font-weight: bold;
+}
+
+.guest-login-text {
+  font-size: 20px;
+  margin-left: 40px;
+  margin-top: -87px;
+  color: #FFA500;
+  font-weight: bold;
+}
+
 .home-main {
-  width: 40%;
+  width: 55%;
+  margin-top: 10%;
 }
 
 .home-about {
@@ -30,6 +57,7 @@
 
 .home-about a {
   color: maroon;
+  background-color: #ffffcc;
 }
 
 .about-header {
@@ -190,8 +218,7 @@
 }
 
 .login-message {
-  font-size: 10px;
+  font-size: 11px;
   margin-left: 56%;
-  margin-top: -16px;
+  margin-top: 50px;
 }
-
