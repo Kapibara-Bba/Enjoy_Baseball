@@ -55,7 +55,7 @@
 
 .devise-form {
   background-color: #ffffcc;
-  height: 600px;
+  height: 700px;
   width: 60%;
   margin: 0 auto;
   border-radius: 20%;
@@ -111,6 +111,22 @@ body {
 .sign_up-link {
   font-size: 20px;
   padding-top: 40px;
+}
+
+.sign-up-error-message {
+  font-size: 10px;
+}
+
+.sign-up-error {
+  width: 182px;
+  /* text-align: center; */
+  line-height: 1px;
+  /* margin-top: 7px; */
+  /* margin-bottom: 5px; */
+  margin: 0 auto;
+  height: 50px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 // ヘッダー
@@ -405,6 +421,11 @@ nav.globalMenuSp.active {
     margin-top: 10px;
   }
 
+  // チーム選択画面
+  #teams-new .container, #teams-create .container {
+    width: 80%;
+  }
+
   // チーム編集画面
   .team-edit-show {
      white-space: nowrap;
@@ -626,18 +647,30 @@ nav.globalMenuSp.active {
   .new-team-form {
     background-color: #ffffcc;
     height: 630px;
-    width: 110%;
+    width: 175%;
     border-radius: 3%;
   }
 
   .team-select {
-    padding: 60px 40px;
+    padding: 60px 70px;
     margin-top: 20px;
     border-top: 3px solid red;
     border-left: 3px solid green;
     border-bottom: 3px solid blue;
     border-right: 3px solid #FFD700;
     border-radius: 15%;
+  }
+
+  #teams-new header, #teams-new footer, #teams-create header, #teams-create footer {
+    width: 160%;
+  }
+
+  #teams-new .wrapper, #teams-create .wrapper {
+    min-height: 160vh;
+  }
+
+  #teams-new .container, #teams-create .container {
+    width: 100%;
   }
 
   // チーム詳細画面
@@ -694,8 +727,14 @@ nav.globalMenuSp.active {
 
   .team-calendar {
     height: 100%;
-    width: 100%;
-    white-space: nowrap;
+    width: 120%;
+    margin-left: -35px;
+    font-size: 10px;
+    // white-space: nowrap;
+  }
+
+  .info-body {
+    font-size: 10px;
   }
 
   .team-profile {

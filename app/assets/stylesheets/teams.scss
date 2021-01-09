@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#teams-new .container, #teams-create .container {
+  width: 50%;
+}
+
 .team-profile {
   width: 75%;
   margin: 0 auto;
@@ -24,7 +28,7 @@
 .new-team-form {
   background-color: #ffffbb;
   height: 630px;
-  width: 65%;
+  // width: 65%;
   margin-left: 20%;
   border-radius: 15%;
 }
@@ -71,6 +75,10 @@
   width: 100%;
 }
 
+.info-body {
+  font-size: 13px;
+}
+
 .team-game-index {
   height: 100%;
   width: 100%;
@@ -85,6 +93,7 @@
 
 .team-game-new {
   margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 .team-member-table {

@@ -3,7 +3,7 @@
   <% infos.each do |info| %>
     <div>
       <%= link_to info_path(info), data: {"turbolinks" => false} do %>
-       <p><%= info.body %></p>
+       <p class="info-body"><%= info.body %></p>
       <% end %>
     </div>
   <% end %>
