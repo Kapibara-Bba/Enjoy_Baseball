@@ -4,11 +4,13 @@
       <p class="sign-up">Sign Up</p>
       <p class="sub-sign-up">新規登録</p>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <% flash.each do |message_type, messages| %>
-          <% messages.each do |message| %>
-            <%= message %>
+        <div class="sign-up-error">
+          <% flash.each do |message_type, messages| %>
+            <% messages.each do |message| %>
+              <p class="sign-up-error-message"><%= message %></p>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="sign">
           <div class="field">
