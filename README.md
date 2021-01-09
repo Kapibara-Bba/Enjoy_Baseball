@@ -6,7 +6,6 @@
 - 「野球をもっと楽しく」
   野球の記録を管理できるサイトです。
 
-## URL
 <img width="1440" alt="Enjoy_Baseballトップページ" src="https://user-images.githubusercontent.com/70389126/102007257-ccfea400-3d6a-11eb-8657-5324f3fe0926.png">
 
 ## サイトテーマ
@@ -32,7 +31,7 @@
 https://docs.google.com/spreadsheets/d/1NQWURGYKZqHZkp0YGFY0jCEETYZhNBGlJHavQKvbYBY/edit?usp=sharing
 
 ## 開発環境
--[インフラ構成図.pdf](https://github.com/Kapibara-Bba/Enjoy_Baseball/files/5768953/default.pdf)
+- インフラ構成図 (https://github.com/Kapibara-Bba/Enjoy_Baseball/files/5768953/default.pdf)
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
