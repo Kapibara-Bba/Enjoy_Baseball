@@ -33,11 +33,15 @@
       <td><span class="nowrap"><%= user_record.all.sum(:win) %></span></td>
       <td><span class="nowrap"><%= user_record.all.sum(:lose) %></span></td>
       <td>
-        <% begin %>
-          <% win_rate = user_record.all.sum(:win)/(user_record.all.sum(:win)+user_record.all.sum(:lose)).to_f %>
-          <span class="nowrap"><%= sprintf("%.3f",win_rate) %></span>
-        <% rescue %>
-          0
+        <% if user_record.all.sum(:win) <= 0 && user_record.all.sum(:lose) <= 0 %>
+          0.00
+        <% else %>
+          <% begin %>
+            <% win_rate = user_record.all.sum(:win)/(user_record.all.sum(:win)+user_record.all.sum(:lose)).to_f %>
+            <span class="nowrap"><%= sprintf("%.3f",win_rate) %></span>
+          <% rescue %>
+            0
+          <% end %>
         <% end %>
       </td>
       <td><span class="nowrap"><%= user_record.all.sum(:to_be_point) %></span></td>

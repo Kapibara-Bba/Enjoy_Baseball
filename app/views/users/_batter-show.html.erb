@@ -23,7 +23,7 @@
     <tr align="center">
       <td>
         <% if user_record.all.sum(:hit) == 0 && user_record.all.sum(:batting) == 0 %>
-          <%= @batter_average %>
+          0.000
         <% else %>
           <% begin %>
             <% average = user_record.all.sum(:hit)/user_record.all.sum(:batting).to_f %>
@@ -46,11 +46,15 @@
       <td><span class="nowrap"><%= user_record.all.sum(:bunt) %></span></td>
       <td><span class="nowrap"><%= user_record.all.sum(:sacrifice_fly) %></span></td>
       <td>
-        <% begin %>
-          <% base = user_record.all.sum(:hit)/user_record.all.sum(:batting).to_f %>
-          <span class="nowrap"><%= sprintf("%.3f",base) %></span>
-        <% rescue %>
-          0
+        <% if user_record.all.sum(:hit) <= 0 && user_record.all.sum(:batting) <= 0 %>
+          0.000
+        <% else %>
+          <% begin %>
+            <% base = (user_record.all.sum(:hit)+user_record.all.sum(:ball))/(user_record.all.sum(:batting)+user_record.all.sum(:ball)+user_record.all.sum(:sacrifice_fly)).to_f %>
+            <span class="nowrap"><%= sprintf("%.3f",base) %></span>
+          <% rescue %>
+            0
+          <% end %>
         <% end %>
       </td>
       <td><span class="nowrap"><%= user_record.all.sum(:still) %></span></td>
