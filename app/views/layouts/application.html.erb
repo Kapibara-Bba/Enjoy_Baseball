@@ -18,7 +18,9 @@
     <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
     <div class="wrapper">
       <header>
-        <div class="header-logo"></div>
+        <%= link_to root_path, data: {"turbolinks" => false} do %>
+          <div class="header-logo"></div>
+        <% end %>
         <div class="header-bell">
         <% if user_signed_in? && current_user.team_id.present? %>
           <% if unchecked_notifications.any? %>
@@ -44,6 +46,7 @@
         <% if user_signed_in? %>
           <nav class="globalMenuSp">
             <ul>
+              <li><%= link_to "トップページ", root_path, data: {"turbolinks" => false} %></li>
               <% if current_user.team_id.present? %>
                 <li><%= link_to "マイチーム", team_path(current_user.team_id), data: {"turbolinks" => false} %></li>
                 <li><%= link_to "マイページ", user_path(current_user), data: {"turbolinks" => false} %></li>
