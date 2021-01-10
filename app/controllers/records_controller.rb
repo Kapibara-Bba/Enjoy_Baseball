@@ -1,10 +1,11 @@
 class RecordsController < ApplicationController
 
   def batter_index
-    search_column = params[:search_column]
-    if search_column.nil?
-      search_column = "batting"
+    @search_column = params[:search_column]
+    if @search_column.nil?
+      @search_column = "batting"
     end
+    #@q = Record.ransack(params[:q])
     @records = Record.all
     @users = User.joins(:records).group(:id).select('user_id, users.name, users.image_id, users.team_id,
                                             SUM(hit) * 10000 / SUM(batting) AS average,
@@ -22,14 +23,14 @@ class RecordsController < ApplicationController
                                             SUM(sacrifice_fly) AS sacrifice_fly,
                                             SUM(still) AS still,
                                             SUM(error) AS error
-                                            ').order("#{search_column} DESC").limit(50)
+                                            ').order("#{@search_column} DESC").limit(50)
 
   end
 
   def pitch_index
-    search_column = params[:search_column]
-    if search_column.nil?
-      search_column = "win"
+    @search_column = params[:search_column]
+    if @search_column.nil?
+      @search_column = "win"
     end
     @records = Record.all
     @users = User.joins(:records).group(:id).select('user_id, users.name, users.image_id, users.team_id,
@@ -44,7 +45,7 @@ class RecordsController < ApplicationController
                                             SUM(to_be_hit) AS to_be_hit,
                                             SUM(to_be_homerun) AS to_be_homerun,
                                             SUM(to_be_ball) AS to_be_ball
-                                            ').order("#{search_column} DESC").limit(50)
+                                            ').order("#{@search_column} DESC").limit(50)
 
   end
 
