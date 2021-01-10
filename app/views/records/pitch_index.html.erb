@@ -9,7 +9,7 @@
         <%= form_with url: records_pitch_path, method: :get, local:true do |f| %>
           <%= f.select :search_column, [["防御率", "earned_run_average"], ["投球回", "inning"], ["勝数", "win"], ["敗数", "lose"],
             ["勝率", "win_rate"], ["失点", "to_be_point"], ["自責点", "earned_run"], ["奪三振", "to_be_strike_out"], ["被安打", "to_be_hit"],
-            ["被本塁打", "to_be_homerun"], ["与四死球", "to_be_ball"]], {selected: "inning"} %>
+            ["被本塁打", @search_column ], ["与四死球", "to_be_ball"]], {selected: "inning"} %>
           <%= f.submit "更新する" %>
         <% end %>
       </div>

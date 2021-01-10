@@ -23,9 +23,9 @@
   margin-left: 40px;
 }
 
-// .fa-baseball-ball:hover {
-//   font-size: 200px;
-// }
+.login-ball-button a:hover{
+  text-decoration: none;
+}
 
 .login-ball-text {
   padding-left: 40px;
@@ -35,12 +35,20 @@
   font-weight: bold;
 }
 
+.login-ball-text:hover {
+  color: maroon;
+}
+
 .guest-login-text {
   font-size: 20px;
   margin-left: 40px;
   margin-top: -87px;
   color: #FFA500;
   font-weight: bold;
+}
+
+.guest-login-text:hover {
+  color: #d2691e;
 }
 
 .home-main {
@@ -55,9 +63,21 @@
   margin: 50px auto;
 }
 
+.home-about-button:hover {
+  background : linear-gradient(to right,
+                               red,
+                               orange,
+                               yellow,
+                               green,
+                               aqua,
+                               blue,
+                               purple);
+}
+
 .home-about a {
   color: maroon;
   background-color: #ffffcc;
+  font-size: 3rem;
 }
 
 .about-header {
