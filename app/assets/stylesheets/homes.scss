@@ -73,7 +73,7 @@
 .about {
   margin-top: 10px;
   text-align: center;
-  height: 600px;
+  height: 690px;
   width: 100%;
   background-color: #EEEEEE;
   border-radius: 10%;
@@ -84,20 +84,22 @@
   flex-wrap: wrap;
   width: 100%;
   text-align: center;
+  margin-left: 22px;
 }
 
 .about-card {
-  height: 200px;
-  width: 300px;
-  margin: 10px auto;
+  height: 280px;
+  width: 360px;
+  margin: 15px 25px;
   background-color: #FFFFBB;
   border-radius: 20%;
 }
 
 .card-head {
-  margin-top: 5px;
-  margin-bottom: 0;
+  margin: 5px auto 0;
   padding-bottom: 0;
+  border-bottom: solid 3px #87CEFA;
+  width: 66%;
 }
 
 .step1 {
@@ -222,3 +224,4 @@
   margin-left: 56%;
   margin-top: 50px;
 }
+
