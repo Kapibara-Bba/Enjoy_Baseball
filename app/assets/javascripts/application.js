@@ -12,7 +12,6 @@
 //
 
 //= require underscore
-//= require gmaps/google
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
@@ -36,15 +35,15 @@ document.addEventListener("turbolinks:load", function() {
 // ハンバーガーボタン
 document.addEventListener("turbolinks:load", function() {
   $(function() {
-      $('.hamburger').click(function() {
-          $(this).toggleClass('active');
+    $('.hamburger').click(function() {
+      $(this).toggleClass('active');
 
-          if ($(this).hasClass('active')) {
-              $('.globalMenuSp').addClass('active');
-          } else {
-              $('.globalMenuSp').removeClass('active');
-          }
-      });
+      if ($(this).hasClass('active')) {
+        $('.globalMenuSp').addClass('active');
+      } else {
+        $('.globalMenuSp').removeClass('active');
+      }
+    });
   });
 })
 
@@ -66,7 +65,7 @@ let geocoder //変数の定義
         zoom: 15, //拡大率（1〜21まで設定可能）
       });
       $('.seach_button').click();
-    }else{ //'map'というidが無かった場合
+    }else if (document.getElementById('show_map')){ //'map'というidが無かった場合
       map = new google.maps.Map(document.getElementById('show_map'), { //'show_map'というidを取得してマップを表示
         center: {lat: gon.lat, lng: gon.lng}, //controllerで定義した変数を緯度・経度の値とする
         zoom: 15, //拡大率（1〜21まで設定可能）

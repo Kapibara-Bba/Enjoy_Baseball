@@ -380,14 +380,19 @@ nav.globalMenuSp.active {
   }
 
   .login-message {
-    margin-left: 4%;
-    margin-top: -15px;
+    margin-left: 65%;
+    margin-top: 65px;
     width: 58%;
+    font-size: 12px;
   }
 
   .header-bell {
     margin-right: 9%;
     margin-top: -8%;
+  }
+
+  .home-main {
+    width: 80%;
   }
 
   // アバウトページ
@@ -585,7 +590,33 @@ nav.globalMenuSp.active {
   }
 
   .home-main {
-    width: 80%;
+    width: 100%;
+  }
+
+  .guest-login-text {
+    font-size: 12px;
+    margin-left: 40px;
+    margin-top: -62px;
+    color: #FFA500;
+    font-weight: bold;
+  }
+
+  .login-ball-text {
+    font-size: 15px;
+    padding-left: 20px;
+    margin-top: -53%;
+  }
+
+  .fa-baseball-ball {
+    font-size: 100px;
+    margin-left: 18px;
+  }
+
+  .login-message {
+    margin-top: 30px;
+  }
+  #homes-index .wrapper {
+    min-height: 130vh;
   }
 
 // アバウトページ

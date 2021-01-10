@@ -19,8 +19,12 @@
                   <td><span class="nowrap"><%= user.name %></span></td>
                   <td><span class="nowrap"><%= user.position %></span></td>
                   <td><span class="nowrap"><%= user.throw %></span></td>
-                  <% average = user.records.all.sum(:hit)/user.records.all.sum(:batting).to_f %>
-                  <td><span class="nowrap"><%= sprintf("%.3f",average) %></span></td>
+                  <% if user.records.all.sum(:hit) <= 0 && user.records.all.sum(:batting) <= 0 %>
+                    <td>0.000</td>
+                  <% else %>
+                    <% average = user.records.all.sum(:hit)/user.records.all.sum(:batting).to_f %>
+                    <td><span class="nowrap"><%= sprintf("%.3f",average) %></span></td>
+                  <% end %>
                 </tr>
               <% end %>
             </tbody>
