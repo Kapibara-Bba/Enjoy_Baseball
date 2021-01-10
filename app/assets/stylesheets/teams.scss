@@ -178,3 +178,24 @@
   width: 11%;
   height: 40px;
 }
+
+.event-button:hover, .team-game-new:hover {
+  font-size: 18px;
+  background: linear-gradient(to right,
+                               aqua,
+                               blue);;
+}
+
+.share-link-button:hover {
+  font-size: 18px;
+  background: linear-gradient(to right,
+                               orange,
+                               yellow);;
+}
+
+.team-event-button:hover {
+  font-size: 18px;
+  background: linear-gradient(to right,
+                               green,
+                               limegreen);;
+}

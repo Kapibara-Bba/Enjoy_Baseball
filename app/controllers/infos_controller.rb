@@ -57,6 +57,12 @@ class InfosController < ApplicationController
     end
   end
 
+  def destroy
+    @info = Info.find(params[:id])
+    @info.destroy
+    redirect_to team_path(current_user.team_id)
+  end
+
   private
   def info_params
     params.require(:info).permit(:body, :start_time, :location, spot_attributes: [:address])
