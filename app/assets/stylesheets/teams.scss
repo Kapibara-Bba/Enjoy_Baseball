@@ -179,23 +179,36 @@
   height: 40px;
 }
 
+// カーソルがボタンに乗った時
 .event-button:hover, .team-game-new:hover {
   font-size: 18px;
   background: linear-gradient(to right,
                                aqua,
-                               blue);;
+                               blue);
+}
+
+.team-game-create:hover {
+  background: linear-gradient(to right,
+                               aqua,
+                               blue);
 }
 
 .share-link-button:hover {
   font-size: 18px;
   background: linear-gradient(to right,
                                orange,
-                               yellow);;
+                               yellow);
 }
 
 .team-event-button:hover {
   font-size: 18px;
   background: linear-gradient(to right,
                                green,
-                               limegreen);;
+                               limegreen);
+}
+
+.team-record-show-button:hover {
+  background: linear-gradient(to right,
+                               green,
+                               limegreen);
 }
