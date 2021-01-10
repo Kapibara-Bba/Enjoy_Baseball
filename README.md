@@ -31,7 +31,7 @@
 https://docs.google.com/spreadsheets/d/1NQWURGYKZqHZkp0YGFY0jCEETYZhNBGlJHavQKvbYBY/edit?usp=sharing
 
 ## 開発環境
-- インフラ構成図 (https://github.com/Kapibara-Bba/Enjoy_Baseball/files/5768953/default.pdf)
+- インフラ構成図
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
