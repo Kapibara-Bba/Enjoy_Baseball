@@ -99,12 +99,23 @@
   border-radius: 10%;
 }
 
+.about-text {
+  font-size: 17px;
+}
+
+.text-ball {
+  font-size: 1px;
+  margin-left: 0;
+  color: black;
+}
+
 .about-main {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   text-align: center;
   margin-left: 22px;
+  margin-top: -18px;
 }
 
 .about-card {

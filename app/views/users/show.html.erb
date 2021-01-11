@@ -48,7 +48,7 @@
       <div class="new-record">
         <div class="row">
           <div class="mx-auto record-success">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn btn-primary user-record-new-button" data-toggle="modal" data-target="#exampleModal">
               記録の追加
             </button>
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -74,7 +74,7 @@
                         <%= f.label :スコア %>
                         <%= f.number_field :team_score, value: 0, min: 0 %><br>
                       </div>
-                      <div class="form_group">
+                      <div class="form_group user-rival-score">
                         <%= f.label :相手スコア %>
                         <%= f.number_field :rival_score, value: 0, min: 0 %>
                       </div>
@@ -179,7 +179,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                      <%= f.submit "記録を追加する", class: "btn btn-primary" %>
+                      <%= f.submit "記録を追加する", class: "btn btn-primary user-record-create" %>
                     </div>
                   <% end %>
                 </div>

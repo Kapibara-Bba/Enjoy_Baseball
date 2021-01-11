@@ -62,3 +62,16 @@
   background-color: #fff;
   width: 60%;
 }
+
+.user-record-new-button:hover {
+  font-size: 18px;
+  background: linear-gradient(to right,
+                               aqua,
+                               blue);
+}
+
+.user-record-create:hover {
+  background: linear-gradient(to right,
+                               aqua,
+                               blue);
+}
