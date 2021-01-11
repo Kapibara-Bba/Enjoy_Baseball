@@ -26,8 +26,8 @@
     <div class="row">
       <div class="mx-auto">
         <%= link_to "戻る", team_path(current_user.team_id), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-secondary" %>
-        <%= link_to "イベントを修正する", edit_info_path(@info), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success" %>
-        <%= link_to "削除する", info_path(@info), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger' %>
+        <%= link_to "イベントを修正する", edit_info_path(@info), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success edit-button" %>
+        <%= link_to "削除する", info_path(@info), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger delete-button' %>
         <div class="show_map">
           <%= form_with model:@info, url: info_path(@info), method: :patch, local:true do |f| %>
             <%= f.fields_for :spot do |spot| %>

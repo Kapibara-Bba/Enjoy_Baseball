@@ -12,7 +12,7 @@
         <%= attachment_image_tag post, :image, format: 'jpeg', size:'200x200' %>
         <td>
           <% if current_user == post.user %>
-            <%= link_to "削除", team_post_comment_path(team, post), method: :delete, remote: true, "data-confirm" => "本当に削除してもいいですか？", class: 'btn btn-danger' %>
+            <%= link_to "削除", team_post_comment_path(team, post), method: :delete, remote: true, "data-confirm" => "本当に削除してもいいですか？", class: 'btn btn-danger delete-button' %>
           <% end %>
         </td>
       </td>

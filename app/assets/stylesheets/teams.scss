@@ -218,12 +218,18 @@
 .team-event-button:hover {
   font-size: 18px;
   background: linear-gradient(to right,
-                               green,
-                               limegreen);
+                               lime,
+                               green);
 }
 
-.team-record-show-button:hover {
+.edit-button:hover {
   background: linear-gradient(to right,
-                               green,
-                               limegreen);
+                               lime,
+                               green);
+}
+
+.delete-button:hover {
+  background: linear-gradient(to right,
+                               tomato,
+                               red);
 }
