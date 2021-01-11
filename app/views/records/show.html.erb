@@ -11,7 +11,7 @@
         <div class="row">
           <div class="profile-font"><%= @user.throw %> <%= @user.position %>
             <% if @user == current_user %>
-              <%= link_to "プロフィール編集", edit_user_path(current_user), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success" %>
+              <%= link_to "プロフィール編集", edit_user_path(current_user), data: {"turbolinks" => false}, class: "btn btn-success edit-button" %>
             <% end %>
           </div>
         </div>
@@ -99,10 +99,10 @@
     <div class="memo">
       <p class="user-memo"><%= simple_format @record.memo %></p>
     </div>
-    <%= link_to "戻る", user_path(@user), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-secondary" %>
     <% if @user == current_user %>
-      <%= link_to "成績の編集・メモの追加", edit_record_path(@record), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success" %>
-      <%= link_to "成績の削除", record_path(@record), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger' %>
+      <%= link_to "成績の編集・メモの追加", edit_record_path(@record), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success edit-button" %>
+      <%= link_to "成績の削除", record_path(@record), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger delete-button' %>
     <% end %>
+    <%= link_to "戻る", user_path(@user), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-secondary" %>
   </div>
 </div>

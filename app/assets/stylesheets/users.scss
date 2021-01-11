@@ -70,8 +70,14 @@
                                blue);
 }
 
-.user-record-create:hover {
+.user-record-create:hover, #users-edit .active:hover, #teams-edit .active:hover {
   background: linear-gradient(to right,
                                aqua,
                                blue);
+}
+
+.user-record-show-button:hover {
+  background: linear-gradient(to right,
+                               lime,
+                               green);
 }

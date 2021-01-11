@@ -9,16 +9,15 @@ class TeamRecordsController < ApplicationController
   end
 
   def show
-    #@team = Team.find(params[:id])
+    #@team = TeamRecord.find_by(team_id: params[:id])
     @team_record = TeamRecord.find(params[:id])
   end
 
   def create
     # 非同期通信
     @team = current_user.team
-    @team_record = TeamRecord.new(create_team_record_params)
+    @team_record = TeamRecord.new(team_record_params)
     @team_record.team_id = current_user.team_id
-    #byebug
     @team_records = @team.team_records
     @team_record.save
     # 非同期でない場合
@@ -34,7 +33,7 @@ class TeamRecordsController < ApplicationController
     # 非同期通信
     @team_record = TeamRecord.find(params[:id])
     @team_record.team_id = current_user.team_id
-    @team_record.update(update_team_record_params)
+    @team_record.update(team_record_params)
     # 非同期通信でない時
     # if @team_record.update(update_team_record_params)
     #   flash[:team_record_update] = "試合結果を変更しました"
@@ -51,11 +50,7 @@ class TeamRecordsController < ApplicationController
   end
 
   private
-    def create_team_record_params
-      params.require(:team_record).permit(:team_id, :days, :opponent, :team_score, :rival_score, :result, :battery, :homerun)
-    end
-
-    def update_team_record_params
+    def team_record_params
       params.require(:team_record).permit(:team_id, :days, :opponent, :team_score, :rival_score, :result, :battery, :homerun)
     end
 

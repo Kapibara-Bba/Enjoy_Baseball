@@ -6,7 +6,7 @@
       <div class="search-form">
         <%= search_form_for @q do |f| %>
           <%= f.search_field :team_teamname_or_opponent_cont, placeholder: "チーム名", class: "form-control" %>
-          <%= f.submit "検索", class: 'btn btn-primary' %>
+          <%= f.submit "検索", class: 'btn btn-primary team-game-create' %>
         <% end %>
       </div>
     </div>
@@ -36,7 +36,7 @@
             <td><span class="nowrap"><%= record.result %></span></td>
             <td>
               <div class="show-btn">
-                <span class="nowrap"><%= link_to "詳細", team_record_path(record), data: {"turbolinks" => false}, class: 'btn btn-success' %></span>
+                <span class="nowrap"><%= link_to "詳細", team_record_path(record), data: {"turbolinks" => false}, class: 'btn btn-success edit-button' %></span>
               </div>
             </td>
           </tr>
