@@ -35,7 +35,7 @@
       <div class="col-xs-6 team-post-comment">
         <div class="comment-form">
           <%= form_with(model:[@team, @post_comment]) do |f| %>
-            <%= f.text_area :comment, rows:'1', class: "form-control",placeholder: "メッセージ" %>
+            <%= f.text_area :comment, rows:'1', class: "form-control", placeholder: "メッセージ" %>
             <div class="icon-form">
               <%= f.file_field :image, class: 'img_field', id: "file-input" %>
               <%= button_tag :type => "submit", :class =>"btn sub-btn submit-icon" do %>
