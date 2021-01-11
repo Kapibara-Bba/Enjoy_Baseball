@@ -402,11 +402,32 @@ nav.globalMenuSp.active {
 
   .about {
     height: 800px;
-    margin: 10px 0 10px 0;
+    margin: 10px 0 10px -58px;
+    width: 120%;
+  }
+
+  .about-text {
+    font-size: 11px;
+    width: 100%;
+  }
+
+  .about-main {
+    margin-left: 30px;
   }
 
   .about-card {
-    width: 260px;
+    width: 285px;
+    height: 225px;
+  }
+
+  .card-head {
+    width: 80%;
+    font-size: 13px;
+  }
+
+  // 新規登録画面
+  .devise-form {
+    width: 90%;
   }
 
   // チーム詳細画面
@@ -543,6 +564,20 @@ nav.globalMenuSp.active {
   .pitch-edit {
     margin-left: 5%;
   }
+
+  // 個人成績詳細画面
+  .user-name {
+    margin-left: 30%;
+  }
+  .memo {
+    width: 550px;
+    height: 150px;
+  }
+
+  // 個人成績編集画面
+  .memo-field textarea {
+    margin-left: 40px;
+  }
 }
 
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
@@ -579,9 +614,10 @@ nav.globalMenuSp.active {
   }
 
   .home {
-    width: 100%;
+    width: 115%;
     margin-top: 50%;
     margin-bottom: 30%;
+    margin-left: -40px;
   }
 
   .logo {
@@ -597,10 +633,18 @@ nav.globalMenuSp.active {
     width: 100%;
   }
 
+  .home-about {
+    margin-left: -10px;
+  }
+
+  .home-about a {
+    font-size: 1.5rem;
+  }
+
   .guest-login-text {
     font-size: 12px;
-    margin-left: 40px;
-    margin-top: -62px;
+    margin-left: 25px;
+    margin-top: -57px;
     color: #FFA500;
     font-weight: bold;
   }
@@ -618,7 +662,9 @@ nav.globalMenuSp.active {
 
   .login-message {
     margin-top: 30px;
+    margin-left: 140px;
   }
+
   #homes-index .wrapper {
     min-height: 130vh;
   }
@@ -672,10 +718,14 @@ nav.globalMenuSp.active {
 
   // ログインページ
   .devise-form {
-    height: 600px;
+    height: 700px;
     width: 132%;
     margin: 0 auto;
     border-radius: 4%;
+  }
+
+  #registrations-new .wrapper, #sessions-new .wrapper {
+    min-height: 130vh;
   }
 
   // チーム選択画面
@@ -730,7 +780,7 @@ nav.globalMenuSp.active {
 
   #teams-show .header-bell {
     margin-right: 12%;
-    margin-top: -12%;
+    margin-top: -11%;
   }
 
   .team-game-index {
@@ -749,7 +799,7 @@ nav.globalMenuSp.active {
 
   .team-event-new {
     margin-bottom: 30px;
-    margin-left: -45%;
+    margin-left: -33%;
   }
 
   #team_records-index {
@@ -789,7 +839,7 @@ nav.globalMenuSp.active {
     margin-top: 10px;
   }
 
-  // 試合結果詳細画面
+  // チーム試合結果詳細画面
   #team_records-show .container, #team_records-show header, #team_records-show footer {
     width: 173%;
     border-radius: 0;
@@ -1048,14 +1098,25 @@ nav.globalMenuSp.active {
   }
 
   // 個人記録詳細画面
+  #records-show .header-bell {
+    margin-right: 16%;
+    margin-top: -12%;
+  }
+
   .user-record-score {
     margin-left: -5%;
     white-space: nowrap;
+    font-size: 24px;
   }
 
-  #records-edit .header-bell {
-    margin-right: 13%;
-    margin-top: -9%;
+  .user-name {
+    font-size: 30px;
+    white-space: nowrap;
+  }
+
+  .memo {
+    width: 300px;
+    height: 80px;
   }
 
   // 個人記録編集画面
@@ -1083,12 +1144,22 @@ nav.globalMenuSp.active {
   }
 
   #records-edit .batter-edit input, #records-edit .pitch-edit input {
-    margin-left: -42%;
+    margin-left: -34%;
+  }
+
+  #records-edit .header-bell {
+    margin-right: 13%;
+    margin-top: -9%;
   }
 
   .user-record-half {
     margin-top: 29%;
     margin-left: -5%;
+  }
+
+  .memo-field textarea {
+    margin-left: 40px;
+    width: 400px;
   }
 
   // 成績一覧
@@ -1137,4 +1208,23 @@ nav.globalMenuSp.active {
     font-size: 12px;
   }
 
+}
+
+
+/* スマートフォンサイズ（330px）以下の際に適用される設定 */
+@media screen and (max-width:330px) {
+  // 個人成績編集画面
+  #records-edit .batter-edit input, #records-edit .pitch-edit input {
+    margin-left: -29%;
+  }
+
+  #records-edit .header-bell {
+    margin-right: 13%;
+    margin-top: -9%;
+  }
+
+  .user-record-half {
+    margin-top: 54%;
+    margin-left: -5%;
+  }
 }

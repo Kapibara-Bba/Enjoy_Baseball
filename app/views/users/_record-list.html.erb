@@ -23,7 +23,7 @@
         <tr align="center">
           <td>
             <% if user.user_id == current_user.id %>
-              <%= link_to "詳細", record_path(user), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-success" %>
+              <%= link_to "詳細", record_path(user), data: {"turbolinks" => false}, class: "btn btn-success user-record-show-button" %>
             <% end %>
           </td>
           <td><span class="nowrap"><%= user.days %></span></td>

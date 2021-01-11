@@ -179,6 +179,21 @@
   height: 40px;
 }
 
+.memo {
+  width: 800px;
+  height: 200px;
+  border: solid 1px gray;
+  margin: 5px auto;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+.memo-field textarea {
+  width: 500px;
+  margin-left: 270px;
+  margin-top: 15px;
+}
+
 // カーソルがボタンに乗った時
 .event-button:hover, .team-game-new:hover {
   font-size: 18px;
@@ -203,12 +218,18 @@
 .team-event-button:hover {
   font-size: 18px;
   background: linear-gradient(to right,
-                               green,
-                               limegreen);
+                               lime,
+                               green);
 }
 
-.team-record-show-button:hover {
+.edit-button:hover {
   background: linear-gradient(to right,
-                               green,
-                               limegreen);
+                               lime,
+                               green);
+}
+
+.delete-button:hover {
+  background: linear-gradient(to right,
+                               tomato,
+                               red);
 }

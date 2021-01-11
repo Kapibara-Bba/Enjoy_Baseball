@@ -7,7 +7,7 @@
         </div>
         <div class="row result-btn">
           <% if @team_record.team_id == current_user.team_id %>
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">
+            <button type="button" class="btn btn-success edit-button" data-toggle="modal" data-target="#exampleModalLong">
               編集する
             </button>
             <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -52,14 +52,14 @@
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                        <%= f.submit "試合結果を変更する", class: 'btn btn-primary' %>
+                        <%= f.submit "試合結果を変更する", class: 'btn btn-success edit-button' %>
                       </div>
                     <% end %>
                   </div>
                 </div>
               </div>
             </div>
-            <%= link_to "削除する", team_record_path(@team_record), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger' %>
+            <%= link_to "削除する", team_record_path(@team_record), method: :delete, "data-confirm" => "本当に削除しますか？", class: 'btn btn-danger delete-button' %>
             <%= link_to "チーム詳細", team_path(current_user.team_id), data: {"turbolinks" => false}, class: "col-xs-12 btn btn-secondary" %>
           <% end %>
           <%= link_to "試合一覧", team_records_path, data: {"turbolinks" => false}, class: "col-xs-12 btn btn-info" %>
