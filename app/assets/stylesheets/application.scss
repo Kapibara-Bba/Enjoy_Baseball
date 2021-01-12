@@ -955,7 +955,7 @@ nav.globalMenuSp.active {
     white-space: normal;
   }
 
-  // チームシェア画面
+  // チームコメント画面
   #teams-room .flame {
     width: 156%;
     margin-left: 0;
@@ -1000,7 +1000,7 @@ nav.globalMenuSp.active {
   }
 
   .comment-form textarea {
-    width: 72%;
+    width: 70%;
   }
 
   .submit-icon {
@@ -1031,6 +1031,10 @@ nav.globalMenuSp.active {
   .icon-form {
     display: flex;
     justify-content: center;
+  }
+
+  .team-comment-form-input {
+    font-size: 17px;
   }
 
   // ユーザー詳細画面
@@ -1226,5 +1230,14 @@ nav.globalMenuSp.active {
   .user-record-half {
     margin-top: 54%;
     margin-left: -5%;
+  }
+
+  // チームコメント画面
+  .team-comment-form-input {
+    font-size: 12px;
+  }
+
+  #teams-room .header-bell {
+    margin-top: -12%;
   }
 }

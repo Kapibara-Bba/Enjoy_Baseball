@@ -2,8 +2,8 @@
   <div class="container mt-5 flame">
     <div class="row">
       <div class="col-xs-6 member">
-        <h4>選手一覧</h4>
         <div class="post-player">
+        <h4>選手一覧</h4>
           <table class="table table-hover table-inverse" width="100%" style="table-layout: auto;">
             <thead>
               <tr>
@@ -37,7 +37,7 @@
           <%= form_with(model:[@team, @post_comment]) do |f| %>
             <%= f.text_area :comment, rows:'1', class: "form-control", placeholder: "メッセージ" %>
             <div class="icon-form">
-              <%= f.file_field :image, class: 'img_field', id: "file-input" %>
+              <%= f.file_field :image, class: 'img_field team-comment-form-input', id: "file-input" %>
               <%= button_tag :type => "submit", :class =>"btn sub-btn submit-icon" do %>
                 <i class="fas fa-paper-plane"></i>
               <% end %>
@@ -51,4 +51,3 @@
     </div>
   </div>
 </div>
-
