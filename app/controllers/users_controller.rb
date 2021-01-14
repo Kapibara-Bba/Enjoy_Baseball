@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_record = @user.records
     @record = Record.new
-    #@pitch_earned_run_average = @user_record.pitch_earned_run_average
   end
 
   def edit
@@ -20,8 +19,6 @@ class UsersController < ApplicationController
    @user = User.find(params[:id])
     if @user.update(user_params)
       @user.team_id = current_user.team_id
-      # flash[:notice] = "プロフィールの変更に成功しました"
-      # redirect_to user_path(@user)
       redirect_to user_path(@user)
     else
       render 'edit'

@@ -5,7 +5,6 @@ class RecordsController < ApplicationController
     if @search_column.nil?
       @search_column = "batting"
     end
-    #@q = Record.ransack(params[:q])
     @records = Record.all
     @users = User.joins(:records).group(:id).select('user_id, users.name, users.image_id, users.team_id,
                                             SUM(hit) * 10000 / SUM(batting) AS average,
@@ -70,8 +69,6 @@ class RecordsController < ApplicationController
   def show
     @record = Record.find(params[:id])
     @user = @record.user
-    #@pitch_earned_run_average = pitch_earned_run_average
-    # @user_record = @user.records
   end
 
   def edit

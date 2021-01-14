@@ -9,7 +9,6 @@ class TeamRecordsController < ApplicationController
   end
 
   def show
-    #@team = TeamRecord.find_by(team_id: params[:id])
     @team_record = TeamRecord.find(params[:id])
   end
 

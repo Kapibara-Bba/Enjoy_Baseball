@@ -12,18 +12,12 @@ class InfosController < ApplicationController
     @team = current_user.team
     @infos = @team.infos
     @info.save
+    # 非同期通信
     # if @info.save
     #   redirect_to team_path(@info.team_id)
     #   flash[:info_create] = "イベントを追加しました"
     # else
     #   render 'new'
-    # end
-    # # google map
-    # @review = Review.new(review_params)
-    # if @map.save
-    #   redirect_to root_path
-    # else
-    #   redirect_to new_review_path
     # end
   end
 
@@ -67,9 +61,5 @@ class InfosController < ApplicationController
   def info_params
     params.require(:info).permit(:body, :start_time, :location, spot_attributes: [:address])
   end
-
-  # def update_info_params
-  #   params.require(:info).permit(:body, :start_time, :location, spot_attributes: [:address])
-  # end
 
 end

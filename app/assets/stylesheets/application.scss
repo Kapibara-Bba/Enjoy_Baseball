@@ -14,7 +14,7 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
+@import "bootstrap";
 // @import "infos";
 // @import "homes";
 
@@ -1000,7 +1000,7 @@ nav.globalMenuSp.active {
   }
 
   .comment-form textarea {
-    width: 70%;
+    width: 80%;
   }
 
   .submit-icon {
@@ -1244,4 +1244,5 @@ nav.globalMenuSp.active {
   .fa-paper-plane {
     margin-left: -200%;
   }
+
 }
