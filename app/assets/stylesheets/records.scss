@@ -112,3 +112,27 @@ table {
                                aquamarine,
                                darkcyan);
 }
+
+.user-show-record-button {
+  display: flex;
+}
+
+.user-show-record-batter-link {
+  margin-top: 20px;
+  margin-left: 13%;
+}
+
+.user-show-record-pitch-link {
+  margin-top: 20px;
+  margin-left: 12%;
+}
+
+.user-show-record-button {
+  margin-left: 42%;
+}
+
+.user-record-index-button:hover {
+  background: linear-gradient(to right,
+                               aquamarine,
+                               darkcyan);
+}

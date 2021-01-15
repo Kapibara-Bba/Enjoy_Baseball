@@ -546,6 +546,11 @@ nav.globalMenuSp.active {
     width: 90%;
   }
 
+  // ユーザー詳細画面
+  .user-show-record-button {
+    margin-left: 0;
+  }
+
   // 個人成績編集画面
   .user-record-half {
     margin-top: 29%;
@@ -569,6 +574,7 @@ nav.globalMenuSp.active {
   .user-name {
     margin-left: 30%;
   }
+
   .memo {
     width: 550px;
     height: 150px;
@@ -703,10 +709,6 @@ nav.globalMenuSp.active {
     height: 0%;
   }
 
-  .about-text {
-    margin-left: 10%;
-  }
-
   #homes-index .container {
     margin-left: 22%;
   }
@@ -715,6 +717,12 @@ nav.globalMenuSp.active {
     width: 215px;
     height: 190px;
   }
+
+  .text-ball {
+    font-size: 1px;
+    margin-left: 0;
+    color: black;
+ }
 
   // ログインページ
   .devise-form {
@@ -1096,6 +1104,20 @@ nav.globalMenuSp.active {
     width: 30%;
   }
 
+  .user-show-record-button {
+    margin-left: 0;
+  }
+
+  .user-show-record-batter-link {
+    margin-left: -110px;
+    margin-top: 60px;
+  }
+
+  .user-show-record-pitch-link {
+    margin-left: 15px;
+    margin-top: 60px;
+  }
+
   // ユーザー編集画面
   #users-edit .wrapper, #records-batter_index .wrapper, #records-pitch_index .wrapper {
     min-height: 130vh;
@@ -1116,6 +1138,7 @@ nav.globalMenuSp.active {
   .user-name {
     font-size: 30px;
     white-space: nowrap;
+    margin-left: 20%;
   }
 
   .memo {
