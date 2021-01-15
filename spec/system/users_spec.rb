@@ -58,8 +58,11 @@ describe 'ユーザーのテスト' do
   end
   describe 'ユーザー画面のテスト' do
     context '表示の確認' do
+      before do
+        visit user_path(user)
+      end
       it '編集ボタンが表示される' do
-        expect(page).to have_button 'プロフィール編集'
+        expect(page).to have_link 'プロフィール編集'
       end
       it '画像が表示される' do
         expect(page).to have_css('img.image')
@@ -68,7 +71,6 @@ describe 'ユーザーのテスト' do
         expect(page).to have_content(user.name)
       end
       it '編集リンクが表示される' do
-        visit user_path(user)
         expect(page).to have_link '', href: edit_user_path(user)
       end
     end
@@ -100,14 +102,13 @@ describe 'ユーザーのテスト' do
       end
       it '編集に成功する' do
         click_button '変更を保存'
-        expect(page).to have_content '変更を保存'
+        expect(page).to have_button '変更を保存'
         expect(current_path).to eq('/users/' + user.id.to_s)
       end
       it '編集に失敗する' do
         fill_in 'user[name]', with: ''
         click_button '変更を保存'
         expect(page).to have_content 'error'
-				#もう少し詳細にエラー文出したい
         expect(current_path).to eq('/users/' + user.id.to_s)
       end
     end

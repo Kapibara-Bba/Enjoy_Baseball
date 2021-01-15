@@ -20,6 +20,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       @user.team_id = current_user.team_id
       redirect_to user_path(@user)
+        flash[:notice] = "プロフィールの変更に成功しました"
     else
       render 'edit'
     end

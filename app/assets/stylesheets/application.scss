@@ -546,6 +546,18 @@ nav.globalMenuSp.active {
     width: 90%;
   }
 
+  #users-update header, #users-update footer {
+    width: 105%;
+  }
+
+  #users-update .wrapper {
+    min-height: 105vh;
+  }
+
+  #users-update .field_with_errors {
+    margin-left: 143px;
+  }
+
   // ユーザー詳細画面
   .user-show-record-button {
     margin-left: 0;
@@ -1121,6 +1133,17 @@ nav.globalMenuSp.active {
   // ユーザー編集画面
   #users-edit .wrapper, #records-batter_index .wrapper, #records-pitch_index .wrapper {
     min-height: 130vh;
+  }
+
+  #users-update header, #users-update footer, #users-update .flame {
+    width: 160%;
+  }
+
+  #users-update .field_with_errors {
+    margin-left: 0px;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 10px;
   }
 
   // 個人記録詳細画面
