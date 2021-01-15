@@ -13,7 +13,6 @@ class TeamsController < ApplicationController
     @info = Info.new
     @info.build_spot
     @infos = @team.infos
-    #@team_record = TeamRecord.all
     @team_records = @team.team_records
     @team_record = TeamRecord.new
   end
@@ -36,7 +35,6 @@ class TeamsController < ApplicationController
     @user = current_user
     params[:team][:team]
     if params[:team][:team] == '0'
-      # byebug
       if params[:team][:id].present?
         @team = Team.find(params[:team][:id])
         if @user.update!(team_id: @team.id)
@@ -49,7 +47,6 @@ class TeamsController < ApplicationController
       end
     else
       @team = Team.new(team_params)
-      # byebug
       if @team.save
          @user.update!(team_id: @team.id)
          redirect_to team_path(@team)
@@ -73,7 +70,6 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
     if @team.update(team_params)
-      # @user.team_id = current_user.team_id
       redirect_to team_path(@team)
       flash[:notice] = "チームプロフィールの変更に成功しました"
     else
@@ -81,17 +77,10 @@ class TeamsController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
   private
   def team_params
     params.require(:team).permit(:teamname, :prefecture_code, :city, :team_image)
   end
-
-  #def team_record_params
-   # params.permit(:team_id, :days, :opponent, :result, :team_score, :rival_score, :battery, :homerun)
-  #end
 
 end
 

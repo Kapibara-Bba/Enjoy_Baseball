@@ -16,19 +16,16 @@ class User < ApplicationRecord
     end
   end
 
-   has_many :records, dependent: :destroy
-   belongs_to :team, optional: true
-   has_many :post_comments, dependent: :destroy
-   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
-   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+  has_many :records, dependent: :destroy
+  belongs_to :team, optional: true
+  has_many :post_comments, dependent: :destroy
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
-   attachment :image
+  attachment :image
 
-   enum position: {"投手":0, "捕手":1, "一塁手":2, "二塁手":3, "三塁手":4, "遊撃手":5, "外野手":6}
-   enum throw: {"右投右打":0, "右投左打":1, "右投両打":2, "左投右打":3, "左投左打":4, "左投両打":5}
+  enum position: {"投手":0, "捕手":1, "一塁手":2, "二塁手":3, "三塁手":4, "遊撃手":5, "外野手":6}
+  enum throw: {"右投右打":0, "右投左打":1, "右投両打":2, "左投右打":3, "左投左打":4, "左投両打":5}
 
   validates :name, presence: true
-  # validates :team_id, presence: true
-
-
 end

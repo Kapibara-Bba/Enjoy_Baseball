@@ -14,7 +14,7 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap";
+@import "bootstrap";
 // @import "infos";
 // @import "homes";
 
@@ -546,6 +546,23 @@ nav.globalMenuSp.active {
     width: 90%;
   }
 
+  #users-update header, #users-update footer {
+    width: 105%;
+  }
+
+  #users-update .wrapper {
+    min-height: 105vh;
+  }
+
+  #users-update .field_with_errors {
+    margin-left: 143px;
+  }
+
+  // ユーザー詳細画面
+  .user-show-record-button {
+    margin-left: 0;
+  }
+
   // 個人成績編集画面
   .user-record-half {
     margin-top: 29%;
@@ -569,6 +586,7 @@ nav.globalMenuSp.active {
   .user-name {
     margin-left: 30%;
   }
+
   .memo {
     width: 550px;
     height: 150px;
@@ -703,10 +721,6 @@ nav.globalMenuSp.active {
     height: 0%;
   }
 
-  .about-text {
-    margin-left: 10%;
-  }
-
   #homes-index .container {
     margin-left: 22%;
   }
@@ -715,6 +729,12 @@ nav.globalMenuSp.active {
     width: 215px;
     height: 190px;
   }
+
+  .text-ball {
+    font-size: 1px;
+    margin-left: 0;
+    color: black;
+ }
 
   // ログインページ
   .devise-form {
@@ -1000,7 +1020,7 @@ nav.globalMenuSp.active {
   }
 
   .comment-form textarea {
-    width: 70%;
+    width: 80%;
   }
 
   .submit-icon {
@@ -1083,7 +1103,7 @@ nav.globalMenuSp.active {
 
   .batter-new input, .pitch-new input {
     margin-left: -60%;
-    width: 15%;
+    width: 25%;
   }
 
   .batter-edit, .pitch-edit {
@@ -1096,9 +1116,34 @@ nav.globalMenuSp.active {
     width: 30%;
   }
 
+  .user-show-record-button {
+    margin-left: 0;
+  }
+
+  .user-show-record-batter-link {
+    margin-left: -110px;
+    margin-top: 60px;
+  }
+
+  .user-show-record-pitch-link {
+    margin-left: 15px;
+    margin-top: 60px;
+  }
+
   // ユーザー編集画面
   #users-edit .wrapper, #records-batter_index .wrapper, #records-pitch_index .wrapper {
     min-height: 130vh;
+  }
+
+  #users-update header, #users-update footer, #users-update .flame {
+    width: 160%;
+  }
+
+  #users-update .field_with_errors {
+    margin-left: 0px;
+    width: 100%;
+    margin-top: 0px;
+    margin-bottom: 10px;
   }
 
   // 個人記録詳細画面
@@ -1116,6 +1161,7 @@ nav.globalMenuSp.active {
   .user-name {
     font-size: 30px;
     white-space: nowrap;
+    margin-left: 20%;
   }
 
   .memo {
@@ -1244,4 +1290,5 @@ nav.globalMenuSp.active {
   .fa-paper-plane {
     margin-left: -200%;
   }
+
 }

@@ -38,7 +38,7 @@ RSpec.describe User, type: :model do
         expect(User.reflect_on_association(:records).macro).to eq :has_many
       end
     end
-    context 'postモデルとの関係' do
+    context 'post_commentsモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:post_comments).macro).to eq :has_many
       end

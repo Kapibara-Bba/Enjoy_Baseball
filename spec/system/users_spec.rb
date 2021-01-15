@@ -47,17 +47,22 @@ end
 
 describe 'ユーザーのテスト' do
   let(:user) { create(:user) }
-  let!(:test_user2) { create(:user) }
-  let(:team) { build(:team) }
+  let(:user2) { create(:user) }
+  # let(:team) { create(:team) }
   before do
-    visit team_path(team)
-    click_button 'マイページ'
+    visit new_user_session_path
+    fill_in 'user[email]', with: user.email
+    fill_in 'user[password]', with: user.password
+    click_button 'ログイン'
+    visit user_path(user)
   end
   describe 'ユーザー画面のテスト' do
     context '表示の確認' do
-      it '編集ボタンが表示される' do
+      before do
         visit user_path(user)
-        expect(page).to have_button 'プロフィール編集'
+      end
+      it '編集ボタンが表示される' do
+        expect(page).to have_link 'プロフィール編集'
       end
       it '画像が表示される' do
         expect(page).to have_css('img.image')
@@ -66,7 +71,6 @@ describe 'ユーザーのテスト' do
         expect(page).to have_content(user.name)
       end
       it '編集リンクが表示される' do
-        visit user_path(user)
         expect(page).to have_link '', href: edit_user_path(user)
       end
     end
@@ -81,7 +85,7 @@ describe 'ユーザーのテスト' do
     end
     context '他人の編集画面への遷移' do
       it '遷移できない' do
-        visit edit_user_path(test_user2)
+        visit edit_user_path(user2)
         expect(current_path).to eq('/users/' + user.id.to_s)
       end
     end
@@ -98,14 +102,13 @@ describe 'ユーザーのテスト' do
       end
       it '編集に成功する' do
         click_button '変更を保存'
-        expect(page).to have_content 'successfully'
+        expect(page).to have_button '変更を保存'
         expect(current_path).to eq('/users/' + user.id.to_s)
       end
       it '編集に失敗する' do
         fill_in 'user[name]', with: ''
         click_button '変更を保存'
         expect(page).to have_content 'error'
-				#もう少し詳細にエラー文出したい
         expect(current_path).to eq('/users/' + user.id.to_s)
       end
     end

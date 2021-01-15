@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
+  get 'teams' => 'teams#new'
   resources :teams, only: [:show, :new, :create, :edit, :update] do
     get 'teams/room' => 'teams#room'
     resources :post_comments, only: [:create, :destroy]
