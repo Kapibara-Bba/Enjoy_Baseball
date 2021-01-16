@@ -4,4 +4,10 @@ FactoryBot.define do
     prefecture_code { rand(1..47) }
     city { Faker::Address.city }
   end
+
+  factory :team2 do
+    teamname { Faker::Lorem.characters(number:10) }
+    prefecture_code { rand(1..47) }
+    city { Faker::Address.city }
+  end
 end
