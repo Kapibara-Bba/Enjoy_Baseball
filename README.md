@@ -13,8 +13,9 @@
 - 試合結果や個人成績の管理が簡単にできます。
 
 ## テーマを選んだ理由
-- 以前野球チームに所属していた際、チームや個人の成績を共有するツールが少なかった為、振り返りがし難かった。
-  その為、過去の成績をすぐに確認できるサイトが欲しいと思った為。
+- 以前野球チームに所属していた際、チームや個人の成績を共有するツールが少なかった為、振り返りが難しい部分がありました。
+　チーム内でも、もっとチームの情報を共有できるツールが欲しいといった声がありました。また、他のチームの成績や、個人成績の
+  ランキングを見る事で、モチベーションのアップに繋がると思い、このサイトを作ることにしました。
 
 ## ターゲットユーザ
 - 野球をしている人
@@ -30,8 +31,10 @@
 ## 機能一覧
 https://docs.google.com/spreadsheets/d/1NQWURGYKZqHZkp0YGFY0jCEETYZhNBGlJHavQKvbYBY/edit?usp=sharing
 
+## インフラ構成図
+<img width="1440" alt="Enjoy_Baseballインフラ構成図" src="https://user-images.githubusercontent.com/70389126/104799027-02395e80-580f-11eb-97c7-524dd6d47473.png">
+
 ## 開発環境
-- インフラ構成図
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails

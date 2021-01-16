@@ -48,7 +48,6 @@ end
 describe 'ユーザーのテスト' do
   let(:user) { create(:user) }
   let(:user2) { create(:user) }
-  # let(:team) { create(:team) }
   before do
     visit new_user_session_path
     fill_in 'user[email]', with: user.email
@@ -98,17 +97,16 @@ describe 'ユーザーのテスト' do
         expect(page).to have_field 'user[name]', with: user.name
       end
       it '画像編集フォームが表示される' do
-        expect(page).to have_field 'user[profile_image]'
+        expect(page).to have_field 'user[image]'
       end
       it '編集に成功する' do
         click_button '変更を保存'
-        expect(page).to have_button '変更を保存'
         expect(current_path).to eq('/users/' + user.id.to_s)
       end
       it '編集に失敗する' do
         fill_in 'user[name]', with: ''
         click_button '変更を保存'
-        expect(page).to have_content 'error'
+        expect(page).to have_content '名前'
         expect(current_path).to eq('/users/' + user.id.to_s)
       end
     end
