@@ -6,7 +6,7 @@
 - 「野球をもっと楽しく」
   野球の記録を管理できるサイトです。
 
-<img width="1440" alt="Enjoy_Baseballトップページ" src="https://user-images.githubusercontent.com/70389126/102007257-ccfea400-3d6a-11eb-8657-5324f3fe0926.png">
+<img width="1440" alt="bnjoy_baseballトップ" src="https://user-images.githubusercontent.com/70389126/104830497-07f07c00-58c3-11eb-8dfb-299ea51ce99b.png">
 
 ## サイトテーマ
 - 試合や成績を共有して野球をもっと楽しくやろう。
