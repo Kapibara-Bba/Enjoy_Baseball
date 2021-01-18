@@ -25,30 +25,3 @@ describe 'チームのテスト' do
     end
   end
 end
-describe 'チーム詳細画面のテスト' do
-  let(:user) { create(:user) }
-  let(:user_team) { create(:user, team: team) }
-  context '表示のテスト' do
-    it '画像が表示される' do
-      expect(page).to have_css('img.team_image')
-    end
-    it 'チーム情報が表示される' do
-      visit team_path(user_team)
-      expect(page).to have_link 'チーム情報'
-    end
-    it 'チームコメントが表示される' do
-      visit team_path(user_team)
-      expect(page).to have_link 'チームコメント'
-    end
-    it 'イベント追加が表示される' do
-      visit team_path(team)
-      expect(page).to have_link 'イベント追加'
-    end
-  end
-  context '記録追加のテスト' do
-    it 'イベントを追加できる' do
-      fill_in 'info[body]', with: info.body
-      select_date("2021,1,5", from: "日付")
-    end
-  end
-end
